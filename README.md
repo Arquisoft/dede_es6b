@@ -1,5 +1,6 @@
 # DeDe_es6b
 
+[![CI for ASW2122](https://github.com/Arquisoft/dede_es6b/actions/workflows/asw2122.yml/badge.svg)](https://github.com/Arquisoft/dede_es6b/actions/workflows/asw2122.yml)
 [![pages-build-deployment](https://github.com/Arquisoft/dede_es6b/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Arquisoft/dede_es6b/actions/workflows/pages/pages-build-deployment)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Arquisoft_dede_es6b&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arquisoft_dede_es6b)
 [![codecov](https://codecov.io/gh/Arquisoft/dede_es6b/branch/master/graph/badge.svg?token=xu5iRCzH6T)](https://codecov.io/gh/Arquisoft/dede_es6b)
