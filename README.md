@@ -52,3 +52,6 @@ Encontrarás más información sobre el repositorio en los otros archivos README
 - Webapp: https://github.com/Arquisoft/dede_es6b/tree/master/webapp
 - Restapi: https://github.com/Arquisoft/dede_es6b/tree/master/restapi
 - Restapi: https://github.com/Arquisoft/dede_es6b/tree/master/restapi
+
+## Miembros del equipo
+Diego Álvarez Fernández UO277383
