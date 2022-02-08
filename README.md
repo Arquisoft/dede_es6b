@@ -56,3 +56,4 @@ Encontrarás más información sobre el repositorio en los otros archivos README
 ## Miembros del equipo
 Diego Álvarez Fernández UO277383
 Paula Suárez Prieto UO269745
+Celia Barral Juárez UO277578
