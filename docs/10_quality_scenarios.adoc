@@ -6,7 +6,7 @@ En esta sección se incluyen todos los requerimientos de calidad con escenarios 
 === Quality Tree
 
 [plantuml, "Quality tree",png]
-----
+@startmindmap
 
 + Calidad
 ++_ Privacidad
@@ -17,8 +17,7 @@ En esta sección se incluyen todos los requerimientos de calidad con escenarios 
 --_ Mantenibilidad
 --_ Compatibilidad
 
-----
-
+@startmindmap
 
 === Quality Scenarios
 
