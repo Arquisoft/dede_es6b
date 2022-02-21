@@ -5,6 +5,7 @@ En esta sección se incluyen todos los requerimientos de calidad con escenarios 
 
 === Quality Tree
 
+[plantuml, "Quality tree",png]
 ----
 
 + Calidad
