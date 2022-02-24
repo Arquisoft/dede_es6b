@@ -48,39 +48,22 @@ Describe (usually in a combination of diagrams, tables, and text):
 For multiple environments or alternative deployments please copy that section of arc42 for all relevant environments.
 ****
 
-_**<Overview Diagram>**_
+image:images/deploymentview.png["Deployment Diagram"]
 
 Motivation::
 
-_<explanation in text form>_
+La motivación detrás de esta estructura de despligue es el conocimiento total de cómo los diferentes componentes de la aplicación se relacionan entre sí en tiempo de ejecución.
 
 Quality and/or Performance Features::
 
-_<explanation in text form>_
+El rendimiento de la aplicación depende en su mayoría del servidor en el que está desplegada y de la conexión a internet del cliente. Ya que no tenemos control sobre ninguna de esas dos cosas, intentamos siempre que nuestro código sea lo más eficiente y limpio posible.
 
 Mapping of Building Blocks to Infrastructure::
-_<description of the mapping>_
-
-
-=== Infrastructure Level 2
-
-[role="arc42help"]
-****
-Here you can include the internal structure of (some) infrastructure elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-****
-
-==== _<Infrastructure Element 1>_
-
-_<diagram + explanation>_
-
-==== _<Infrastructure Element 2>_
-
-_<diagram + explanation>_
-
-...
-
-==== _<Infrastructure Element n>_
-
-_<diagram + explanation>_
+|===
+| Componente         | Descripción
+| ClientDevice    | Es el dispositivo del cliente. Debe tener acceso a internet.
+| :WebServer    | Es el servidor utilizado por el navegador web del cliente.
+| :DeDe    | Nuestra aplicación, desplegada en :Host.
+| :PodProvider    | Es el proveedor de PODs de Solid utilizado por el cliente.
+| :MongoDBServer    | Es el servidor de nuestra base de datos, donde se almacena la información de nuestros productos.
+|===
