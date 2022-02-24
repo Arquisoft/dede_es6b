@@ -1542,44 +1542,47 @@ on this list.</p>
 <div class="sect1">
 <h2 id="section-design-decisions">9. Design Decisions</h2>
 <div class="sectionbody">
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<div class="title">Contents</div>
-<p>Important, expensive, large scale or risky architecture decisions including rationals.
-With "decisions" we mean selecting one alternative based on given criteria.</p>
-</div>
-<div class="paragraph">
-<p>Please use your judgement to decide whether an architectural decision should be documented
-here in this central section or whether you better document it locally
-(e.g. within the white box template of one building block).</p>
-</div>
-<div class="paragraph">
-<p>Avoid redundancy. Refer to section 4, where you already captured the most important decisions of your architecture.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Stakeholders of your system should be able to comprehend and retrace your decisions.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Various options:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>List or table, ordered by importance and consequences or:</p>
-</li>
-<li>
-<p>more detailed in form of separate sections per decision</p>
-</li>
-<li>
-<p>ADR (architecture decision record) for every important decision</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Decisión</th>
+<th class="tableblock halign-left valign-top">Ventajas</th>
+<th class="tableblock halign-left valign-top">Desventajas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node.js</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permite hacer una aplicación escalable. Es fácil y muy versátil.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Somos nuevos en ello y debemos adaptarnos. Resulta pesado al principio debido a sus módulos.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">React</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Es simple, tiene mucha documentación y muy buena testabilidad. Se usa para el frontend.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Desconocimiento actual sobre su funcionamiento.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JavaScript</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lenguaje que usaremos tanto en el backend como en el frontend. Fácil de usar con Solid y muy documentado.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debemos adaptarnos al lenguaje. Difícil de probar.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mongo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Código abierto, implementación sencilla y gran compatibilidad con Node.js.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usa mucha memoria para el almacenamiento de datos.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prog. Funcional</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Código más preciso y más corto. El código se puede testar fácilmente. Código fácilmente verificable.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La programación recurrente puede dar lugar a errores graves. No se permite el acceso eficiente a grandes cantidades de datos. Los datos no se pueden modificar.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
