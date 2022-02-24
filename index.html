@@ -1517,8 +1517,44 @@ on this list.</p>
 </div>
 <div class="sect2">
 <h3 id="_domain_model">8.1. Domain model</h3>
-<div class="paragraph">
-<p><span class="image"><img src="./images/UmlDiagram.png" alt="Example UML Diagram"></span></p>
+<div class="listingblock">
+<div class="content">
+<pre>entity User{
+* username
+--
+* password
+* nombre
+}
+
+entity Pedido{
+* idPedido
+--
+* User:username
+* total
+* paymentMethod
+}
+
+entity Producto{
+* id
+--
+* nombre
+* tipo
+* talla
+* color
+* sexo
+}
+
+entity Detalles_pedido{
+* (Pedido:id_pedido, Producto:id_producto)
+--
+*cantidad
+}
+
+User ||----o{ Pedido
+Pedido }|----|| Detalles_pedido
+Detalles_pedido||----|{Producto
+@enduml</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
