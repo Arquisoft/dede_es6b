@@ -5,7 +5,7 @@ En esta sección se incluyen todos los requerimientos de calidad con escenarios 
 
 === Quality Tree
 
-image:images/10_QualityTree.png["Quality Tree"]
+image:10_QualityTree.png["Quality Tree"]
 
 === Quality Scenarios
 

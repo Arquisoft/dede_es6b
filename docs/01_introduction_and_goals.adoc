@@ -1,7 +1,7 @@
 [[section-introduction-and-goals]]
 == Introducción y Objetivos
 
-[role="arc42help"]
+
 
 Se quiere crear un sistema de venta online que llamaremos DeDe.(Decentralized Delivery) Este sistema, deberá utilizar los principios SOLID para respetar la privacidad de los usuarios.
 
@@ -11,7 +11,7 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 === Vista de requisitos
 
-[role="arc42help"]
+
 
 .Requisitos funcionales
 * El sistema deberá permitir a los usuarios seleccionar y comprar productos de manera online.
@@ -29,7 +29,7 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 === Objetivos de Calidad
 
-[role="arc42help"]
+
 
 
 _Tabla 1: Objetivos de Calidad_ 
@@ -45,7 +45,6 @@ _Tabla 1: Objetivos de Calidad_
 
 === Stakeholders
 
-[role="arc42help"]
 
 Los stakeholders o partes interesadas en el sistema se exponen en la siguiente tabla.
 

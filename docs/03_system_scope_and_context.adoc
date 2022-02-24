@@ -2,21 +2,14 @@
 == System Scope and Context
 
 
-[role="arc42help"]
+
 
 
 === Business Context
 
-[role="arc42help"]
-****
 DeDe solo almacena datos que no sean privados. Es decir, los datos personales del usuario se reservan únicamente para el POD del usuario.
 El resto de información se almacenará en una base de datos MongoDB. 
 
-****
-
-**<Diagram or Table>**
-
-**<optionally: Explanation of external domain interfaces>**
 
 === Technical Context
 [%header, cols=2]
@@ -41,6 +34,6 @@ El resto de información se almacenará en una base de datos MongoDB.
 
 |===
 
-image:images/03_Technical_Context.png["Technical Context"]
+image:03_Technical_Context.png["Technical Context"]
 
 
