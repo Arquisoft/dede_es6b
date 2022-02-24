@@ -22,3 +22,24 @@ Motivate what you have decided and why you decided that way,
 based upon your problem statement, the quality goals and key constraints.
 Refer to details in the following sections.
 ****
+
+=== Technology decisions
+Las tecnologías que hemos decidido utilizar para el desarrollo de la aplicación son:
+
+*React* -> Para el desarrollo de la interfaz con TypeScript.
+
+*Node.js* -> Para la gestión de múltiples conexiones simultáneas.
+
+*Typescript* -> Como lenguaje de programación.
+
+*MongoDB* -> Para la base de datos que contendrá la información sobre productos y envíos.
+
+=== Decisions about the top-level decomposition of the system
+
+=== Decisions on how to achieve key quality goals
+* Para la usabilidad, intentaremos que la interfaz de nuestra aplicación sea lo más intuitiva posible, de manera que cualquier usuario, nuevo o antiguo, sepa navegar a través de ella con facilidad.
+* Para la privacidad, utilizaremos los PODs del usuario para obtener los datos necesarios. De esta manera ninguna información personal quedará guardada en nuestra base de datos.
+* Para la seguridad, realizaremos todo tipo de tests para evitar cualquier posible error que desemboque en una vulnerabilidad.
+
+=== Organizational decisions
+Las reuniones de equipo se harán a través de Microsoft Teams. Durante estas organizaremos y asignaremos las distintas tareas con la ayuda de las herramientras proporcionadas por GitHub.
