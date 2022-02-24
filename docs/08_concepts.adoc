@@ -52,43 +52,7 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 
 === Domain model
 
-----
-entity User{
-* username
---
-* password
-* nombre
-}
-
-entity Pedido{
-* idPedido
---
-* User:username
-* total
-* paymentMethod
-}
-
-entity Producto{
-* id
---
-* nombre
-* tipo
-* talla
-* color
-* sexo
-}
-
-entity Detalles_pedido{
-* (Pedido:id_pedido, Producto:id_producto)
---
-*cantidad
-}
-
-User ||----o{ Pedido 
-Pedido }|----|| Detalles_pedido
-Detalles_pedido||----|{Producto
-@enduml
-----
+image:domainmodel.png["Possible topics for crosscutting concepts"]
 
 
 
