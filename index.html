@@ -1262,23 +1262,9 @@ part of arc42 for additional levels.</p>
 <div class="paragraph">
 <p>Búsqueda de artículos mediante los filtros proporcionados en la aplicación.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>actor Bob
-participant DeDe
-database DataBase as "DataBase"
-Bob -&gt; DeDe: Pulsa "Log-In"
-DeDe--&gt; Bob: Pregunta al usuario los datos
-Bob -&gt; DeDe: Inserta los datos
-DeDe-&gt; DataBase: Comprueba que los datos sean correctos
-DataBase --&gt; DeDe: Confirma que son correctos
-DeDe-&gt; DeDe: Entra a la web
-Bob -&gt; DeDe: Pulsa "Filtrar"
-DeDe-&gt; DeDe: Muestra los filtros
-Bob -&gt; DeDe: Pulsa "Sudaderas"
-DeDe-&gt; DataBase: Pide la lista de sudaderas
-DataBase --&gt; DeDe: Devuelve la lista de sudaderas
-DeDe-&gt; DeDe: Muestra solo las sudaderas</pre>
+<img src="./images/06_runtime_filtro.png" alt="06 runtime filtro" width="509" height="595">
 </div>
 </div>
 </div>
@@ -1287,29 +1273,9 @@ DeDe-&gt; DeDe: Muestra solo las sudaderas</pre>
 <div class="paragraph">
 <p>El usuario inicia sesión para poder realizar un pedido.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>actor Cliente
-participant DeDe
-participant Pod
-database DataBase as "DataBase"
-Cliente-&gt; DeDe: Log-in
-DeDe-&gt; DataBase: Comprueba datos del registro
-DataBase --&gt; DeDe: Comprueba datos
-DeDe --&gt; Cliente: Log-in
-Cliente-&gt; DeDe: Añadir producto
-DeDe-&gt; DataBase: Comprueba stock
-DataBase --&gt; DeDe: Notifica comprobación
-DeDe-&gt; DeDe: Añade producto al carrito
-Cliente -&gt; DeDe: Realizar pedido
-DeDe -&gt; DataBase: Añade y actualiza datos del pedido
-Cliente-&gt; Pod: Inicia sesión en su pod
-Pod--&gt; DeDe: Proporciona su token
-Cliente-&gt;DeDe: Solicita guardar la dirección
-DeDe -&gt; Pod: Guarda la dirección
-Pod--&gt; DeDe: Verifica y notifica
-DeDe--&gt; Cliente: Verifica y notifica
-DeDe--&gt; Cliente: Notifica la realización del pedido</pre>
+<img src="./images/06_runtime_pedido.png" alt="06 runtime pedido" width="501" height="721">
 </div>
 </div>
 </div>
@@ -1318,20 +1284,9 @@ DeDe--&gt; Cliente: Notifica la realización del pedido</pre>
 <div class="paragraph">
 <p>El cliente inicia sesión para ver el listado de pedidos que ha realizado.</p>
 </div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>actor Bob
-participant DeDe
-database database
-Bob -&gt; DeDe: Pulsa Log In
-DeDe -&gt; Bob: Pide al usuario sus datos de registro
-Bob -&gt; DeDe: Rellena los campos y accede
-DeDe -&gt; database: Comprueba que el usuario y contraseña son correctos
-DeDe -&gt; DeDe: Bob es redireccionado a la home page
-Bob -&gt; DeDe: Bob hace click en "Mis pedidos"
-database &lt;- DeDe: query para obtener lista de pedidos con id_user=bob
-database -&gt; DeDe: lista de pedidos de id_user=bob
-DeDe -&gt; DeDe: Bob es redireccionado a la vista de pedidos</pre>
+<img src="./images/06_runtime_verPedido.png" alt="06 runtime verPedido" width="626" height="491">
 </div>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1733,6 +1688,29 @@ here in this central section or whether you better document it locally
 <p>List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.</p>
 </div>
 </div>
+</div>
+<div class="ulist">
+<div class="title">Lista de riesgos técnicos y deuda técnica</div>
+<ul>
+<li>
+<p>Falta de trabajo por parte de algún/os miembro/s del equipo, y en una situación extrema, el abandono por su parte del equipo.</p>
+</li>
+<li>
+<p>Conocimiento límitado del lenguaje y las herramientas tecnológicas a utilizar para el desarrollo de la aplicación.</p>
+</li>
+<li>
+<p>Poner en riesgo el trabajo de los demás a la hora de mezclar las partes sin el consentimiento de los compañeros.</p>
+</li>
+<li>
+<p>Fallos en la comunicación, tanto en el grupo de desarrollo como con el cliente.</p>
+</li>
+<li>
+<p>Mala planificación, o estimaciones poco realistas.</p>
+</li>
+<li>
+<p>No tener un código cohesivo, sin acoplamiento, refactorizado y enfocado al cambio.</p>
+</li>
+</ul>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
