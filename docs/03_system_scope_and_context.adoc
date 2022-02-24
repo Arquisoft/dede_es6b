@@ -44,23 +44,28 @@ The title of the table is the name of your system, the three columns contain the
 **<optionally: Explanation of external domain interfaces>**
 
 === Technical Context
+[%header, cols=2]
+|===
+|Tecnología utilizada
+|Descripción
 
-[role="arc42help"]
-****
-.Contents
-Technical interfaces (channels and transmission media) linking your system to its environment. In addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O uses which channel.
+|SOLID
+|Es una especificación que permite a los usuarios almacenar sus datos de forma segura en Pods.
 
-.Motivation
-Many stakeholders make architectural decision based on the technical interfaces between the system and its context. Especially infrastructure or hardware designers decide these technical interfaces.
+|Pod
+|Los pods son unidades de almacenamiento web personales seguras. Un usuario almacena sus datos en un Pod y puede controlar qué personas/aplicaciones pueden acceder a ellos.
 
-.Form
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels and input/output.
+|TypeScript
+|Es el lenguaje de programación de código abierto que utilizaremos en nuestra aplicación.
 
-****
+|React
+|Es una biblioteca de JavaScript, también de código abierto, que utilizaremos para crear las interfaces de nuestra aplicación.
 
-**<Diagram or Table>**
+|MongoDB
+|Sistema de base de datos NoSQL, orientado a documentos que utilizaremos en la aplicación.
 
-**<optionally: Explanation of technical interfaces>**
+|===
 
-**<Mapping Input/Output to Channels>**
+image:images/03_Technical_Context.png["Technical Context"]
+
+
