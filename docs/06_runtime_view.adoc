@@ -2,56 +2,85 @@
 == Runtime View
 
 
-[role="arc42help"]
-****
-.Contents
-The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
-
-* important use cases or features: how do building blocks execute them?
-* interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?
-* operation and administration: launch, start-up, stop
-* error and exception scenarios
-
-Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their *architectural relevance*. It is *not* important to describe a large number of scenarios. You should rather document a representative selection.
-
-.Motivation
-You should understand how (instances of) building blocks of your system perform their job and communicate at runtime.
-You will mainly capture scenarios in your documentation to communicate your architecture to stakeholders that are less willing or able to read and understand the static models (building block view, deployment view).
-
-.Form
-There are many notations for describing scenarios, e.g.
-
-* numbered list of steps (in natural language)
-* activity diagrams or flow charts
-* sequence diagrams
-* BPMN or EPCs (event process chains)
-* state machines
-* ...
-
-****
-
 === <Runtime Scenario 1>
 
+Un usuario se registra o inicia sesión en la aplicación.
 
-* _<insert runtime diagram or textual description of the scenario>_
-* _<insert description of the notable aspects of the interactions between the
-building block instances depicted in this diagram.>_
-
-It is possible to use a sequence diagram:
-
-[plantuml,"Sequence diagram",png]
+[plantuml,"06_runtime_registro",png]
 ----
-actor Alice
 actor Bob
-database Pod as "Bob's Pod"
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-Alice  --> Pod: Store route
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+actor Alice
+participant DeDe
+database bd as "Base de datos"
+Bob -> DeDe: Bob se registra
+DeDe -> bd: Comprobación datos introducidos
+DeDe <-- bd: Validación
+DeDe -> bd: Envía petición para almacenar los datos del usuario
+DeDe <-- bd: Almacena los datos
+Bob <-- DeDe: Confirmación registro realizado con éxito
+Alice -> DeDe: Alice inicia sesión 
+DeDe -> bd: Consulta datos de Alice
+DeDe <-- bd: Confirmación de datos
+Alice <-- DeDe: Sesión iniciada
 ----
 === <Runtime Scenario 2>
+Búsqueda de artículos mediante los filtros proporcionados en la aplicación.
+----
+actor Bob
+participant DeDe
+database DataBase as "DataBase"
+Bob -> DeDe: Pulsa "Log-In"
+DeDe--> Bob: Pregunta al usuario los datos
+Bob -> DeDe: Inserta los datos
+DeDe-> DataBase: Comprueba que los datos sean correctos
+DataBase --> DeDe: Confirma que son correctos
+DeDe-> DeDe: Entra a la web
+Bob -> DeDe: Pulsa "Filtrar"
+DeDe-> DeDe: Muestra los filtros
+Bob -> DeDe: Pulsa "Sudaderas"
+DeDe-> DataBase: Pide la lista de sudaderas
+DataBase --> DeDe: Devuelve la lista de sudaderas
+DeDe-> DeDe: Muestra solo las sudaderas
+----
 
-=== ...
-
-=== <Runtime Scenario n>
+=== <Runtime Scenario 3>
+El usuario inicia sesión para poder realizar un pedido.
+----
+actor Cliente
+participant DeDe
+participant Pod
+database DataBase as "DataBase"
+Cliente-> DeDe: Log-in
+DeDe-> DataBase: Comprueba datos del registro
+DataBase --> DeDe: Comprueba datos
+DeDe --> Cliente: Log-in
+Cliente-> DeDe: Añadir producto
+DeDe-> DataBase: Comprueba stock
+DataBase --> DeDe: Notifica comprobación
+DeDe-> DeDe: Añade producto al carrito
+Cliente -> DeDe: Realizar pedido
+DeDe -> DataBase: Añade y actualiza datos del pedido
+Cliente-> Pod: Inicia sesión en su pod
+Pod--> DeDe: Proporciona su token
+Cliente->DeDe: Solicita guardar la dirección
+DeDe -> Pod: Guarda la dirección
+Pod--> DeDe: Verifica y notifica
+DeDe--> Cliente: Verifica y notifica
+DeDe--> Cliente: Notifica la realización del pedido
+----
+=== <Runtime Scenario 4>
+El cliente inicia sesión para ver el listado de pedidos que ha realizado.
+----
+actor Bob
+participant DeDe
+database database
+Bob -> DeDe: Pulsa Log In
+DeDe -> Bob: Pide al usuario sus datos de registro
+Bob -> DeDe: Rellena los campos y accede
+DeDe -> database: Comprueba que el usuario y contraseña son correctos
+DeDe -> DeDe: Bob es redireccionado a la home page
+Bob -> DeDe: Bob hace click en "Mis pedidos"
+database <- DeDe: query para obtener lista de pedidos con id_user=bob
+database -> DeDe: lista de pedidos de id_user=bob
+DeDe -> DeDe: Bob es redireccionado a la vista de pedidos
+----

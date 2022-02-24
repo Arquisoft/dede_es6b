@@ -2,30 +2,13 @@
 == Glossary
 
 
-
-[role="arc42help"]
-****
-.Contents
-The most important domain and technical terms that your stakeholders use when discussing the system.
-
-You can also see the glossary as source for translations if you work in multi-language teams.
-
-.Motivation
-You should clearly define your terms, so that all stakeholders
-
-* have an identical understanding of these terms
-* do not use synonyms and homonyms
-
-.Form
-A table with columns <Term> and <Definition>.
-
-Potentially more columns in case you need translations.
-
-****
-
 [options="header"]
 |===
-| Term         | Definition
-| <Term-1>     | <definition-1>
-| <Term-2>     | <definition-2>
+|Concepto | Explicación
+| SOLID         | En nuestro proyecto cuando nos referimos a SOLID hablamos del proyecto de descentralización de datos en la web dirigido por Tim Berners-Lee. No hacemos referencia a los principios SOLID (S - Single Responsibility Principle, O - Open/Closed Principle, L - Liskov Substitution Principle, I - Interface Segregation Principle, D - Dependency Inversion Principle)
+| POD     | Contenedor en el que se presenta un conjunto de datos al usuario. Lo usaremos junto con SOLID.
+| React    | Es una librería open source de JavaScript para desarrollar interfaces de usuario.
+| MongoDB | Es un sistema de base de datos NoSQL, orientado a documentos y de código abierto.
+| Node.js | Es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor (pero no limitándose a ello) basado en el lenguaje de programación JavaScript.
+|TypeScript | Es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript.
 |===
