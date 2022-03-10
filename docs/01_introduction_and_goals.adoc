@@ -1,5 +1,5 @@
 [[section-introduction-and-goals]]
-== Introducción y Objetivos
+== Introduction and Goals
 
 
 
@@ -9,7 +9,7 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 
 
-=== Vista de requisitos
+=== Requirements Overview
 
 
 
@@ -27,7 +27,7 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 
 
-=== Objetivos de Calidad
+=== Quality Goals
 
 
 
