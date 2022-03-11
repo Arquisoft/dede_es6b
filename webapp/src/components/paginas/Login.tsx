@@ -15,18 +15,24 @@ const useStyles = makeStyles({
       flexWrap: 'wrap',
       width: 400,
       marginTop: '20px'
+      
     },
     loginBtn: {
       marginTop: '20px',
-      flexGrow: 1
+      flexGrow: 1,
+      color: 'white'
     },
     header: {
       textAlign: 'center',
-      background: '#212121',
+      background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       color: '#fff'
     },
     card: {
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       marginTop: '20px'
+    },
+    cardContent: {
+      background: 'white'
     }
   });
 
@@ -148,7 +154,7 @@ const Login = () => {
     <form  noValidate autoComplete="off">
       <Card className={classes.card} variant="outlined">
         <CardHeader className={classes.header} title="Identifícate" />
-        <CardContent className={classes.card} >
+        <CardContent className={classes.cardContent} >
           <div>
             <TextField
               error={state.isError}
@@ -180,6 +186,7 @@ const Login = () => {
             variant="contained"
             size="large"
             color="secondary"
+            className={classes.loginBtn}
             onClick={handleLogin}
             disabled={state.isButtonDisabled}>
             Login
