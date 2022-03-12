@@ -6,6 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardHeader } from '@mui/material';
+import NavBar from '../components/navegacion/NavBar';
 
 
 
@@ -182,6 +183,8 @@ const Login = () => {
     }
 
   return (
+    <div>
+      <NavBar/> 
     <form  noValidate autoComplete="off">
       <Card className={classes.card} variant="outlined">
         <CardHeader className={classes.header} title="Regístrese como nuevo usuario" />
@@ -237,6 +240,7 @@ const Login = () => {
         </CardActions>
       </Card>
     </form>
+    </div>
   );
 }
 

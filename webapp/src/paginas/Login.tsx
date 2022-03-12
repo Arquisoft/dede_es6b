@@ -6,6 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardHeader } from '@mui/material';
+import NavBar from '../components/navegacion/NavBar';
 
 
 
@@ -151,49 +152,51 @@ const Login = () => {
       });
     }
   return (
-    <form  noValidate autoComplete="off">
-      <Card className={classes.card} variant="outlined">
-        <CardHeader className={classes.header} title="Identifícate" />
-        <CardContent className={classes.cardContent} >
-          <div>
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="username"
-              type="email"
-              label="Usuario"
-              placeholder="Usuario"
-              margin="normal"
-              onChange={handleUsernameChange}
-              onKeyPress={handleKeyPress}
-            />
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="password"
-              type="password"
-              label="Contraseña"
-              placeholder="Contraseña"
-              margin="normal"
-              helperText={state.helperText}
-              onChange={handlePasswordChange}
-              onKeyPress={handleKeyPress}
-            />
-          </div>
-        </CardContent>
-        <CardActions>
-          <Button
-            variant="contained"
-            size="large"
-            color="secondary"
-            className={classes.loginBtn}
-            onClick={handleLogin}
-            disabled={state.isButtonDisabled}>
-            Login
-          </Button>
-        </CardActions>
-      </Card>
-    </form>
+    
+      <form  noValidate autoComplete="off">
+        <Card className={classes.card} variant="outlined">
+          <CardHeader className={classes.header} title="Identifícate" />
+          <CardContent className={classes.cardContent} >
+            <div>
+              <TextField
+                error={state.isError}
+                fullWidth
+                id="username"
+                type="email"
+                label="Usuario"
+                placeholder="Usuario"
+                margin="normal"
+                onChange={handleUsernameChange}
+                onKeyPress={handleKeyPress}
+              />
+              <TextField
+                error={state.isError}
+                fullWidth
+                id="password"
+                type="password"
+                label="Contraseña"
+                placeholder="Contraseña"
+                margin="normal"
+                helperText={state.helperText}
+                onChange={handlePasswordChange}
+                onKeyPress={handleKeyPress}
+              />
+            </div>
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              className={classes.loginBtn}
+              onClick={handleLogin}
+              disabled={state.isButtonDisabled}>
+              Login
+            </Button>
+          </CardActions>
+        </Card>
+      </form>
+    
   );
 }
 
