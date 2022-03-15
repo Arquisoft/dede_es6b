@@ -11,6 +11,8 @@ const options: cors.CorsOptions = {
   origin: ['http://localhost:3000']
 };
 
+let bd = require('./utils/connectDB')
+
 const metricsMiddleware:RequestHandler = promBundle({includeMethod: true});
 app.use(metricsMiddleware);
 
