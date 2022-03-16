@@ -17,6 +17,8 @@ import Avatar from '@mui/material/Avatar';
 import { Button, Divider, ListItemIcon } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { setLogguedStatus } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 
 const useStyles = makeStyles({
@@ -66,6 +68,7 @@ function PositionedMenu() {
     const { session } = useSession();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const dispatch= useDispatch();
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorEl(event.currentTarget);
     };
@@ -79,6 +82,7 @@ function PositionedMenu() {
 
     function goHome(){
        navigate('/');
+       dispatch(setLogguedStatus(false));
     }
 
   

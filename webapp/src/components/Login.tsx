@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { LoginButton, Text, useSession, CombinedDataProvider, LogoutButton } from "@inrupt/solid-ui-react";
 import { setLogguedStatus } from '../redux/userSlice';
 
+
 const useStyles = makeStyles({
   container: {
     display: 'flex',
@@ -56,9 +57,6 @@ export default function Login() {
     dispatch(setLogguedStatus(true));
 }
 
-  function loggedOut(){
-    dispatch(setLogguedStatus(false));
-  }
 
 return (
   

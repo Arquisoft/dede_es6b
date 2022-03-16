@@ -4,6 +4,7 @@ import NavBar from "../components/navegacion/NavBar";
 
 
 export const LoginPage= ()=> {
+
     return (
       <>
       <NavBar/>
