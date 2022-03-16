@@ -1,7 +1,7 @@
 import express, { Request, Response, Router } from 'express';
-import Product from '../models/Product'
 
-const productRouter:Router = express.Router()
+const productRouter = express.Router()
+const Product = require('../models/Product')
 
 
 
@@ -29,11 +29,18 @@ productRouter.get(
 );
 
 
-productRouter.post(
-  "/products/delete",
-  async (req: Request, res: Response) => {
-    Product.findById(req.body.id_producto).deleteOne().exec().then(() => {
-      res.send("Eliminado")
+  productRouter.get(
+    "/products/category/:id",
+    async (req: Request, res: Response) => {
+        let productos = await Product.find({categoria: req.params.categoria}).then(()=> res.status(200).send(productos))
+    }
+  ); 
+
+  productRouter.post(
+    "/products/delete",
+    async (req: Request, res: Response) => {
+      Product.findById(req.body.id_producto).deleteOne().exec().then(()=>{
+        res.send("Eliminado")
     })
   });
 
