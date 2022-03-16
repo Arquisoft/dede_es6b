@@ -1,0 +1,66 @@
+
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { makeStyles } from '@material-ui/core/styles';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
+import { useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
+import * as React from 'react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+
+const useStyles = makeStyles({
+    appBar: {
+      background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      color: '#fff'
+    }
+  });
+
+export default function NavLoggedOut(){
+    const navigate = useNavigate();
+    const classes = useStyles();
+
+    function goToLogIn(){
+       navigate('/login');
+    }
+
+    return(     
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            DeDe
+          </Typography>
+
+          <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit">
+          <Badge badgeContent={3} color="error">
+             <ShoppingCartIcon/>
+           </Badge>
+          </IconButton>      
+          <Button color="inherit" onClick={goToLogIn}>
+            Iniciar sesión
+          </Button>
+    </Toolbar>
+    </AppBar>
+    </Box>
+);
+}
