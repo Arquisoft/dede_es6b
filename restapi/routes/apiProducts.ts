@@ -1,7 +1,7 @@
 import express, { Request, Response, Router } from 'express';
-import Product from '../models/Product'
 
 const productRouter = express.Router()
+const Product = require('../models/Product')
 
 let bd = require('../utils/connectDB')
 
@@ -20,6 +20,13 @@ productRouter.get(
     "/products/:id",
     async (req: Request, res: Response) => {
         let productos = await Product.findById(req.params.id).then(()=> res.status(200).send(productos))
+    }
+  ); 
+
+  productRouter.get(
+    "/products/category/:id",
+    async (req: Request, res: Response) => {
+        let productos = await Product.find({categoria: req.params.categoria}).then(()=> res.status(200).send(productos))
     }
   ); 
 
