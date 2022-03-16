@@ -17,7 +17,8 @@ import Avatar from '@mui/material/Avatar';
 import { Button, Divider, ListItemIcon } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-
+import Drawer from '@material-ui/core/Drawer';
+import { Props } from "../cart/Cart";
 
 const useStyles = makeStyles({
     appBar: {
@@ -26,8 +27,14 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedIn(){
+export default function NavLoggedIn(props: Props){
     const classes = useStyles();
+    const navigate = useNavigate();
+
+    function goToCart(){
+      navigate('/cart');
+   }
+
     return(     
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static" className={classes.appBar}>
@@ -45,14 +52,18 @@ export default function NavLoggedIn(){
             DeDe
           </Typography>
 
-          <IconButton
+          <Button
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit">
+          color="inherit"
+          onClick= {
+            goToCart
+          }>
           <Badge badgeContent={3} color="error">
              <ShoppingCartIcon/>
            </Badge>
-          </IconButton>
+           
+          </Button>
         <PositionedMenu/>
 
         

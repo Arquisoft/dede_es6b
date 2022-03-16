@@ -14,6 +14,7 @@ import { Button } from "@mui/material";
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { Props } from "../cart/Cart";
 
 
 const useStyles = makeStyles({
@@ -23,7 +24,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedOut(){
+export default function NavLoggedOut(props:Props){
     const navigate = useNavigate();
     const classes = useStyles();
 

@@ -5,10 +5,12 @@ import { setLogguedStatus }  from "../../redux/userSlice"
 import { useEffect } from 'react';
 import NavLoggedIn from "./NavLoggedIn";
 import NavLoggedOut from "./NavLoggedOut";
+import { CartProduct } from "../../shared/shareddtypes";
+import { Props } from "../cart/Cart";
 
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar( props: Props) {
   const loggued = useSelector((state: any) => state.user.logguedStatus);
   const { session } = useSession();
   const dispatch = useDispatch();
@@ -20,10 +22,17 @@ export default function ButtonAppBar() {
     {dispatch(setLogguedStatus(false));}
   });
 
+
   if(loggued){
-    return <NavLoggedIn></NavLoggedIn>
+    return <NavLoggedIn 
+    cartItems={props.cartItems}
+    addToCart={props.addToCart}
+    removeFromCart={props.removeFromCart}></NavLoggedIn>
   }
   else{
-    return <NavLoggedOut></NavLoggedOut>
+    return <NavLoggedOut
+    cartItems={props.cartItems}
+    addToCart={props.addToCart}
+    removeFromCart={props.removeFromCart}></NavLoggedOut>
   }
 }
