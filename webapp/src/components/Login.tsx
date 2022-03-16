@@ -2,12 +2,12 @@ import React, { useState, useReducer, useEffect, SyntheticEvent } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { Autocomplete, CardHeader } from '@mui/material';
-import NavBar from '../components/navegacion/NavBar';
+import { useDispatch } from "react-redux";
 import { LoginButton, Text, useSession, CombinedDataProvider, LogoutButton } from "@inrupt/solid-ui-react";
+import { setLogguedStatus } from '../redux/userSlice';
 
 const useStyles = makeStyles({
   container: {
@@ -50,18 +50,20 @@ export default function Login() {
   const { session } = useSession();
   const classes = useStyles();
   const [idp, setIdp] =useState("https://broker.pod.inrupt.com");
+  const dispatch = useDispatch();
   
+  function callback() {
+    dispatch(setLogguedStatus(true));
+}
 
+  function loggedOut(){
+    dispatch(setLogguedStatus(false));
+  }
 
 return (
   
   
   <div className="app-container">
-   {session.info.isLoggedIn ? (
-              <LogoutButton>
-              <Button id="LogoutButton" className={classes.loginBtn} data-testid="button" variant="contained" fullWidth size="large" color="secondary" >Log Out</Button>
-              </LogoutButton>
-    ) : (
   <form  noValidate autoComplete="off">
   <Card className={classes.card} variant="outlined">
     <CardHeader className={classes.header} title="Identifícate" />
@@ -86,19 +88,18 @@ return (
                         />
     <LoginButton
       oidcIssuer={idp}
-      redirectUrl={window.location.href}
+      redirectUrl={window.location.origin}
       onError={console.error}
       authOptions={authOptions}
     >
-       <Button id="LogInButton" className={classes.loginBtn} data-testid="button" variant="contained" fullWidth size="large" color="secondary" >Log In</Button>
+       <Button id="LogInButton" onClick={callback} className={classes.loginBtn} data-testid="button" variant="contained" fullWidth size="large" color="secondary">Log In</Button>
     </LoginButton>
     </CardContent>
   </Card>
 </form>
-  )}
 </div>
 
 
   
 );
-}
+    }
