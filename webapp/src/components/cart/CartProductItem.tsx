@@ -1,6 +1,7 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography, Input } from "@mui/material";
 import { Product, CartProduct } from '../../shared/shareddtypes';
 import Grid from '@mui/material/Grid';
+import internal from "stream";
 
 type Cart = {
     props: CartProduct;
@@ -8,7 +9,19 @@ type Cart = {
     remove: (id: string)=>void;
 }
 
+
+
 const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
+    function restar() {
+        props.quantity = props.quantity -1;
+        return props.quantity;
+    }
+
+    function sumar() {
+        props.quantity = props.quantity +1;
+        return props.quantity;
+    }
+
     return (
         <Card sx={{ maxWidth: 600 }}>
             <Grid container direction="row" justifyContent="space-between" alignItems="center">
@@ -31,12 +44,11 @@ const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small" onClick={()=>addCart(props)}>+</Button>
+                    <Button size="small" onClick={restar}>-</Button>
                         <div>
                             <div>{props.quantity}</div>
                         </div>
-                        <Button size="small" onClick={()=>remove(props.id)}>-</Button>
-                      
+                    <Button size="small" onClick={sumar}>+</Button>
                     </CardActions>
                 </Grid>
             

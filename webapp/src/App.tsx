@@ -34,18 +34,18 @@ function App(): JSX.Element {
   };
 
   const removeFromCart = (id: string) => {
-    setCart( estadoActual =>(
-        estadoActual.reduce(
-          (coleccion, p)=> {
-            if(p.id===id)
-              return coleccion;
-            return [...coleccion, p];
-          }
-          , [] as CartProduct[]
-      )
-        )
-    )
-  }
+    setCart(prev=>(
+      prev.reduce((ack, item)=> {
+        if(item.id===id){
+          if(item.quantity===1) return ack;
+          return [...ack, {...item, amount:item.quantity - 1}]
+        } else {
+          return [...ack, item];
+        }
+      },[] as CartProduct[]) 
+    ))
+
+  };
 
   
 
@@ -53,7 +53,7 @@ function App(): JSX.Element {
     id:"1234",
     name: "Sudadera",
     size:"S",
-    color:2,
+    color:1,
     price:22,
     imagen: "",
     quantity: 2
@@ -63,9 +63,7 @@ function App(): JSX.Element {
 
   return (
     <BrowserRouter>
-    <NavBar cartItems={cartProducts}
-            addToCart={handleAddToCart}
-            removeFromCart={removeFromCart} />
+    <NavBar />
     <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage />}/>  

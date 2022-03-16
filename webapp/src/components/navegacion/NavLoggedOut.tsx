@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedOut(props:Props){
+export default function NavLoggedOut(){
     const navigate = useNavigate();
     const classes = useStyles();
 

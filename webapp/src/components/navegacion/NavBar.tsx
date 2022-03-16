@@ -10,7 +10,7 @@ import { Props } from "../cart/Cart";
 
 
 
-export default function ButtonAppBar( props: Props) {
+export default function ButtonAppBar() {
   const loggued = useSelector((state: any) => state.user.logguedStatus);
   const { session } = useSession();
   const dispatch = useDispatch();
@@ -24,15 +24,9 @@ export default function ButtonAppBar( props: Props) {
 
 
   if(loggued){
-    return <NavLoggedIn 
-    cartItems={props.cartItems}
-    addToCart={props.addToCart}
-    removeFromCart={props.removeFromCart}></NavLoggedIn>
+    return <NavLoggedIn ></NavLoggedIn>
   }
   else{
-    return <NavLoggedOut
-    cartItems={props.cartItems}
-    addToCart={props.addToCart}
-    removeFromCart={props.removeFromCart}></NavLoggedOut>
+    return <NavLoggedOut></NavLoggedOut>
   }
 }

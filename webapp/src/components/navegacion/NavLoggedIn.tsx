@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedIn(props: Props){
+export default function NavLoggedIn(){
     const classes = useStyles();
     const navigate = useNavigate();
 
