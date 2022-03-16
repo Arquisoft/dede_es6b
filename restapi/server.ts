@@ -20,6 +20,7 @@ app.use(metricsMiddleware);
 
 app.use(cors(options));
 app.use(bp.json());
+app.use(express.json());
 
 app.use("/api", api)
 app.use("/routes/apiProducts",apiProducts)
