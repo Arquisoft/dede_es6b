@@ -10,7 +10,6 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import {Product} from '../shared/shareddtypes';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -27,7 +26,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function CardProduct(product:Product) {
+export default function CardProduct() {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -39,22 +38,22 @@ export default function CardProduct(product:Product) {
       <CardHeader
         action={
             <Typography variant='h5' color='textSecondary'>
-                {product.price}
+                {50}
             </Typography>
   
           }
-          title={product.name}
+          title="Nike"
           subheader="En Stock"
       />
       <CardMedia
         component="img"
         height="194"
-        image={product.imagen}
-        alt={product.name}
+        image="https://www.economiadigital.es/wp-content/uploads/2021/01/Nike.jpg"
+        alt="Nike"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-         {product.category}
+         "Zapatos"
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
