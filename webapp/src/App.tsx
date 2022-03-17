@@ -8,11 +8,37 @@ import { CartProduct } from './shared/shareddtypes';
 import {Product} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
+import {
+  handleIncomingRedirect,
+  onSessionRestore
+} from "@inrupt/solid-client-authn-browser"
+import { useDispatch } from 'react-redux';
+import { setLogguedStatus } from './redux/userSlice';
+import { createHashHistory } from "history";
 
 function App(): JSX.Element {
 
+  const dispatch = useDispatch();
+  const history = createHashHistory();
+
   const [cartProducts, setCart] = useState([] as CartProduct[]);
   const [cartOpen, setCartOpen] = useState(false);
+
+  onSessionRestore((url) => {
+    let uri=url.split("/");
+    history.push(uri[3]);
+});
+
+useEffect(() => {
+    document.title = "DeDe";
+    handleIncomingRedirect({
+        restorePreviousSession: true
+    }).then(() => {
+        dispatch(setLogguedStatus(true));
+    });
+}, [dispatch]);
+
+
 
   const handleAddToCart = (clickedItem: CartProduct) => {
     //"prev" es el estado previo del carrito, justo antes de añadir un producto

@@ -20,6 +20,8 @@ import { useNavigate } from "react-router-dom";
 import Drawer from '@material-ui/core/Drawer';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
+import { setLogguedStatus } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
     appBar: {
@@ -31,10 +33,16 @@ const useStyles = makeStyles({
 export default function NavLoggedIn(props:CartItemsFunc){
     const classes = useStyles();
     const navigate = useNavigate();
+    const dispatch= useDispatch();
 
     function goToCart(){
       navigate('/cart');
    }
+
+   function goHome(){
+    navigate('/');
+    dispatch(setLogguedStatus(false));
+ }
 
     return(     
     <Box sx={{ flexGrow: 1}}>
@@ -91,6 +99,7 @@ function PositionedMenu() {
 
     function goHome(){
        navigate('/');
+       window.location.reload();
     }
 
   
@@ -153,7 +162,7 @@ function PositionedMenu() {
           <MenuItem onClick={handleClose}>
           <LogoutButton>
               <Button onClick={goHome}><Logout></Logout>Log Out</Button>
-            </LogoutButton>
+          </LogoutButton>
               </MenuItem>
         </Menu>
       </div>
