@@ -2,6 +2,7 @@ import CartProductItem from './CartProductItem';
 import { CartProduct, Product } from '../../shared/shareddtypes';
 
 import Grid from '@mui/material/Grid';
+import { Wrapper } from './Cart.styles';
 
 
 export type Props = {
@@ -15,11 +16,12 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
     items.reduce((ack:number, item) => ack + item.quantity*item.price,0);
 
     return (
-        <Grid container direction="column" justifyContent="flex-end" alignItems="center">
+        <Wrapper>
             <h2>TU CARRITO</h2>
             {cartItems.length>0 ? 
                     cartItems.map((c, i) => (
                     <CartProductItem 
+                        key={c.id}
                         props={c} 
                         addCart ={addToCart} 
                         remove={removeFromCart}>
@@ -27,7 +29,7 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
                     <p>El carrito está vacío</p>
             }
             <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
-        </Grid>
+        </Wrapper>
     )
 };
 

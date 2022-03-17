@@ -6,11 +6,13 @@ import { useEffect } from 'react';
 import NavLoggedIn from "./NavLoggedIn";
 import NavLoggedOut from "./NavLoggedOut";
 import { CartProduct } from "../../shared/shareddtypes";
-import { Props } from "../cart/Cart";
 
 
+export type CartItemsFunc = {
+  getItems:number;
+};
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props:CartItemsFunc) {
   const loggued = useSelector((state: any) => state.user.logguedStatus);
   const { session } = useSession();
   const dispatch = useDispatch();
@@ -24,9 +26,10 @@ export default function ButtonAppBar() {
 
 
   if(loggued){
-    return <NavLoggedIn ></NavLoggedIn>
+    return <NavLoggedIn getItems={props.getItems}></NavLoggedIn>
   }
   else{
-    return <NavLoggedOut></NavLoggedOut>
+    return <NavLoggedOut getItems={props.getItems}></NavLoggedOut>
   }
 }
+//
