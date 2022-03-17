@@ -20,12 +20,12 @@ function App(): JSX.Element {
       //1. Teniamos ya el producto en el carrito
       const isItemInCart = prev.find(item => item.id ===clickedItem.id)
       if(isItemInCart) {
-        return prev.map(item=>(
+        return prev.map((item)=>
           item.id===clickedItem.id
           //Cogemos el objeto viejo y le aumentamos la amount. Si no tenemos el item en el carrito, el item viejo se devuelve tal y como estaba(pòrque no es el mismo)
             ? {...item, cantidad: item.quantity+1}
             : item
-        ))
+        );
       }
       //2. El producto no está en el carrito, tenemos que añadirlo como uno nuevo
       //Entonces lo que hacemos es retornar el estado previo (prev) y le añadimos una nueva casilla que tienen el clickedItem con un amount de 1
@@ -34,7 +34,7 @@ function App(): JSX.Element {
   };
 
   const removeFromCart = (id: string) => {
-    setCart(prev=>(
+    setCart((prev)=>
       prev.reduce((ack, item)=> {
         if(item.id===id){
           if(item.quantity===1) return ack;
@@ -43,11 +43,16 @@ function App(): JSX.Element {
           return [...ack, item];
         }
       },[] as CartProduct[]) 
-    ))
+    );
 
   };
 
-  
+
+
+  const getTotalItems = (items: CartProduct[]) =>
+    items.reduce((acc, item) => acc + item.quantity, 0);
+
+
 
   cartProducts.push({
     id:"1234",
@@ -56,14 +61,14 @@ function App(): JSX.Element {
     color:1,
     price:22,
     imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-    quantity: 2
+    quantity: 1
 
 })
 
 
   return (
     <BrowserRouter>
-    <NavBar />
+    <NavBar getItems={getTotalItems(cartProducts)}/>
     <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage />}/>  

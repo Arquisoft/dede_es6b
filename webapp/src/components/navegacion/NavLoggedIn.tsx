@@ -19,6 +19,7 @@ import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Drawer from '@material-ui/core/Drawer';
 import { Props } from "../cart/Cart";
+import { CartItemsFunc } from "./NavBar";
 
 const useStyles = makeStyles({
     appBar: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedIn(){
+export default function NavLoggedIn(props:CartItemsFunc){
     const classes = useStyles();
     const navigate = useNavigate();
 
@@ -52,18 +53,18 @@ export default function NavLoggedIn(){
             DeDe
           </Typography>
 
-          <Button
+          <IconButton
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
           onClick= {
             goToCart
           }>
-          <Badge badgeContent={3} color="error">
+          <Badge badgeContent={props.getItems} color="error">
              <ShoppingCartIcon/>
            </Badge>
            
-          </Button>
+          </IconButton>
         <PositionedMenu/>
 
         

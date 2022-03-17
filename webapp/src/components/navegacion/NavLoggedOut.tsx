@@ -15,6 +15,7 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Props } from "../cart/Cart";
+import { CartItemsFunc } from "./NavBar";
 
 
 const useStyles = makeStyles({
@@ -24,7 +25,11 @@ const useStyles = makeStyles({
     }
   });
 
-export default function NavLoggedOut(){
+export default function NavLoggedOut(props:CartItemsFunc){
+  function goToCart(){
+    navigate('/cart');
+ }
+ 
     const navigate = useNavigate();
     const classes = useStyles();
 
@@ -52,8 +57,11 @@ export default function NavLoggedOut(){
           <IconButton
           size="large"
           aria-label="show 17 new notifications"
-          color="inherit">
-          <Badge badgeContent={3} color="error">
+          color="inherit"
+          onClick= {
+            goToCart
+          }>
+          <Badge badgeContent={props.getItems} color="error">
              <ShoppingCartIcon/>
            </Badge>
           </IconButton>      
