@@ -6,7 +6,6 @@ import NavBar from "../components/navegacion/NavBar";
 export const LoginPage= ()=> {
     return (
       <>
-      <NavBar/>
         <Container maxWidth="sm">
         <Login/>
      </Container>

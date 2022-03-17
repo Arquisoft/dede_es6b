@@ -15,7 +15,18 @@ export type Product = {
     imagen: string
 }
 
-export type CartProduct = {
+export type CartProduct ={
+    id:string,
+    name: string,
+    size:string,
+    color:number,
+    price:number,
+    imagen: string,
+    quantity: number
+
+}
+
+/*export type CartProduct = {
   product: Product;
   quantity: number;
-}
+}*/

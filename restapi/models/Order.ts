@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-var User = mongoose.model('User');
+//var User = mongoose.model('User');
 var Product = mongoose.model('Product');
 
 const orderSchema = new mongoose.Schema({
