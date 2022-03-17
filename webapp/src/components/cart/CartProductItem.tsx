@@ -22,15 +22,16 @@ const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
         return props.quantity;
     }
 
+
     return (
-        <Card sx={{ maxWidth: 600 }}>
+        <Card sx={{ maxWidth: 1000 }}>
             <Grid container direction="row" justifyContent="space-between" alignItems="center">
                 <Grid item>
                     <CardMedia
                         component="img"
                         height="200"
                         width="400"
-                        image="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Portrait_of_an_Iguana.jpg/490px-Portrait_of_an_Iguana.jpg"
+                        image={props.imagen}
                         alt="producto"
                     />
                 </Grid>
@@ -44,11 +45,11 @@ const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                    <Button size="small" onClick={restar}>-</Button>
+                    <Button size="small" onClick={sumar}>+</Button>
                         <div>
                             <div>{props.quantity}</div>
                         </div>
-                    <Button size="small" onClick={sumar}>+</Button>
+                    <Button size="small" onClick={restar}>-</Button>
                     </CardActions>
                 </Grid>
             

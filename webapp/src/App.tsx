@@ -55,7 +55,7 @@ function App(): JSX.Element {
     size:"S",
     color:1,
     price:22,
-    imagen: "",
+    imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
     quantity: 2
 
 })

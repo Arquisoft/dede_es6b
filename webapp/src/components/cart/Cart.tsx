@@ -11,21 +11,22 @@ export type Props = {
 };
 
 const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
-    const calculateTotal = (items:CartProduct[]) =>
+    const totalPrice = (items:CartProduct[]) =>
     items.reduce((ack:number, item) => ack + item.quantity*item.price,0);
 
     return (
         <Grid container direction="column" justifyContent="flex-end" alignItems="center">
-            <h2>Tu Carrito</h2>
+            <h2>TU CARRITO</h2>
             {cartItems.length>0 ? 
-                    cartItems.map((c, i) => (<CartProductItem 
-                    props={c} 
-                    addCart ={addToCart} 
-                    remove={removeFromCart}>
+                    cartItems.map((c, i) => (
+                    <CartProductItem 
+                        props={c} 
+                        addCart ={addToCart} 
+                        remove={removeFromCart}>
                     </CartProductItem>)) :
                     <p>El carrito está vacío</p>
             }
-            <h2>Total: €{calculateTotal(cartItems).toFixed(2)}</h2>
+            <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
         </Grid>
     )
 };
