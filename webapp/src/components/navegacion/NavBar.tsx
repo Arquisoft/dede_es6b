@@ -5,6 +5,8 @@ import { setLogguedStatus }  from "../../redux/userSlice"
 import { useEffect } from 'react';
 import NavLoggedIn from "./NavLoggedIn";
 import NavLoggedOut from "./NavLoggedOut";
+import { CartProduct } from "../../shared/shareddtypes";
+import { Props } from "../cart/Cart";
 
 
 
@@ -20,8 +22,9 @@ export default function ButtonAppBar() {
     {dispatch(setLogguedStatus(false));}
   });
 
+
   if(loggued){
-    return <NavLoggedIn></NavLoggedIn>
+    return <NavLoggedIn ></NavLoggedIn>
   }
   else{
     return <NavLoggedOut></NavLoggedOut>
