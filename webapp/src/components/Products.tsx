@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import CardProduct from "./CardProduct";
 import { Product } from '../shared/shareddtypes';
 import { getProducts } from '../api/api';
+import { ProductAdd } from '../pages/HomePage';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -15,29 +16,17 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Products() {
-
-  const [products, setProducts] = useState<Product[]>([]);
-
-  const refreshProductList = async () => {
-    setProducts(await getProducts());
-  }
-
-  useEffect(() => {
-    refreshProductList();
-  }, []);
-
+export default function Products(product:ProductAdd) {
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-          {
-              products.map(product => (
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                    <CardProduct key={product._id} _id={product._id} name={product.name} code={product.code} size={product.size}
-                    stock={product.stock} category={product.category} color={product.color} price={product.price} imagen={product.imagen} />
-              </Grid>
-              ))
-          }
+      {product.products.map((p, i) => (
+            <Grid item xs={6} sm={3} key={i}>
+                <CardProduct product={p} addToCart= {product.addToCart}></CardProduct>
+            </Grid>
+        ))}
+        
       </Grid>
     </Box>
   );

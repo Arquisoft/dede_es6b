@@ -10,7 +10,9 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import {Product} from '../shared/shareddtypes';
+import { ProductAdd } from '../pages/HomePage';
+import { Button } from '@mui/material';
+import { Product } from '../shared/shareddtypes';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -27,7 +29,13 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function CardProduct(product:Product) {
+type ProductToAdd ={
+  product: Product
+  addToCart:(clickedItem: Product)=>void;
+}
+
+
+export default function CardProduct(product:ProductToAdd) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -39,22 +47,22 @@ export default function CardProduct(product:Product) {
       <CardHeader
         action={
             <Typography variant='h5' color='textSecondary'>
-                {product.price}
+                {product.product.price}
             </Typography>
 
           }
-          title={product.name}
+          title={product.product.name}
           subheader="En Stock"
       />
       <CardMedia
         component="img"
         height="194"
-        image={product.imagen}
-        alt={product.name}
+        image={product.product.imagen}
+        alt={product.product.name}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-         {product.category}
+         {product.product.category}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
