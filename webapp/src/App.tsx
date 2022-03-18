@@ -1,37 +1,115 @@
-import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Container from '@mui/material/Container';
-import EmailForm from './components/EmailForm';
-import Welcome from './components/Welcome';
-import UserList from './components/UserList';
-import  {getUsers} from './api/api';
-import {User} from './shared/shareddtypes';
+
 import './App.css';
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { HomePage } from './pages/HomePage';
+import { LoginPage } from './pages/LoginPage';
+import React, { Component,useState, useEffect } from 'react';
+//import { CartProduct } from './shared/shareddtypes';
+import {Product} from './shared/shareddtypes';
+import NavBar from './components/navegacion/NavBar';
+import { CartPage } from './pages/CartPage';
+import { getProducts } from './api/api';
 
 function App(): JSX.Element {
 
-  const [users,setUsers] = useState<User[]>([]);
+  const [cartProducts, setCart] = useState([] as Product[]);
+  const [cartOpen, setCartOpen] = useState(false);
 
-  const refreshUserList = async () => {
-    setUsers(await getUsers());
+  const [productos, setProductos] = useState<Product[]>([]);
+
+  const refreshProductList = async () => {
+    setProductos(await getProducts());
   }
 
-  useEffect(()=>{
-    refreshUserList();
-  },[]);
+  useEffect(() => {
+    refreshProductList();
+  }, []);
+
+  const addToCart = (clickedItem: Product) => {
+    setCart( estadoActual => {
+      const estaEnElCarrito = estadoActual.find(i => i._id === clickedItem._id);
+      if(!estaEnElCarrito)
+        return [...estadoActual,{...clickedItem, quantity: 1}];
+      return [...estadoActual];
+    });
+  }
+
+  const removeFromCart = (id: string) => {
+    setCart((prev)=>
+      prev.reduce((ack, item)=> {
+        if(item._id===id){
+          if(item.quantity===1) return ack;
+          return [...ack, {...item, amount:item.quantity - 1}]
+        } else {
+          return [...ack, item];
+        }
+      },[] as Product[]) 
+    );
+
+  };
+
+
+
+  const getTotalItems = (items: Product[]) =>
+    items.reduce((acc, item) => acc + item.quantity, 0);
+
+
+
+//   cartProducts.push({
+//     id:"1234",
+//     name: "Sudadera",
+//     size:"S",
+//     color:1,
+//     price:22,
+//     imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
+//     quantity: 1
+
+// })
+
+// productos.push({
+//   _id:"555",
+//   name: "Sudadera",
+//   code:"232",
+//   size:"S",
+//   stock:20,
+//   //category:'Sudaderas'
+//   color:1,
+//   price:22,
+//   imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
+//   quantity: 1
+
+// })
+
+// productos.push({
+//   _id:"3452",
+//   name: "Sudadera",
+//   code:"232",
+//   size:"S",
+//   stock:20,
+//   //category:'Sudaderas'
+//   color:1,
+//   price:22,
+//   imagen: "https://www.economiadigital.es/wp-content/uploads/2021/01/Nike.jpg",
+//   quantity: 1
+
+// })
+
 
   return (
-    <>
-      <Container maxWidth="sm">
-        <Welcome message="ASW students"/>
-        <Box component="div" sx={{ py: 2}}>This is a basic example of a React application using Typescript. You can add your email to the list filling the form below.</Box>
-        <EmailForm OnUserListChange={refreshUserList}/>        
-        <UserList users={users}/>
-        <Link href="https://github.com/Arquisoft/dede_es6b">Source code</Link>
-      </Container>
-    </>
+    <BrowserRouter>
+    <NavBar getItems={getTotalItems(cartProducts)}/>
+    <Routes>
+        <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
+        <Route path="/login" element={<LoginPage />}/>  
+        <Route path="/cart" element={<CartPage  cartItems={cartProducts}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}/>}/> 
+    </Routes>    
+    </BrowserRouter>
+    
+
   );
 }
 
 export default App;
+
