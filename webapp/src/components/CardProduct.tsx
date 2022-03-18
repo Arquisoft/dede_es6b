@@ -47,12 +47,12 @@ export default function CardProduct(product:ProductToAdd) {
       <CardHeader
         action={
             <Typography variant='h5' color='textSecondary'>
-                {product.product.price}
+                {product.product.price}$
             </Typography>
 
           }
           title={product.product.name}
-          subheader="En Stock"
+          subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
       />
       <CardMedia
         component="img"

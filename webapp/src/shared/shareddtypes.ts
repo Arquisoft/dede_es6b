@@ -9,7 +9,7 @@ export type Product = {
     code: string,
     size:string,
     stock:number,
-    //category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
+    category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
     color:number,
     price:number,
     imagen: string,
