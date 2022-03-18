@@ -12,10 +12,27 @@ import { getProducts } from './api/api';
 
 function App(): JSX.Element {
 
+  
+
   const [cartProducts, setCart] = useState([] as Product[]);
   const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
+
+  debugger;
+  cartProducts.push({
+  _id:"555",
+  name: "Sudadera",
+  code:"232",
+  size:"S",
+  stock:20,
+  category:'',
+  color:1,
+  price:22,
+  imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
+  quantity: 1
+},)
+
 
   const refreshProductList = async () => {
     setProductos(await getProducts());
@@ -55,44 +72,6 @@ function App(): JSX.Element {
 
 
 
-//   cartProducts.push({
-//     id:"1234",
-//     name: "Sudadera",
-//     size:"S",
-//     color:1,
-//     price:22,
-//     imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-//     quantity: 1
-
-// })
-
-// productos.push({
-//   _id:"555",
-//   name: "Sudadera",
-//   code:"232",
-//   size:"S",
-//   stock:20,
-//   //category:'Sudaderas'
-//   color:1,
-//   price:22,
-//   imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-//   quantity: 1
-
-// })
-
-// productos.push({
-//   _id:"3452",
-//   name: "Sudadera",
-//   code:"232",
-//   size:"S",
-//   stock:20,
-//   //category:'Sudaderas'
-//   color:1,
-//   price:22,
-//   imagen: "https://www.economiadigital.es/wp-content/uploads/2021/01/Nike.jpg",
-//   quantity: 1
-
-// })
 
 
   return (
@@ -106,7 +85,6 @@ function App(): JSX.Element {
             removeFromCart={removeFromCart}/>}/> 
     </Routes>    
     </BrowserRouter>
-    
 
   );
 }
