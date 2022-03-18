@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import CardProduct from "./CardProduct";
+import { ProductAdd } from '../pages/HomePage';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -12,23 +13,17 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Products() {
+export default function Products(product:ProductAdd) {
   
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={6} sm={3}>
-          <CardProduct />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <CardProduct />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <CardProduct />
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <CardProduct />
-        </Grid>
+      {product.products.map((p, i) => (
+            <Grid item xs={6} sm={3} key={i}>
+                <CardProduct product={p} addToCart= {product.addToCart}></CardProduct>
+            </Grid>
+        ))}
+        
       </Grid>
     </Box>
   );

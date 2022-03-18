@@ -1,12 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography, Input } from "@mui/material";
-import { Product, CartProduct } from '../../shared/shareddtypes';
+import { Product } from '../../shared/shareddtypes';
 import Grid from '@mui/material/Grid';
 import internal from "stream";
 import { Wrapper } from "./CartProduct.styles";
 
 type Cart = {
-    props: CartProduct;
-    addCart: (p : CartProduct) => void;
+    props: Product;
+    addCart: (p : Product) => void;
     remove: (id: string)=>void;
 }
 
@@ -28,7 +28,7 @@ const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
                 size="small"
                 disableElevation
                 variant="contained"
-                onClick={() => remove(props.id)}
+                onClick={() => props.quantity-1}
               >
                 -
               </Button>
@@ -37,7 +37,7 @@ const ProductCartItem: React.FC<Cart> = ({props, addCart, remove}) => {
                 size="small"
                 disableElevation
                 variant="contained"
-                onClick={() => addCart(props)}
+                onClick={() => props.quantity-1}
               >
                 +
               </Button>
