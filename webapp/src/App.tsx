@@ -54,16 +54,16 @@ function App(): JSX.Element {
 
 
 
-  cartProducts.push({
-    id:"1234",
-    name: "Sudadera",
-    size:"S",
-    color:1,
-    price:22,
-    imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-    quantity: 1
+//   cartProducts.push({
+//     id:"1234",
+//     name: "Sudadera",
+//     size:"S",
+//     color:1,
+//     price:22,
+//     imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
+//     quantity: 1
 
-})
+// })
 
 
   return (
