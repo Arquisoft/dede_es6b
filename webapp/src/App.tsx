@@ -22,7 +22,7 @@ function App(): JSX.Element {
   const dispatch = useDispatch();
   const history = createHashHistory();
 
-  const [cartProducts, setCart] = useState([] as CartProduct[]);
+  const [cartProducts, setCart] = useState([] as Product[]);
   const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
@@ -40,26 +40,6 @@ useEffect(() => {
     });
 }, [dispatch]);
 
-
-
-  const handleAddToCart = (clickedItem: CartProduct) => {
-    //"prev" es el estado previo del carrito, justo antes de añadir un producto
-    setCart(prev => {
-      //1. Teniamos ya el producto en el carrito
-      const isItemInCart = prev.find(item => item.id ===clickedItem.id)
-      if(isItemInCart) {
-        return prev.map((item)=>
-          item.id===clickedItem.id
-          //Cogemos el objeto viejo y le aumentamos la amount. Si no tenemos el item en el carrito, el item viejo se devuelve tal y como estaba(pòrque no es el mismo)
-            ? {...item, cantidad: item.quantity+1}
-            : item
-        );
-      }
-      //2. El producto no está en el carrito, tenemos que añadirlo como uno nuevo
-      //Entonces lo que hacemos es retornar el estado previo (prev) y le añadimos una nueva casilla que tienen el clickedItem con un amount de 1
-      return [...prev, {...clickedItem, cantidad:1}];
-    })
-  };
 
   debugger;
   cartProducts.push({
