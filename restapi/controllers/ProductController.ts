@@ -14,7 +14,7 @@ export const findByCategory = async (req: Request, res: Response) : Promise<Resp
 };
 
 export const findByCategoryAndSize = async (req: Request, res: Response) : Promise<Response> => {
-    const productos = await Product.find({ category: req.params.category, size: req.params.size, color:req.params.color });
+    const productos = await Product.find({ category: req.params.category, size: req.params.size});
     return res.json(productos);
 };
 

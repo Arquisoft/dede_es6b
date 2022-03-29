@@ -23,7 +23,7 @@ productRouter.get("/products/list", findAllProducts);
 
 productRouter.get("/products/:category", findByCategory);
 
-productRouter.get("/products/:category/:size/:color", findByCategoryAndSize);
+productRouter.get("/products/:category/:size", findByCategoryAndSize);
 
 
 // productRouter.get(
