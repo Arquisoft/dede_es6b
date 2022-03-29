@@ -15,6 +15,17 @@ export async function addUser(user:User):Promise<boolean>{
       return false;
 }
 
+export async function addOrder(cartProducts:Product[], price:number, direccion:string){
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/order/add', {
+      method: 'POST',
+      //headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'cartProducts':cartProducts, 'price':price, 'direccion':direccion})
+    });
+
+}
+
+
 export async function getUsers():Promise<User[]>{
     const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
     let response = await fetch(apiEndPoint+'/users/list');

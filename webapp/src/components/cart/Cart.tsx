@@ -3,6 +3,11 @@ import { Product } from '../../shared/shareddtypes';
 
 import Grid from '@mui/material/Grid';
 import { Wrapper } from './Cart.styles';
+//import { addOrder } from '../../api/api';
+
+import { Form  } from 'react-bootstrap';
+import { addOrder } from '../../api/api';
+
 
 
 export type Props = {
@@ -18,6 +23,7 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
     return (
         <Wrapper>
             <h2>TU CARRITO</h2>
+        
             {cartItems.length>0 ? 
                     cartItems.map((c, i) => (
                     <CartProductItem 
@@ -29,6 +35,10 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
                     <p>El carrito está vacío</p>
             }
             <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
+            <input type="button" onClick={()=>addOrder(cartItems,totalPrice(cartItems),"Mi calle")}>
+                Realizar pedido
+            </input>
+        
         </Wrapper>
     )
 };
