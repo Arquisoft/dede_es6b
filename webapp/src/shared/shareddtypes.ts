@@ -8,11 +8,13 @@ export type Product = {
     name: string,
     code: string,
     size:string,
-    stock:{type:number, default: 0},
-    category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
+    stock:number,
+   // category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
+   category:string,
     color:number,
-    price:{type:number, default: 0},
-    imagen: string
+    price:number,
+    imagen: string,
+    quantity: number
 }
 
 export type CartProduct ={

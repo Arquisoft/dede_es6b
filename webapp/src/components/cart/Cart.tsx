@@ -1,18 +1,18 @@
 import CartProductItem from './CartProductItem';
-import { CartProduct, Product } from '../../shared/shareddtypes';
+import { Product } from '../../shared/shareddtypes';
 
 import Grid from '@mui/material/Grid';
 import { Wrapper } from './Cart.styles';
 
 
 export type Props = {
-    cartItems: CartProduct[];
-    addToCart: (clickedItem:CartProduct)=> void;
+    cartItems: Product[];
+    addToCart: (clickedItem:Product)=> void;
     removeFromCart: (id:string) => void;
 };
 
 const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
-    const totalPrice = (items:CartProduct[]) =>
+    const totalPrice = (items:Product[]) =>
     items.reduce((ack:number, item) => ack + item.quantity*item.price,0);
 
     return (
@@ -21,7 +21,7 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
             {cartItems.length>0 ? 
                     cartItems.map((c, i) => (
                     <CartProductItem 
-                        key={c.id}
+                        key={c._id}
                         props={c} 
                         addCart ={addToCart} 
                         remove={removeFromCart}>

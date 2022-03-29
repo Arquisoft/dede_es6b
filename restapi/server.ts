@@ -23,8 +23,8 @@ app.use(bp.json());
 app.use(express.json());
 
 app.use("/api", api)
-app.use("/routes/apiProducts",apiProducts)
-app.use("/routes/apiOrders",apiOrders)
+app.use(apiProducts)
+app.use(apiOrders)
 
 app.listen(port, ():void => {
     console.log('Restapi listening on '+ port);
