@@ -26,19 +26,6 @@ function App(): JSX.Element {
   const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
-  onSessionRestore((url) => {
-    let uri=url.split("/");
-    history.push(uri[3]);
-});
-
-useEffect(() => {
-    document.title = "DeDe";
-    handleIncomingRedirect({
-        restorePreviousSession: true
-    }).then(() => {
-        dispatch(setLogguedStatus(true));
-    });
-}, [dispatch]);
 
 
   debugger;
