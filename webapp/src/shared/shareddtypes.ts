@@ -10,7 +10,7 @@ export type Product = {
     size:string,
     stock:number,
    // category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
-   category:string,
+    category:string,
     color:string,
     price:number,
     imagen: string,
