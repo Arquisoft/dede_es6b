@@ -49,7 +49,7 @@ useEffect(() => {
   size:"S",
   stock:20,
   category:'',
-  color:1,
+  color:"Negro",
   price:22,
   imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
   quantity: 1
