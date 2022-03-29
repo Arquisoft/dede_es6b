@@ -9,13 +9,13 @@ const orderSchema = new mongoose.Schema({
         unique: true,
     },
     user_id: { 
-        type: mongoose.Types.ObjectId,
+        type: String,
         required: true,
         //ref: "User",
     },
-    products: [{
+    /*products: [{
         id_producto:{
-            type: mongoose.Types.ObjectId,
+            type: String,
             required: true,
             //ref: "Product",
         } ,
@@ -23,7 +23,8 @@ const orderSchema = new mongoose.Schema({
             type: Number,
             default: 0,
         },
-    }],
+    }],*/
+    
     price: {
         type: Number,
         required: true,

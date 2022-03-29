@@ -22,6 +22,16 @@ export async function getUsers():Promise<User[]>{
     return response.json()
 }
 
+export async function addOrder(cartProducts:Product[], price:number, direccion:string){
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/order/add', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({'cartProducts':cartProducts, 'price':price, 'direccion':direccion})
+    });
+
+}
+
 
 //Devuelve los productos de la base de datos
 export async function getProducts():Promise<Product[]>{
