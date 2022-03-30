@@ -10,11 +10,11 @@ const OrderProductItem: React.FC<Order> = ({product}) => {
 
     return (
         <div>
-            <h2>{product.name}</h2>
             <div className="information">
+              <h2>{product.name}</h2>
               <p>{product.price}€ x {product.quantity}</p>
             </div>
-            <div>
+            <div className="imagen">
                 <img src={product.imagen}/>
             </div>
         </div>

@@ -11,8 +11,8 @@ const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
     return (
         //Cuando se calcule con la api
         <div>
-            <h3>Fecha de entrega</h3>
-            <h2>{orderProducts.length} ITEMS</h2>
+            <h2>Fecha de entrega</h2>
+            <h3>{orderProducts.length} ITEMS</h3>
             {
                  orderProducts.map((p) => (
                     <OrderProductItem 
