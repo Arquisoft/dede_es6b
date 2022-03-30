@@ -10,9 +10,9 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import { ProductAdd } from '../pages/HomePage';
+import { ProductAdd } from '../../pages/HomePage';
 import { Button } from '@mui/material';
-import { Product } from '../shared/shareddtypes';
+import { Product } from '../../shared/shareddtypes';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;

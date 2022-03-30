@@ -1,8 +1,12 @@
 require("../utils/connectDB")
-
+import { useSession} from '@inrupt/solid-ui-react';
 import { Request, Response } from 'express';
 import Order from '../models/Order';
 import Product from '../models/Product';
+
+
+var randomstring = require("randomstring");
+const { session } = useSession();
 
 export const findAllOrders = async (req: Request, res: Response): Promise<Response> => {
     const products = await Order.find({});
@@ -11,8 +15,8 @@ export const findAllOrders = async (req: Request, res: Response): Promise<Respon
 
 export const addOrder = async (req: Request, res: Response) => {
     let order = new Order();
-    order.code_order = "Generarlo random";
-    order.user_id = "Meter el web_id";
+    order.code_order = randomstring.generate();
+    order.user_id = session.info.webId;
     //order.products = req.body.cartProducts;
     order.price = req.body.price;
     order.direccion = req.body.direccion;

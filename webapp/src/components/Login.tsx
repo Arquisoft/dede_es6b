@@ -56,8 +56,6 @@ export default function Login() {
     dispatch(setLogguedStatus(true));
 }
 
-
-
 return (
   
   
