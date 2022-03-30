@@ -1,12 +1,12 @@
 import { Product } from "../../shared/shareddtypes";
-import InfiniteScroll from 'react-infinite-scroll-component';
+//import InfiniteScroll from 'react-infinite-scroll-component';
 import OrderProductItem from "./OrderProduct";
 
-type Props = {
+export type PropsOrder = {
     orderProducts: Product[];
 }
 
-const OrderList:React.FC<Props> = ({orderProducts}) => {
+const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
 
     return (
         //Cuando se calcule con la api
@@ -24,3 +24,5 @@ const OrderList:React.FC<Props> = ({orderProducts}) => {
 
     );
 }
+
+export default OrderList;

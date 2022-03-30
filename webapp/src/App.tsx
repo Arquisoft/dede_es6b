@@ -16,6 +16,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
+import { OrderPage } from './pages/OrderPage';
 
 function App(): JSX.Element {
 
@@ -91,7 +92,8 @@ function App(): JSX.Element {
         <Route path="/login" element={<LoginPage />}/>  
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
-            removeFromCart={removeFromCart}/>}/> 
+            removeFromCart={removeFromCart}/>}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/> 
     </Routes>    
     </BrowserRouter>
 
