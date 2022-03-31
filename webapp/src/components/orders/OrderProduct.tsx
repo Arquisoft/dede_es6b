@@ -1,4 +1,5 @@
 import { Product } from "../../shared/shareddtypes";
+import { Wrapper } from "./OrderProduct.styles";
 
 export {};
 
@@ -9,7 +10,8 @@ type Order={
 const OrderProductItem: React.FC<Order> = ({product}) => {
 
     return (
-        <div>
+        <Wrapper>
+            <div className="container">
             <div className="information">
               <h2>{product.name}</h2>
               <p>{product.price}€ x {product.quantity}</p>
@@ -18,6 +20,8 @@ const OrderProductItem: React.FC<Order> = ({product}) => {
                 <img src={product.imagen}/>
             </div>
         </div>
+        </Wrapper>
+        
     );
 }
 

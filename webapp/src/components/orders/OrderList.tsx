@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { Product } from "../../shared/shareddtypes";
 //import InfiniteScroll from 'react-infinite-scroll-component';
 import OrderProductItem from "./OrderProduct";
@@ -10,7 +11,7 @@ const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
 
     return (
         //Cuando se calcule con la api
-        <div>
+            <Grid container direction="column" justifyContent="flex-end" >
             <h2>Fecha de entrega</h2>
             <h3>{orderProducts.length} ITEMS</h3>
             {
@@ -19,9 +20,7 @@ const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
                         product={p}>
                     </OrderProductItem>))
             }
-        </div>
-        
-
+        </Grid>
     );
 }
 
