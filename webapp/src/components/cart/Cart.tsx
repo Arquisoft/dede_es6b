@@ -15,11 +15,11 @@ export type Props = {
     removeFromCart: (id:string) => void;
 };
 
-
+export const totalPrice = (items:Product[]) =>
+    items.reduce((ack:number, item) => ack + item.quantity*item.price,0);
 
 const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
-    const totalPrice = (items:Product[]) =>
-    items.reduce((ack:number, item) => ack + item.quantity*item.price,0);
+    
 
     const navigate = useNavigate();
  
@@ -38,9 +38,6 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
                     <p>El carrito está vacío</p>
             }
             <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
-            {/* <Button onClick={()=>addOrder(cartItems,totalPrice(cartItems),"Mi calle")}>
-                Realizar pedido
-            </Button> */}
             <Button onClick={()=> navigate('/order')}>
                 Realizar pedido
             </Button>

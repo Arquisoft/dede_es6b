@@ -11,7 +11,6 @@ const PaysList:React.FC<PropsPays> = ({payments}) => {
 
     return (
             <Grid container direction="column" justifyContent="flex-end" >
-            <h3>{payments.length} ITEMS</h3>
             {
                  payments.map((p) => (
                     <PaymentItem 
