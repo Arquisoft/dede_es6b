@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import Grid from '@mui/material/Grid';
 import { Wrapper } from './Cart.styles';
-import { addOrder } from '../../api/api';
 import { Button } from '@mui/material';
+import React from 'react';
 
 
 
@@ -27,19 +27,18 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
     return (
         <Wrapper>
             <h2>TU CARRITO</h2>
-            {cartItems.length>0 ? 
-                    cartItems.map((c, i) => (
+            {cartItems.length>0 ? cartItems.map((c, i) => (
                     <CartProductItem 
                         key={c._id}
                         props={c} 
                         addCart ={addToCart} 
                         remove={removeFromCart}>
-                    </CartProductItem>)) :
+                    </CartProductItem>)):
                     <p>El carrito está vacío</p>
             }
             <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
-            <Button onClick={()=> navigate('/order')}>
-                Realizar pedido
+            <Button disabled={cartItems.length>0 ? false : true } onClick={()=> navigate('/order')}>
+               Continuar compra
             </Button>
         </Wrapper>
     )

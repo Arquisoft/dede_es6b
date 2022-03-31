@@ -3,9 +3,12 @@ require("../utils/connectDB")
 import { Request, Response } from 'express';
 import Order from '../models/Order';
 import Product from '../models/Product';
+import { useSession } from "@inrupt/solid-ui-react";
 
 
 var randomstring = require("randomstring");
+
+const { session } = useSession();
 
 export const findAllOrders = async (req: Request, res: Response): Promise<Response> => {
     const products = await Order.find({});
@@ -15,7 +18,7 @@ export const findAllOrders = async (req: Request, res: Response): Promise<Respon
 export const addOrder = async (req: Request, res: Response) => {
     let order = new Order();
     order.code_order = randomstring.generate();
-    order.user_id = "";
+    order.user_id = session.info.webId;
     //order.products = req.body.cartProducts;
     order.price = req.body.price;
     order.direccion = req.body.direccion;
@@ -25,3 +28,6 @@ export const addOrder = async (req: Request, res: Response) => {
     await order.save();
     //return res.sendStatus(200);
   }
+
+
+
