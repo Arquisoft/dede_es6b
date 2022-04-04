@@ -73,7 +73,7 @@ export default function Filter({
         endIcon={<Iconify icon="ic:round-filter-list" sx={{ maxWidth: 20 }} />}
         onClick={onOpenFilter}
       >
-        Filtros&nbsp;
+        Filters&nbsp;
       </Button>
 
       <FormikProvider value={formik}>
