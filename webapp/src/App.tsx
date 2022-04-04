@@ -26,34 +26,8 @@ function App(): JSX.Element {
   const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
-  onSessionRestore((url) => {
-    let uri=url.split("/");
-    history.push(uri[3]);
-});
-
-useEffect(() => {
-    document.title = "DeDe";
-    handleIncomingRedirect({
-        restorePreviousSession: true
-    }).then(() => {
-        dispatch(setLogguedStatus(true));
-    });
-}, [dispatch]);
 
 
-  debugger;
-  cartProducts.push({
-  _id:"555",
-  name: "Sudadera",
-  code:"232",
-  size:"S",
-  stock:20,
-  category:'',
-  color:"Negro",
-  price:22,
-  imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-  quantity: 1
-},)
 
 
   const refreshProductList = async () => {
@@ -65,20 +39,27 @@ useEffect(() => {
   }, []);
 
   const addToCart = (clickedItem: Product) => {
-    setCart( estadoActual => {
-      const estaEnElCarrito = estadoActual.find(i => i._id === clickedItem._id);
-      if(!estaEnElCarrito)
-        return [...estadoActual,{...clickedItem, quantity: 1}];
-      return [...estadoActual];
+    setCart((prev) => {
+      const isItemInCart = prev.find((item) => item._id === clickedItem._id);
+
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item._id === clickedItem._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [...prev, { ...clickedItem, quantity: 1 }];
     });
-  }
+  };
 
   const removeFromCart = (id: string) => {
     setCart((prev)=>
       prev.reduce((ack, item)=> {
         if(item._id===id){
           if(item.quantity===1) return ack;
-          return [...ack, {...item, amount:item.quantity - 1}]
+          return [...ack, {...item, quantity:item.quantity - 1}]
         } else {
           return [...ack, item];
         }
