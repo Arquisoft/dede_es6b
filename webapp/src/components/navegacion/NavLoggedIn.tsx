@@ -41,8 +41,8 @@ export default function NavLoggedIn(props:CartItemsFunc){
 
    function goHome(){
     navigate('/');
-    dispatch(setLogguedStatus(false));
  }
+
 
     return(     
     <Box sx={{ flexGrow: 1}}>
@@ -57,10 +57,13 @@ export default function NavLoggedIn(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Button onClick={goHome}>
+          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
           </Typography>
+          </Button>
 
+          <Box sx={{ flexGrow: 1 }} />
           <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -99,7 +102,6 @@ function PositionedMenu() {
 
     function goHome(){
        navigate('/');
-       window.location.reload();
     }
 
   
