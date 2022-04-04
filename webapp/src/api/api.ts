@@ -48,6 +48,8 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   return response.json();
 }
 
+const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
+
 
     
 
