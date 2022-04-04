@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component,useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import {Product} from './shared/shareddtypes';
+import {PaymentType, Product} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
 import { getProducts } from './api/api';
@@ -16,6 +16,8 @@ import {
 import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
+import { OrderPage } from './pages/OrderPage';
+import { PaymentPage } from './pages/PaymentPage';
 
 function App(): JSX.Element {
 
@@ -27,6 +29,7 @@ function App(): JSX.Element {
 
   const [productos, setProductos] = useState<Product[]>([]);
 
+  const [payments, setPayments] = useState<PaymentType[]>([]);
 
 
 
@@ -85,7 +88,9 @@ function App(): JSX.Element {
         <Route path="/login" element={<LoginPage />}/>  
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
-            removeFromCart={removeFromCart}/>}/> 
+            removeFromCart={removeFromCart}/>}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
     </Routes>    
     </BrowserRouter>
 

@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import CardProduct from "./CardProduct";
-import { Product } from '../shared/shareddtypes';
-import { getProducts } from '../api/api';
-import { ProductAdd } from '../pages/HomePage';
+import { Product } from '../../shared/shareddtypes';
+import { getProducts } from '../../api/api';
+import { ProductAdd } from '../../pages/HomePage';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
