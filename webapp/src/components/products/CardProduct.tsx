@@ -66,7 +66,8 @@ export default function CardProduct(product:ProductToAdd) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+        <IconButton disabled= {product.product.stock > 0 ? false : true}
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
           <AddShoppingCart fontSize='large' />
         </IconButton>
         <ExpandMore
