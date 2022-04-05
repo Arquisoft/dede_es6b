@@ -9,6 +9,7 @@ import { Product } from "../shared/shareddtypes";
 export const OrderPage= (props:PropsOrder)=> {
 
   const navigate = useNavigate();
+  
 
 
     return (

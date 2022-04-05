@@ -22,6 +22,7 @@ import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
+import { profile } from "console";
 
 const useStyles = makeStyles({
     appBar: {
@@ -96,12 +97,16 @@ function PositionedMenu() {
       setAnchorEl(null);
     };
     
-    const profileDocumentURI = session.info.webId!.split('#')[0];
+    const profileDocumentURI = session.info.webId!;
 
     const navigate = useNavigate();
 
     function goHome(){
        navigate('/');
+    }
+
+    function goToProfile(){
+      window.open(profileDocumentURI);
     }
 
   
@@ -156,7 +161,9 @@ function PositionedMenu() {
             {/*
         // @ts-ignore */}
         <CombinedDataProvider datasetUrl={session.info.webId} thingUrl={session.info.webId}>
-            <Text property={FOAF.name.iri.value} autosave />
+          <Button onClick={goToProfile}>
+            <Text color="black" property={FOAF.name.iri.value} autosave />
+            </Button>
         </CombinedDataProvider>
         </MenuItem>
           <MenuItem onClick={handleClose}>Mis pedidos</MenuItem>
