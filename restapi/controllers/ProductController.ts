@@ -18,3 +18,8 @@ export const findByCategoryAndSize = async (req: Request, res: Response) : Promi
     return res.json(productos);
 };
 
+export const findById = async (req: Request, res: Response): Promise<Response> => {
+    const products = await Product.find({_id:req.params.id});
+    return res.json(products);
+};
+

@@ -24,7 +24,7 @@ app.use(bp.json());
 app.use(express.json());
 
 app.use("/api", api)
-app.use(apiProducts)
+app.use("/products",apiProducts)
 app.use(apiOrders)
 
 app.listen(port, ():void => {

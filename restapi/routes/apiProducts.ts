@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 
-import {findAllProducts,findByCategory,findByCategoryAndSize} from '../controllers/ProductController';
+import {findAllProducts,findByCategory,findByCategoryAndSize, findById} from '../controllers/ProductController';
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
@@ -19,11 +19,13 @@ const Product = require('../models/Product')
 //     }
 // );
 
-productRouter.get("/products/list", findAllProducts);
+productRouter.get("/list", findAllProducts);
 
-productRouter.get("/products/:category", findByCategory);
+productRouter.get("/:category", findByCategory);
 
-productRouter.get("/products/:category/:size", findByCategoryAndSize);
+productRouter.get("/:category/:size", findByCategoryAndSize);
+
+productRouter.get("/:id", findById);
 
 
 // productRouter.get(
