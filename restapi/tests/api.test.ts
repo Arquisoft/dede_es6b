@@ -6,6 +6,8 @@ import cors from 'cors';
 import api from '../api';
 import apiProducts from '../routes/apiProducts';
 import Product from '../models/Product';
+import apiOrders from '../routes/apiOrders';
+import { stat } from 'fs';
 
 let app:Application;
 let server:http.Server;
@@ -20,6 +22,7 @@ beforeAll(async () => {
     app.use(bp.json());
     app.use("/api", api)
     app.use("/products", apiProducts)
+    app.use("/orders", apiOrders)
 
     server = app.listen(port, ():void => {
         console.log('Restapi server for testing listening on '+ port);
@@ -88,6 +91,50 @@ describe('Productos ', () => {
  
 });
 
+
+describe('Orders ', () => {
+    it('Los pedidos se pueden listar', async () => {
+        await api
+        const response:Response = await request(app).get('/orders/list')
+        expect(response.statusCode).toBe(200)
+        expect(response.type).toEqual("application/json")
+    });
+
+    it('Listar pedidos para un usuario ', async () => {
+        let user_id = "celiabarral1";
+        await api
+        const response:Response = await request(app).get('/orders/'+ user_id)
+        expect(response.statusCode).toBe(200)
+        expect(response.type).toEqual("application/json")
+    });
+
+    it('Un usuario no tiene pedidos ', async () => {
+        let user_id = "nopedidos";
+        await api
+        const response:Response = await request(app).get('/orders/'+ user_id)
+        expect(response.statusCode).toBe(200)
+        expect(response.text).toEqual("El usuario no tiene pedidos")
+    });
+
+    it('Añadir un pedido', async () => {
+        let code_order = "codigoPrueba";
+        let user_id = "celiabarral";
+        //order.products = req.body.cartProducts;
+        let price = 150.25;
+        let direccion = "direccion";
+        let date = Date.now();
+        let status = "PREPARÁNDOSE";
+        await api
+        const response:Response = await request(app).post('/orders/add').send({code_order:code_order,user_id:user_id
+        ,price:price,direccion:direccion,date:date,status:status})
+        expect(response.statusCode).toBe(200);
+        expect(response.text).toEqual("Añadido pedido correctamente")
+    });
+
+    
+});
+
+
 describe('user ', () => {
     /**
      * Test that we can list users without any error.
@@ -107,4 +154,6 @@ describe('user ', () => {
         expect(response.statusCode).toBe(200);
     });
 });
+
+
 
