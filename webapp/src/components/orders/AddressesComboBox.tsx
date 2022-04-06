@@ -9,17 +9,17 @@ import { createOrder } from '../../api/api';
 import { StringMappingType } from 'typescript';
 import { ShipmentData } from '../../shared/shareddtypes';
 
-var costes=0;
+var orderData:ShipmentData | null;
 
 export default function ComboBox() {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState<readonly string[]>([]);
   const {session} =useSession();
-  const[order, setOrder]=React.useState<any>();
   const loading = open && options.length === 0;
   
 
   React.useEffect(() => {
+
     let active = true;
 
     if (!loading) {
@@ -52,7 +52,18 @@ export default function ComboBox() {
     }
   }, [open]);
 
-  
+  async function setOrderData(o:string){
+    if(o){
+      orderData={
+        name:"prueba",
+        street:o.split(", ")[0],
+        city:o.split(", ")[1],
+        zipcode:o.split(", ")[2]
+      }
+    } else{
+      orderData=null;
+    }
+  }
   return (
     <Autocomplete
       id="asynchronous-demo"
@@ -66,10 +77,11 @@ export default function ComboBox() {
       }}
       options={options}
       loading={loading}
+      onChange={(event,o)=>setOrderData(o!)}
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Dirección"
+          label="Dirección de envío"
           InputProps={{
             ...params.InputProps,
             endAdornment: (
@@ -84,6 +96,13 @@ export default function ComboBox() {
     />
   );
 }
+
+export function getOrderData(){
+  return orderData;
+}
+
+
+
 
 
 

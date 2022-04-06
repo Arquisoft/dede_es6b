@@ -36,7 +36,7 @@ api.post(
 
 api.post('/createOrder', async (req, res) =>{
   var addressFrom  = {
-    "name": "Shawn Ippotle",
+    "name": "DeDe",
     "street1": "215 Clayton St.",
     "city": "San Francisco",
     "state": "CA",
@@ -72,6 +72,50 @@ shippo.shipment.create({
     }
 });
 });
+
+api.post('/createTransaction', async(req, res)=>{
+  var addressFrom  = {
+    "name": "DeDe",
+    "street1": "215 Clayton St.",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip": "94117",
+    "country": "US"
+};
+var addressTo = {
+    "name": req.body.name,
+    "street1": req.body.street,
+    "city": req.body.city,
+    "state": "ES",
+    "zip": req.body.zipcode,
+    "country": "ES"
+};
+var parcel = {
+    "length": "5",
+    "width": "5",
+    "height": "5",
+    "distance_unit": "in",
+    "weight": "2",
+    "mass_unit": "lb"
+};
+var shipment=shippo.shipment.create({
+    "address_from": addressFrom,
+    "address_to": addressTo,
+    "parcels": [parcel],
+    "async": false
+});
+var rate= shipment.rates[0];
+shippo.transaction.create({
+  "rate": rate.object_id,
+  "label_file_type": "PDF",
+  "async": false
+}, function(err:any, transaction:any) {
+ // asynchronous callback
+});
+
+});
+
+
 
 
 export default api;

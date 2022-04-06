@@ -36,8 +36,6 @@ export type PaymentType= {
 
 export type ShipmentData = {
   name: string,
-  lastname: string,
-  email: string,
   city: string,
   street: string,
   zipcode: string

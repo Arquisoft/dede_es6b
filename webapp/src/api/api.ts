@@ -55,8 +55,6 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
       'name': DataOrder.name,
-      'lastname': DataOrder.lastname,
-      'email': DataOrder.email,
       'city': DataOrder.city,
       'street': DataOrder.street,
       'zipcode': DataOrder.zipcode
@@ -64,6 +62,23 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
   });
   return response.json();
 }
+
+export async function createTransaction(DataOrder:ShipmentData):Promise<JSON>{
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
+  let response = await fetch(apiEndPoint+'/createOrder',{
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      'name': DataOrder.name,
+      'city': DataOrder.city,
+      'street': DataOrder.street,
+      'zipcode': DataOrder.zipcode
+    })
+  });
+  return response.json();
+}
+
+
 
 const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
 
