@@ -13,17 +13,7 @@ const orderSchema = new mongoose.Schema({
         required: true,
         //ref: "User",
     },
-    products: [{
-        id_producto:{
-            type: String,
-            required: true,
-            //ref: "Product",
-        } ,
-        /*quantity: {
-            type: Number,
-            default: 0,
-        },*/
-    }],
+    products: [],
     price: {
         type: Number,
         required: true,
