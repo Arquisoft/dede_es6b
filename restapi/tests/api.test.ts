@@ -48,6 +48,14 @@ describe('Productos ', () => {
         expect(response.type).toEqual("application/json")
     });
 
+    it('El código no existe ', async () => {
+        let code = 'noExiste';
+        await api
+        const response:Response = await request(app).get('/products/find/' + code)
+        expect(response.statusCode).toBe(200)
+        expect(response.text).toEqual("No existe el producto")
+    });
+
     it('Los productos se pueden listar por categorías', async () => {
         await api
         const response:Response = await request(app).get('/products/Sudaderas')
@@ -61,7 +69,7 @@ describe('Productos ', () => {
         expect(response.text).toEqual("No hay productos para dicha categoría")
     });
 
-    it('Añadir un producto', async () => {
+    /*it('Añadir un producto', async () => {
         let name:String = "productoTest"
         let code:String = "test_producto"
         let size:String = "S"
@@ -76,16 +84,8 @@ describe('Productos ', () => {
         expect(response.text).toEqual("Añadido nuevo producto")
         // lo borramos para que no se quede almacendo en la base de datos
         //await request(app).delete('/juguete/juguete1Prueba');
-    })
-
-
-    /*it('Id no existe ', async () => {
-        const response: Response = await request(app).get('/products/NoExiste');
-        expect(response.text).toEqual("El producto no existe")
-    });*/
-
-
-    
+    })*/
+ 
 });
 
 describe('user ', () => {

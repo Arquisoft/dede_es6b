@@ -6,8 +6,8 @@ const Order = require('../models/Order')
 
 let bd = require('../utils/connectDB')
 
-orderRouter.get("/orders/list", findAllOrders);
+orderRouter.get("/list", findAllOrders);
 
-orderRouter.post("/order/add",addOrder);
+orderRouter.post("/add",addOrder);
 
 export default orderRouter;

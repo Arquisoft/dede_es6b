@@ -4,28 +4,7 @@ import {findAllProducts,findByCategory,findByCategoryAndSize, findByCode} from '
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
-// export const findAllProducts = async (req: Request, res: Response): Promise<Response> => {
-//     const products = await Product.find({});
-
-//     return res.json(products);
-// };
-// productRouter.get(
-//     "/products/list",
-//     async (req: Request, res: Response): Promise<Response> => {
-//         let products = await Product.find({},(err,products)=>{
-//             res.status(200).json(products)
-//         }));
-//         return res.json(products);
-//     }
-// );
-
 productRouter.get("/list", findAllProducts);
-
-productRouter.get("/:category", findByCategory);
-
-productRouter.get('/find/:code', findByCode);
-
-productRouter.get("/:category/:size", findByCategoryAndSize);
 
 productRouter.post("/add", async (req:Request,res:Response) =>{
     try{
@@ -46,6 +25,14 @@ productRouter.post("/add", async (req:Request,res:Response) =>{
         res.send("Error al añadir el producto");
     }
 })
+
+
+productRouter.get("/:category", findByCategory);
+
+productRouter.get('/find/:code', findByCode);
+
+productRouter.get("/:category/:size", findByCategoryAndSize);
+
 
 
 
