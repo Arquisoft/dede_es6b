@@ -1,29 +1,39 @@
 import express, { Request, Response, Router } from 'express';
 
-import {findAllProducts,findByCategory,findByCategoryAndSize} from '../controllers/ProductController';
+import {findAllProducts,findByCategory,findByCategoryAndSize, findByCode} from '../controllers/ProductController';
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
-// export const findAllProducts = async (req: Request, res: Response): Promise<Response> => {
-//     const products = await Product.find({});
+productRouter.get("/list", findAllProducts);
 
-//     return res.json(products);
-// };
-// productRouter.get(
-//     "/products/list",
-//     async (req: Request, res: Response): Promise<Response> => {
-//         let products = await Product.find({},(err,products)=>{
-//             res.status(200).json(products)
-//         }));
-//         return res.json(products);
-//     }
-// );
+productRouter.post("/add", async (req:Request,res:Response) =>{
+    try{
+        let producto = new Product({
+            name : req.body.name,
+            code: req.body.code,
+            size: req.body.size,
+            stock: req.body.stock,
+            category: req.body.category,
+            color: req.body.color,
+            price: req.body.price,
+            imagen: req.body.imagen,
+        });
+        const nuevoProducto = await producto.save(producto);
+        res.send("Añadido nuevo producto")
 
-productRouter.get("/products/list", findAllProducts);
+    } catch{
+        res.send("Error al añadir el producto");
+    }
+})
 
-productRouter.get("/products/:category", findByCategory);
 
-productRouter.get("/products/:category/:size", findByCategoryAndSize);
+productRouter.get("/:category", findByCategory);
+
+productRouter.get('/find/:code', findByCode);
+
+productRouter.get("/:category/:size", findByCategoryAndSize);
+
+
 
 
 // productRouter.get(
