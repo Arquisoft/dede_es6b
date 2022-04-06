@@ -1,5 +1,5 @@
 import {User} from '../shared/shareddtypes';
-import {Product} from '../shared/shareddtypes';
+import {Product, Pedido} from '../shared/shareddtypes';
 import { CartProduct } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
@@ -38,10 +38,19 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   return response.json();
 }
 
-const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
-
+    
+export async function getPedidos(): Promise<Pedido[]> {
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint + '/orders/list');
+  //The objects returned by the api are directly convertible to User objects
+  console.log(response);
+  return response.json()
+}
 
     
-
-
-    
+export async function getPedidosByUser(user_id:string):Promise<Pedido[]>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/orders/'+user_id);
+  //The objects returned by the api are directly convertible to Product objects
+  return response.json()
+}

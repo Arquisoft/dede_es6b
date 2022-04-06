@@ -1,14 +1,15 @@
 
 import './App.css';
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import React, { Component,useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import {Product} from './shared/shareddtypes';
+import { Product, Pedido } from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
-import { getProducts } from './api/api';
+import { getProducts, getPedidos } from './api/api';
+import Pedidos  from './components/Pedidos/Pedidos';
 import {
   handleIncomingRedirect,
   onSessionRestore
@@ -16,6 +17,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
+import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
 
 function App(): JSX.Element {
 
@@ -28,14 +30,14 @@ function App(): JSX.Element {
   const [productos, setProductos] = useState<Product[]>([]);
 
 
-
-
   const refreshProductList = async () => {
     setProductos(await getProducts());
+    
   }
 
   useEffect(() => {
     refreshProductList();
+    refreshPedidosList();
   }, []);
 
   const addToCart = (clickedItem: Product) => {
@@ -55,15 +57,15 @@ function App(): JSX.Element {
   };
 
   const removeFromCart = (id: string) => {
-    setCart((prev)=>
-      prev.reduce((ack, item)=> {
-        if(item._id===id){
-          if(item.quantity===1) return ack;
-          return [...ack, {...item, quantity:item.quantity - 1}]
+    setCart((prev) =>
+      prev.reduce((ack, item) => {
+        if (item._id === id) {
+          if (item.quantity === 1) return ack;
+          return [...ack, { ...item, quantity: item.quantity - 1 }]
         } else {
           return [...ack, item];
         }
-      },[] as Product[]) 
+      }, [] as Product[])
     );
 
   };
@@ -74,19 +76,26 @@ function App(): JSX.Element {
     items.reduce((acc, item) => acc + item.quantity, 0);
 
 
+  const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
+  const refreshPedidosList = async () => {
+    setPedidos(await getPedidos());
+  }
 
+  const { session } = useSession();
 
   return (
     <BrowserRouter>
-    <NavBar getItems={getTotalItems(cartProducts)}/>
-    <Routes>
-        <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
-        <Route path="/login" element={<LoginPage />}/>  
-        <Route path="/cart" element={<CartPage  cartItems={cartProducts}
-            addToCart={addToCart}
-            removeFromCart={removeFromCart}/>}/> 
-    </Routes>    
+      <NavBar getItems={getTotalItems(cartProducts)} />
+      <Routes>
+        <Route path="/" element={<HomePage products={productos} addToCart={addToCart} />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/cart" element={<CartPage cartItems={cartProducts}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart} />} />
+          
+        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
+      </Routes>
     </BrowserRouter>
 
   );

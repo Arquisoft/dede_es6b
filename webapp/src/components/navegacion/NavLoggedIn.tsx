@@ -102,6 +102,10 @@ function PositionedMenu() {
        window.location.reload();
     }
 
+    function goToMyOrders(){
+      navigate('/orders/list');
+   }
+
   
     return (
       <div>
@@ -157,7 +161,7 @@ function PositionedMenu() {
             <Text property={FOAF.name.iri.value} autosave />
         </CombinedDataProvider>
         </MenuItem>
-          <MenuItem onClick={handleClose}>Mis pedidos</MenuItem>
+          <MenuItem onClick={goToMyOrders}>Mis pedidos</MenuItem>
           <Divider />
           <MenuItem onClick={handleClose}>
           <LogoutButton>
