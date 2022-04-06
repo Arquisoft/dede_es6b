@@ -18,6 +18,7 @@ import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
 import { OrderPage } from './pages/OrderPage';
 import { PaymentPage } from './pages/PaymentPage';
+import Footer from './components/footer/Footer';
 
 function App(): JSX.Element {
 
@@ -25,7 +26,6 @@ function App(): JSX.Element {
   const history = createHashHistory();
 
   const [cartProducts, setCart] = useState([] as Product[]);
-  const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
 
@@ -81,8 +81,12 @@ function App(): JSX.Element {
 
 
   return (
+   
     <BrowserRouter>
+     <div className="page-container">
+    <div className='content-wrapper'>
     <NavBar getItems={getTotalItems(cartProducts)}/>
+    
     <Routes>
         <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
         <Route path="/login" element={<LoginPage />}/>  
@@ -91,8 +95,12 @@ function App(): JSX.Element {
             removeFromCart={removeFromCart}/>}/>
         <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
-    </Routes>    
+    </Routes>  
+    </div>
+    <Footer/>
+    </div>
     </BrowserRouter>
+    
 
   );
 }

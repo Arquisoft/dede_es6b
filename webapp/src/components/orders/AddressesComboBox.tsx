@@ -4,14 +4,18 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSession } from '@inrupt/solid-ui-react';
 import { getAddressesFromPod } from '../../utils/Solid';
+import { getDeliveryPrice } from '../../utils/Shipping';
+import { createOrder } from '../../api/api';
+import { StringMappingType } from 'typescript';
+import { ShipmentData } from '../../shared/shareddtypes';
 
-var shipaddress="";
+var costes=0;
 
 export default function ComboBox() {
-  const [address, setAddress] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState<readonly string[]>([]);
   const {session} =useSession();
+  const[order, setOrder]=React.useState<any>();
   const loading = open && options.length === 0;
   
 
@@ -47,6 +51,7 @@ export default function ComboBox() {
       setOptions([]);
     }
   }, [open]);
+
   
   return (
     <Autocomplete
@@ -61,7 +66,6 @@ export default function ComboBox() {
       }}
       options={options}
       loading={loading}
-      onChange={(event, o) =>shipTo(o!) }
       renderInput={(params) => (
         <TextField
           {...params}
@@ -81,12 +85,5 @@ export default function ComboBox() {
   );
 }
 
-function shipTo(a:string){
-  shipaddress=a;
-}
-
-export function getSelectedAddress(){
-  return shipaddress;
-}
 
 

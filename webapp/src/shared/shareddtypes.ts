@@ -33,6 +33,16 @@ export type PaymentType= {
     imagen:string
 }
 
+
+export type ShipmentData = {
+  name: string,
+  lastname: string,
+  email: string,
+  city: string,
+  street: string,
+  zipcode: string
+}
+
 /*export type CartProduct = {
   product: Product;
   quantity: number;

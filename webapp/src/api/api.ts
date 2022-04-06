@@ -1,4 +1,4 @@
-import {User} from '../shared/shareddtypes';
+import {ShipmentData, User} from '../shared/shareddtypes';
 import {Product} from '../shared/shareddtypes';
 import { CartProduct } from '../shared/shareddtypes';
 
@@ -45,6 +45,23 @@ export async function getProducts():Promise<Product[]>{
 export async function getProductsByCategory(category: string): Promise<Product[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint + "/products/" + category);
+  return response.json();
+}
+
+export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
+  let response = await fetch(apiEndPoint+'/createOrder',{
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      'name': DataOrder.name,
+      'lastname': DataOrder.lastname,
+      'email': DataOrder.email,
+      'city': DataOrder.city,
+      'street': DataOrder.street,
+      'zipcode': DataOrder.zipcode
+    })
+  });
   return response.json();
 }
 
