@@ -30,13 +30,16 @@ export const findOrdersByUser = async (req: Request, res: Response): Promise<Res
 export const addOrder = async (req: Request, res: Response) => {
     try{
         let order = new Order();
-    order.code_order = randomstring.generate();
-    order.user_id = req.body.user_id;
-    //order.products = req.body.cartProducts;
-    order.price = req.body.price;
-    order.direccion = req.body.direccion;
-    order.date = Date.now();
-    order.status = "PREPARÁNDOSE";
+        order.code_order = randomstring.generate();
+        order.user_id = req.body.user_id;
+        let products = req.body.cartProducts;
+        products.array.forEach((element: { _id: any; }) => {
+            order.products.add(element._id);
+        });
+        order.price = req.body.price;
+        order.direccion = req.body.direccion;
+        order.date = Date.now();
+        order.status = "PREPARÁNDOSE";
     
     await order.save();
         res.send("Añadido pedido correctamente");
@@ -45,4 +48,8 @@ export const addOrder = async (req: Request, res: Response) => {
     }
     
   }
+
+function p(p: any, arg1: (Product: any) => void) {
+    throw new Error('Function not implemented.');
+}
 

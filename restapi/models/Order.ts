@@ -13,18 +13,17 @@ const orderSchema = new mongoose.Schema({
         required: true,
         //ref: "User",
     },
-    /*products: [{
+    products: [{
         id_producto:{
             type: String,
             required: true,
             //ref: "Product",
         } ,
-        quantity: {
+        /*quantity: {
             type: Number,
             default: 0,
-        },
-    }],*/
-    
+        },*/
+    }],
     price: {
         type: Number,
         required: true,
