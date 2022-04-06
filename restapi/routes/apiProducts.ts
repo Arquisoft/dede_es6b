@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 
-import {findAllProducts,findByCategory,findByCategoryAndSize} from '../controllers/ProductController';
+import {findAllProducts,findByCategory,findByCategoryAndSize, findByCode} from '../controllers/ProductController';
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
@@ -19,11 +19,34 @@ const Product = require('../models/Product')
 //     }
 // );
 
-productRouter.get("/products/list", findAllProducts);
+productRouter.get("/list", findAllProducts);
 
-productRouter.get("/products/:category", findByCategory);
+productRouter.get("/:category", findByCategory);
 
-productRouter.get("/products/:category/:size", findByCategoryAndSize);
+productRouter.get('/find/:code', findByCode);
+
+productRouter.get("/:category/:size", findByCategoryAndSize);
+
+productRouter.post("/add", async (req:Request,res:Response) =>{
+    try{
+        let producto = new Product({
+            name : req.body.name,
+            code: req.body.code,
+            size: req.body.size,
+            stock: req.body.stock,
+            category: req.body.category,
+            color: req.body.color,
+            price: req.body.price,
+            imagen: req.body.imagen,
+        });
+        const nuevoProducto = await producto.save(producto);
+        res.send("Añadido nuevo producto")
+
+    } catch{
+        res.send("Error al añadir el producto");
+    }
+})
+
 
 
 // productRouter.get(

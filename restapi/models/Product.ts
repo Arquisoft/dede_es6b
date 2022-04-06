@@ -8,7 +8,7 @@ const productSchema = new Schema({
     size:String,
     stock:{type:Number, default: 0},
     category:{type: String, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
-    color:Number,
+    color:String,
     price:{type:Number, default: 0},
     imagen: String
 })
