@@ -4,7 +4,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSession } from '@inrupt/solid-ui-react';
 import { getAddressesFromPod } from '../../utils/Solid';
-import { getDeliveryPrice } from '../../utils/Shipping';
 import { createOrder } from '../../api/api';
 import { StringMappingType } from 'typescript';
 import { ShipmentData } from '../../shared/shareddtypes';

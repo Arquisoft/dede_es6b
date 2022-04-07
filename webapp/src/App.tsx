@@ -31,8 +31,6 @@ function App(): JSX.Element {
 
   const [payments, setPayments] = useState<PaymentType[]>([]);
 
-
-
   const refreshProductList = async () => {
     setProductos(await getProducts());
   }
@@ -71,14 +69,8 @@ function App(): JSX.Element {
 
   };
 
-
-
   const getTotalItems = (items: Product[]) =>
     items.reduce((acc, item) => acc + item.quantity, 0);
-
-
-
-
 
   return (
    

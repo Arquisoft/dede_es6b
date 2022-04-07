@@ -11,17 +11,19 @@ Un usuario se registra o inicia sesión en la aplicación.
 actor Bob
 actor Alice
 participant DeDe
+participant Pod
 database bd as "Base de datos"
-Bob -> DeDe: Bob se registra
-DeDe -> bd: Comprobación datos introducidos
-DeDe <-- bd: Validación
-DeDe -> bd: Envía petición para almacenar los datos del usuario
-DeDe <-- bd: Almacena los datos
+Bob -> DeDe: Bob pide registrarse
+DeDe -> Pod: Redirecciona el registro al proveedor del POD
+Bob <-- Pod: Pide los datos para registro
+Bob -> Pod: Inserta los datos
+DeDe <-- Pod: Validación
 Bob <-- DeDe: Confirmación registro realizado con éxito
 Alice -> DeDe: Alice inicia sesión 
-DeDe -> bd: Consulta datos de Alice
-DeDe <-- bd: Confirmación de datos
-Alice <-- DeDe: Sesión iniciada
+DeDe -> Pod: Redirecciona al proveedor del POD
+Alice <-- Pod: Pide los datos para iniciar sesión
+Alice -> Pod: Inserta los datos
+DeDe <-- Pod: Confirmación de datos
 ----
 === <Runtime Scenario 2>
 Búsqueda de artículos mediante los filtros proporcionados en la aplicación.
@@ -29,12 +31,14 @@ Búsqueda de artículos mediante los filtros proporcionados en la aplicación.
 ----
 actor Bob
 participant DeDe
+participant Pod
 database DataBase as "DataBase"
-Bob -> DeDe: Pulsa "Log-In"
-DeDe--> Bob: Pregunta al usuario los datos
-Bob -> DeDe: Inserta los datos
-DeDe-> DataBase: Comprueba que los datos sean correctos
-DataBase --> DeDe: Confirma que son correctos
+Bob -> DeDe: Pulsa "Log-In" 
+DeDe -> Pod: Redirecciona al proveedor del POD
+Bob <-- Pod: Pide los datos para iniciar sesión
+Bob -> Pod: Inserta los datos
+DeDe <-- Pod: Confirmación de datos
+Bob <-- DeDe: Sesión iniciada
 DeDe-> DeDe: Entra a la web
 Bob -> DeDe: Pulsa "Filtrar"
 DeDe-> DeDe: Muestra los filtros
@@ -52,10 +56,12 @@ actor Cliente
 participant DeDe
 participant Pod
 database DataBase as "DataBase"
-Cliente-> DeDe: Log-in
-DeDe-> DataBase: Comprueba datos del registro
-DataBase --> DeDe: Comprueba datos
-DeDe --> Cliente: Log-in
+Cliente-> DeDe: Pulsa "Log-In" 
+DeDe -> Pod: Redirecciona al proveedor del POD
+Cliente<-- Pod: Pide los datos para iniciar sesión
+Cliente-> Pod: Inserta los datos
+DeDe <-- Pod: Confirmación de datos
+Cliente<-- DeDe: Sesión iniciada
 Cliente-> DeDe: Añadir producto
 DeDe-> DataBase: Comprueba stock
 DataBase --> DeDe: Notifica comprobación
@@ -76,11 +82,14 @@ El cliente inicia sesión para ver el listado de pedidos que ha realizado.
 ----
 actor Bob
 participant DeDe
+participant Pod
 database database
-Bob -> DeDe: Pulsa Log In
-DeDe -> Bob: Pide al usuario sus datos de registro
-Bob -> DeDe: Rellena los campos y accede
-DeDe -> database: Comprueba que el usuario y contraseña son correctos
+Bob -> DeDe: Pulsa "Log-In" 
+DeDe -> Pod: Redirecciona al proveedor del POD
+Bob <-- Pod: Pide los datos para iniciar sesión
+Bob -> Pod: Inserta los datos
+DeDe <-- Pod: Confirmación de datos
+Bob <-- DeDe: Sesión iniciada
 DeDe -> DeDe: Bob es redireccionado a la home page
 Bob -> DeDe: Bob hace click en "Mis pedidos"
 database <- DeDe: query para obtener lista de pedidos con id_user=bob
