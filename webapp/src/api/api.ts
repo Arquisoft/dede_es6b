@@ -31,11 +31,14 @@ export async function getProducts():Promise<Product[]>{
   return response.json()
 }
 
+//Productos por categoría
 export async function getProductsByCategory(category: string): Promise<Product[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
-  let response = await fetch(apiEndPoint + "/products/category/" + category);
+  let response = await fetch(apiEndPoint + "/products/" + category);
   return response.json();
 }
+
+const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
 
 
     

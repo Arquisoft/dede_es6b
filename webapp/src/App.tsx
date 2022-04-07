@@ -9,29 +9,23 @@ import {Product} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
 import { getProducts } from './api/api';
+import {
+  handleIncomingRedirect,
+  onSessionRestore
+} from "@inrupt/solid-client-authn-browser"
+import { useDispatch } from 'react-redux';
+import { setLogguedStatus } from './redux/userSlice';
+import { createHashHistory } from "history";
 
 function App(): JSX.Element {
 
-  
+  const dispatch = useDispatch();
+  const history = createHashHistory();
 
   const [cartProducts, setCart] = useState([] as Product[]);
   const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
-
-  debugger;
-  cartProducts.push({
-  _id:"555",
-  name: "Sudadera",
-  code:"232",
-  size:"S",
-  stock:20,
-  category:'',
-  color:1,
-  price:22,
-  imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-  quantity: 1
-},)
 
 
   const refreshProductList = async () => {
@@ -43,20 +37,27 @@ function App(): JSX.Element {
   }, []);
 
   const addToCart = (clickedItem: Product) => {
-    setCart( estadoActual => {
-      const estaEnElCarrito = estadoActual.find(i => i._id === clickedItem._id);
-      if(!estaEnElCarrito)
-        return [...estadoActual,{...clickedItem, quantity: 1}];
-      return [...estadoActual];
+    setCart((prev) => {
+      const isItemInCart = prev.find((item) => item._id === clickedItem._id);
+
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item._id === clickedItem._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+
+      return [...prev, { ...clickedItem, quantity: 1 }];
     });
-  }
+  };
 
   const removeFromCart = (id: string) => {
     setCart((prev)=>
       prev.reduce((ack, item)=> {
         if(item._id===id){
           if(item.quantity===1) return ack;
-          return [...ack, {...item, amount:item.quantity - 1}]
+          return [...ack, {...item, quantity:item.quantity - 1}]
         } else {
           return [...ack, item];
         }
@@ -65,14 +66,8 @@ function App(): JSX.Element {
 
   };
 
-
-
   const getTotalItems = (items: Product[]) =>
     items.reduce((acc, item) => acc + item.quantity, 0);
-
-
-
-
 
   return (
     <BrowserRouter>

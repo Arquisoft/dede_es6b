@@ -56,9 +56,7 @@ export default function Login() {
     dispatch(setLogguedStatus(true));
 }
 
-  function loggedOut(){
-    dispatch(setLogguedStatus(false));
-  }
+
 
 return (
   

@@ -1,7 +1,7 @@
 [[section-building-block-view]]
 
 
-== Building Block View
+== Vista de bloques
 
 [role="arc42help"]
 ****
@@ -23,7 +23,6 @@ This allows you to communicate with your stakeholder on an abstract level withou
 The building block view is a hierarchical collection of black boxes and white boxes
 (see figure below) and their descriptions.
 
-image:05_building_blocks-EN.png["Hierarchy of building blocks"]
 
 *Level 1* is the white box description of the overall system together with black
 box descriptions of all contained building blocks.
@@ -31,10 +30,11 @@ box descriptions of all contained building blocks.
 *Level 2* zooms into some building blocks of level 1.
 Thus it contains the white box description of selected building blocks of level 1, together with black box descriptions of their internal building blocks.
 
+
 *Level 3* zooms into selected building blocks of level 2, and so on.
 ****
 
-=== Whitebox Overall System
+=== Sistema general de caja blanca
 
 [role="arc42help"]
 ****
@@ -57,18 +57,8 @@ In the best case you will get away with examples or simple signatures.
 
 ****
 
-_**<Overview Diagram>**_
+image:05diagrama_general.png["Hierarchy of building blocks"]
 
-Motivation::
-
-_<text explanation>_
-
-
-Contained Building Blocks::
-_<Description of contained building block (black boxes)>_
-
-Important Interfaces::
-_<Description of important interfaces>_
 
 [role="arc42help"]
 ****
@@ -80,7 +70,7 @@ responsibility according to the following schema:
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| _<black box 1>_ | _<Text>_
+| _Dede_ | _<Text>_
 | _<black box 2>_ | _<Text>_
 |===
 
@@ -91,55 +81,35 @@ Its headline is the name of the black box.
 ****
 
 
-==== <Name black box 1>
+=== Nivel 1
 
 [role="arc42help"]
 ****
-Here you describe <black box 1>
-according the the following black box template:
+Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.
 
-* Purpose/Responsibility
-* Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.
-* (Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, ....
-* (Optional) directory/file location
-* (Optional) Fulfilled requirements (if you need traceability to requirements).
-* (Optional) Open issues/problems/risks
+You have to decide which building blocks of your system are important enough to justify such a detailed description.
+Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
+Leave out normal, simple, boring or standardized parts of your system
+****
+image:05Nivel_1v2.png["Nivel 1"]
 
+==== Caja negra : Dede
+
+
+[role="arc42help"]
+****
+...describes the internal structure of _building block 1_.
 ****
 
-_<Purpose/Responsibility>_
-
-_<Interface(s)>_
-
-_<(Optional) Quality/Performance Characteristics>_
-
-_<(Optional) Directory/File Location>_
-
-_<(Optional) Fulfilled Requirements>_
-
-_<(optional) Open Issues/Problems/Risks>_
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _Dede_ | _Aplicación._
+|===
 
 
 
-
-==== <Name black box 2>
-
-_<black box template>_
-
-==== <Name black box n>
-
-_<black box template>_
-
-
-==== <Name interface 1>
-
-...
-
-==== <Name interface m>
-
-
-
-=== Level 2
+=== Nivel 2
 
 [role="arc42help"]
 ****
@@ -150,30 +120,32 @@ Please prefer relevance over completeness. Specify important, surprising, risky,
 Leave out normal, simple, boring or standardized parts of your system
 ****
 
-==== White Box _<building block 1>_
+image:05Nivel_2v2.png["Nivel 2"]
+
+==== Caja blanca : Dede
+
 
 [role="arc42help"]
 ****
 ...describes the internal structure of _building block 1_.
 ****
+Este diagrama contiene en detalle lo que abarca la caja negra Dede.
 
-_<white box template>_
-
-==== White Box _<building block 2>_
-
-
-_<white box template>_
-
-...
-
-==== White Box _<building block m>_
-
-
-_<white box template>_
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _WebApp_ | _Se encarga de la comunicación del usuario con la aplicación._
+| _RestApi_ | _Conecta la gestión de datos con la interacción del usuario_
+| _Persistencia_ | _Gestiona los datos permanentes de la aplicación._
+| _No persistencia_ | _Gestiona los datos volátiles de la aplicación._
+| _Servicios externos_ | _Se utilizan en muchas partes de la aplicación, son servicios externos,
+que ya existen, y utilizamos sus servicios en nuestra aplicación._
+|===
 
 
+=== Nivel 3
 
-=== Level 3
+image:05Nivel_3v2.png["Nivel 3"]
 
 [role="arc42help"]
 ****
@@ -184,23 +156,46 @@ part of arc42 for additional levels.
 ****
 
 
-==== White Box <_building block x.1_>
+==== Caja blanca: WebApp
 
 [role="arc42help"]
 ****
 Specifies the internal structure of _building block x.1_.
 ****
+En este apartado, se explicarán las interfaces de usaurio pertenecientes a la webapp.
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _Login_ | _Muestra al usuario opciones para iniciar sesión en su pod._
+| _Productos_ | _Muestra al usuario el catálogo de la aplicación._
+| _Carrito_ | _Permite realizar un pedido al usuarii en la tienda._
+| _Pedidos_ | _El usuario puede ver sus pedidos._
+|===
 
 
-_<white box template>_
+==== Caja blanca: RestApi
+
+Ahora, se desglosará el contenido de la restapi de la aplicación.
+
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _Gestor Login_ | _Se encarga de permitir al usuario iniciar sesión._
+| _Gestor Productos_ | _Se encarga de obtener los productos existentes._
+| _Gestor Carrito_ | _Se encarga de gestionar la funcionalidad de la compra._
+| _Gestor Pedidos_ | _Se encarga de la lógica para realizar un pedido._
+|===
 
 
-==== White Box <_building block x.2_>
+==== Caja blanca: SOLID-pod
 
-_<white box template>_
+Gestiona los datos del usuario con librerías y principios SOLID, utilizando el POD del usuario para obtener datos como su dirección.
 
+==== Caja blanca: MongoDB
 
+Gestiona los datos persistentes de la aplicación: productos, pedidos, etc.
 
-==== White Box <_building block y.1_>
+==== Caja blanca: Api Shipping
 
-_<white box template>_
+Gestiona las transacciones relacionadas con los pedidos.
+
