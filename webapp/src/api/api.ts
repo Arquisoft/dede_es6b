@@ -22,12 +22,12 @@ export async function getUsers():Promise<User[]>{
     return response.json()
 }
 
-export async function addOrder(cartProducts:Product[], price:number, direccion:string, user_id:string|undefined){
+export async function addOrder(cartProducts:Product[], price:number, url:string, user_id:string|undefined){
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/orders/add', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({'cartProducts':cartProducts, 'price':price, 'direccion':direccion, 'user_id':user_id})
+      body: JSON.stringify({'cartProducts':cartProducts, 'price':price, 'url':url, 'user_id':user_id})
     });
 
 }

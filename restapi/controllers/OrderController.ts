@@ -38,7 +38,7 @@ export const addOrder = async (req: Request, res: Response) => {
         order.products = req.body.cartProducts;
         //Actualizar el stock
         order.price = req.body.price;
-        order.direccion = req.body.direccion;
+        order.url = req.body.url;
         order.date = Date.now();
         order.status = "PREPARÁNDOSE";
     
