@@ -63,16 +63,13 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
   return response.json();
 }
 
-export async function createTransaction(DataOrder:ShipmentData):Promise<JSON>{
+export async function createTransaction(rate:string):Promise<JSON>{
   const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
-  let response = await fetch(apiEndPoint+'/createOrder',{
+  let response = await fetch(apiEndPoint+'/createTransaction',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
-      'name': DataOrder.name,
-      'city': DataOrder.city,
-      'street': DataOrder.street,
-      'zipcode': DataOrder.zipcode
+      'rate': rate,
     })
   });
   return response.json();

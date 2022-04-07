@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import { Wrapper } from './Cart.styles';
 import { Button } from '@mui/material';
 import React from 'react';
+import { useSession } from '@inrupt/solid-ui-react';
 
 
 
@@ -22,7 +23,9 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
     
 
     const navigate = useNavigate();
- 
+    const { session } = useSession();
+    
+
      
     return (
         <Wrapper>
@@ -37,7 +40,10 @@ const Cart:React.FC<Props> = ({cartItems, addToCart, removeFromCart})=> {
                     <p>El carrito está vacío</p>
             }
             <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
-            <Button disabled={cartItems.length>0 ? false : true } onClick={()=> navigate('/order')}>
+            <Button disabled={cartItems.length>0 ? false : true } onClick={()=>{ if(session.info.isLoggedIn)
+            navigate('/order');
+        else
+            navigate('/login')}}>
                Continuar compra
             </Button>
         </Wrapper>

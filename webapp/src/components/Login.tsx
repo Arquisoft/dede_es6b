@@ -42,7 +42,6 @@ const authOptions = {
 
 const providers = [
   { name: "SolidCommunity", value: "https://solidcommunity.net" },
-  { name: "Inrupt", value: "https://broker.pod.inrupt.com" },
 ];
 
 

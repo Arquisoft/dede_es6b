@@ -24,7 +24,6 @@ const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
             {/*
         // @ts-ignore */}
             
-            <h3>{orderProducts.length} ITEMS</h3>
             {
                  orderProducts.map((p) => (
                     <OrderProductItem 
@@ -32,7 +31,6 @@ const OrderList:React.FC<PropsOrder> = ({orderProducts}) => {
                     </OrderProductItem>))
             }
             <p></p>
-            <AddressesComboBox></AddressesComboBox>
         </Grid>
     );
 }
