@@ -32,6 +32,13 @@ export async function addOrder(cartProducts:Product[], price:number, direccion:s
 
 }
 
+export async function getOrdersByUser(user_id:string|undefined){
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint + "/orders/" + user_id);
+  return response.json();
+
+}
+
 
 //Devuelve los productos de la base de datos
 export async function getProducts():Promise<Product[]>{
@@ -45,6 +52,13 @@ export async function getProducts():Promise<Product[]>{
 export async function getProductsByCategory(category: string): Promise<Product[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint + "/products/" + category);
+  return response.json();
+}
+
+//Producto por código
+export async function getProductByCode(code: string): Promise<Product[]>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint + "/products/find/" + code);
   return response.json();
 }
 

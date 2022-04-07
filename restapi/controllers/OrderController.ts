@@ -5,6 +5,9 @@ import Order from '../models/Order';
 import Product from '../models/Product';
 
 import { createBrotliDecompress } from 'zlib';
+import { findByCode } from './ProductController';
+
+import{getProductByCode} from "../../webapp/src/api/api"
 
 
 var randomstring = require("randomstring");
@@ -33,9 +36,7 @@ export const addOrder = async (req: Request, res: Response) => {
         order.code_order = randomstring.generate();
         order.user_id = req.body.user_id;
         order.products = req.body.cartProducts;
-        /*for(let i=0; i<products.length;i++){
-            order.products.push(products[i]._id);
-        }*/
+        //Actualizar el stock
         order.price = req.body.price;
         order.direccion = req.body.direccion;
         order.date = Date.now();
