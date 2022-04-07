@@ -10,7 +10,9 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import { Product } from '../shared/shareddtypes';
+import { ProductAdd } from '../../pages/HomePage';
+import { Button } from '@mui/material';
+import { Product } from '../../shared/shareddtypes';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -41,17 +43,22 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
+    <Card sx={{ maxWidth: 320 }}>
+     <div style={{ height: 120 }}> 
+      <CardHeader height="120"
         action={
-            <Typography variant='h5' color='textSecondary'>
-                {product.product.price}$
+            <Typography variant='h6' color='textSecondary'>
+                {product.product.price}€
             </Typography>
 
           }
-          title={product.product.name}
+          title={<Typography variant='h6' color='black'>
+          {product.product.name}
+      </Typography>
+          }
           subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
       />
+      </div>
       <CardMedia
         component="img"
         height="194"
@@ -64,7 +71,8 @@ export default function CardProduct(product:ProductToAdd) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+        <IconButton disabled= {product.product.stock > 0 ? false : true}
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
           <AddShoppingCart fontSize='large' />
         </IconButton>
         <ExpandMore

@@ -1,18 +1,17 @@
 import express, { Request, Response, Router } from 'express';
+import { addOrder, findAllOrders, findOrdersByUser } from '../controllers/OrderController';
 
-const oderRouter = express.Router()
+const orderRouter = express.Router()
 const Order = require('../models/Order')
 
 let bd = require('../utils/connectDB')
 
+orderRouter.get("/list", findAllOrders);
 
-oderRouter.get(
-    "/orders/list",
-    async (req: Request, res: Response): Promise<Response> => {
-        let orders = await Order.find()
-        console.log(orders);
-        return res.status(200).send(orders)
-    }
-  ); 
+orderRouter.get("/:user_id",findOrdersByUser);
 
-  export default oderRouter;
+orderRouter.post("/add",addOrder);
+
+
+
+export default orderRouter;

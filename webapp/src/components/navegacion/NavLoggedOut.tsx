@@ -37,6 +37,10 @@ export default function NavLoggedOut(props:CartItemsFunc){
        navigate('/login');
     }
 
+    function goHome(){
+      navigate('/');
+    }
+
     return(     
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static" className={classes.appBar}>
@@ -50,10 +54,14 @@ export default function NavLoggedOut(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Button onClick={goHome}>
+          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
           </Typography>
+          </Button>
+          <Box sx={{ flexGrow: 1 }} />
 
+          <Box sx={{ flexGrow: -3}}>
           <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -68,6 +76,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
           <Button color="inherit" onClick={goToLogIn}>
             Iniciar sesión
           </Button>
+          </Box>
     </Toolbar>
     </AppBar>
     </Box>

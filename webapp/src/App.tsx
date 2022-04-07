@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component,useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import {Product} from './shared/shareddtypes';
+import {PaymentType, Product} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
 import { getProducts } from './api/api';
@@ -16,6 +16,9 @@ import {
 import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
+import { OrderPage } from './pages/OrderPage';
+import { PaymentPage } from './pages/PaymentPage';
+import Footer from './components/footer/Footer';
 
 function App(): JSX.Element {
 
@@ -23,10 +26,10 @@ function App(): JSX.Element {
   const history = createHashHistory();
 
   const [cartProducts, setCart] = useState([] as Product[]);
-  const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
 
+  const [payments, setPayments] = useState<PaymentType[]>([]);
 
   const refreshProductList = async () => {
     setProductos(await getProducts());
@@ -70,16 +73,26 @@ function App(): JSX.Element {
     items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
+   
     <BrowserRouter>
+     <div className="page-container">
+    <div className='content-wrapper'>
     <NavBar getItems={getTotalItems(cartProducts)}/>
+    
     <Routes>
         <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
         <Route path="/login" element={<LoginPage />}/>  
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
-            removeFromCart={removeFromCart}/>}/> 
-    </Routes>    
+            removeFromCart={removeFromCart}/>}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
+    </Routes>  
+    </div>
+    <Footer/>
+    </div>
     </BrowserRouter>
+    
 
   );
 }
