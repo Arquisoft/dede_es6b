@@ -91,7 +91,7 @@ You have to decide which building blocks of your system are important enough to 
 Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
 Leave out normal, simple, boring or standardized parts of your system
 ****
-image:05Nivel_1.png["Nivel 1"]
+image:05Nivel_1v2.png["Nivel 1"]
 
 ==== Caja negra : Dede
 
@@ -119,7 +119,8 @@ You have to decide which building blocks of your system are important enough to 
 Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks.
 Leave out normal, simple, boring or standardized parts of your system
 ****
-image:05Nivel_2.png["Nivel 2"]
+
+image:05Nivel_2v2.png["Nivel 2"]
 
 ==== Caja blanca : Dede
 
@@ -137,10 +138,14 @@ Este diagrama contiene en detalle lo que abarca la caja negra Dede.
 | _RestApi_ | _Conecta la gestión de datos con la interacción del usuario_
 | _Persistencia_ | _Gestiona los datos permanentes de la aplicación._
 | _No persistencia_ | _Gestiona los datos volátiles de la aplicación._
+| _Servicios externos_ | _Se utilizan en muchas partes de la aplicación, son servicios externos,
+que ya existen, y utilizamos sus servicios en nuestra aplicación._
 |===
 
 
 === Nivel 3
+
+image:05Nivel_3v2.png["Nivel 3"]
 
 [role="arc42help"]
 ****
@@ -186,7 +191,11 @@ Ahora, se desglosará el contenido de la restapi de la aplicación.
 
 Gestiona los datos del usuario con librerías y principios SOLID, utilizando el POD del usuario para obtener datos como su dirección.
 
-==== Caja blanca: MondoDB
+==== Caja blanca: MongoDB
 
 Gestiona los datos persistentes de la aplicación: productos, pedidos, etc.
+
+==== Caja blanca: Api Shipping
+
+Gestiona las transacciones relacionadas con los pedidos.
 
