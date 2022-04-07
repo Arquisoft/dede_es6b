@@ -41,7 +41,6 @@ const authOptions = {
 };
 
 const providers = [
-  { name: "Inrupt", value: "https://broker.pod.inrupt.com" },
   { name: "SolidCommunity", value: "https://solidcommunity.net" },
 ];
 
@@ -49,14 +48,12 @@ const providers = [
 export default function Login() {
   const { session } = useSession();
   const classes = useStyles();
-  const [idp, setIdp] =useState("https://broker.pod.inrupt.com");
+  const [idp, setIdp] =useState("https://solidcommunity.net");
   const dispatch = useDispatch();
   
   function callback() {
     dispatch(setLogguedStatus(true));
 }
-
-
 
 return (
   
