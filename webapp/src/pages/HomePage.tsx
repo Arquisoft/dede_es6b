@@ -20,11 +20,9 @@ export const HomePage= (props:ProductAdd)=> {
 
   const formik = useFormik({
     initialValues: {
-      gender: '',
       category: '',
       colors: '',
-      priceRange: '',
-      rating: ''
+      priceRange: ''
     },
     onSubmit: () => {
       setOpenFilter(false);
@@ -48,9 +46,6 @@ export const HomePage= (props:ProductAdd)=> {
 
     return (
       <div className="HomePage">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
-        </Typography>
 
         <Stack
           direction="row"
@@ -59,15 +54,15 @@ export const HomePage= (props:ProductAdd)=> {
           justifyContent="flex-end"
           sx={{ mb: 5 }}
         >
-          <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
+          <Stack direction="row" spacing={2} flexShrink={0} sx={{ my: 0 }}>
             <Filter
               formik={formik}
               isOpenFilter={openFilter}
               onResetFilter={handleResetFilter}
               onOpenFilter={handleOpenFilter}
               onCloseFilter={handleCloseFilter}
+              products={props.products}
             />
-            <ProductSort />
           </Stack>
         </Stack>
 

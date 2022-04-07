@@ -53,7 +53,8 @@ Filter.propTypes = {
   onResetFilter: PropTypes.func,
   onOpenFilter: PropTypes.func,
   onCloseFilter: PropTypes.func,
-  formik: PropTypes.object
+  formik: PropTypes.object,
+  products: PropTypes.object
 };
 
 export default function Filter({
@@ -61,7 +62,8 @@ export default function Filter({
   onResetFilter,
   onOpenFilter,
   onCloseFilter,
-  formik
+  formik,
+  products
 }) {
   const { values, getFieldProps, handleChange } = formik;
 
@@ -132,18 +134,18 @@ export default function Filter({
                   </RadioGroup>
                 </div>
 
-                <div>
-                  <Typography variant="subtitle1" gutterBottom>
-                    Color
-                  </Typography>
-                  <ColorManyPicker
-                      name="colors"
-                      colors={FILTER_COLOR_OPTIONS}
-                      onChange={handleChange}
-                      onChecked={(color) => values.colors.includes(color)}
-                      sx={{ maxWidth: 38 * 4 }}
-                  />
-                </div>
+                {/*<div>*/}
+                {/*  <Typography variant="subtitle1" gutterBottom>*/}
+                {/*    Color*/}
+                {/*  </Typography>*/}
+                {/*  <ColorManyPicker*/}
+                {/*      name="colors"*/}
+                {/*      colors={FILTER_COLOR_OPTIONS}*/}
+                {/*      onChange={handleChange}*/}
+                {/*      onChecked={(color) => values.colors.includes(color)}*/}
+                {/*      sx={{ maxWidth: 38 * 4 }}*/}
+                {/*  />*/}
+                {/*</div>*/}
 
               </Stack>
             </Scrollbar>
