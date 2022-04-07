@@ -19,6 +19,7 @@ import {
 import Iconify from './Iconify';
 import Scrollbar from './Scrollbar';
 import ColorManyPicker from './ColorManyPicker';
+import {Product} from "../../shared/shareddtypes";
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +29,6 @@ export const SORT_BY_OPTIONS = [
   { value: 'priceDesc', label: 'Precio: Alto-Bajo' },
   { value: 'priceAsc', label: 'Precio: Bajo-Alto' }
 ];
-export const FILTER_GENDER_OPTIONS = ['Hombre', 'Mujer', 'Niño'];
 export const FILTER_CATEGORY_OPTIONS = ['Todo', 'Zapatos', 'Tronco', 'Pantalones'];
 export const FILTER_PRICE_OPTIONS = [
   { value: 'below', label: 'Menor a 25€' },
@@ -104,26 +104,6 @@ export default function Filter({
 
             <Scrollbar sx={{ px: 2.5, py: 3, display: 'inline-flex' }}> 
               <Stack spacing={3} sx={{ p: 3 }}>
-                <div>
-                  <Typography variant="subtitle1" gutterBottom>
-                    Género
-                  </Typography>
-                  <FormGroup>
-                    {FILTER_GENDER_OPTIONS.map((item) => (
-                      <FormControlLabel
-                        key={item}
-                        control={
-                          <Checkbox
-                            {...getFieldProps('gender')}
-                            value={item}
-                            checked={values.gender.includes(item)}
-                          />
-                        }
-                        label={item}
-                      />
-                    ))}
-                  </FormGroup>
-                </div>
 
                 <div>
                   <Typography variant="subtitle1" gutterBottom>
@@ -134,19 +114,6 @@ export default function Filter({
                       <FormControlLabel key={item} value={item} control={<Radio />} label={item} />
                     ))}
                   </RadioGroup>
-                </div>
-
-                <div>
-                  <Typography variant="subtitle1" gutterBottom>
-                    Color
-                  </Typography>
-                  <ColorManyPicker
-                    name="colors"
-                    colors={FILTER_COLOR_OPTIONS}
-                    onChange={handleChange}
-                    onChecked={(color) => values.colors.includes(color)}
-                    sx={{ maxWidth: 38 * 4 }}
-                  />
                 </div>
 
                 <div>
@@ -163,6 +130,19 @@ export default function Filter({
                       />
                     ))}
                   </RadioGroup>
+                </div>
+
+                <div>
+                  <Typography variant="subtitle1" gutterBottom>
+                    Color
+                  </Typography>
+                  <ColorManyPicker
+                      name="colors"
+                      colors={FILTER_COLOR_OPTIONS}
+                      onChange={handleChange}
+                      onChecked={(color) => values.colors.includes(color)}
+                      sx={{ maxWidth: 38 * 4 }}
+                  />
                 </div>
 
               </Stack>
