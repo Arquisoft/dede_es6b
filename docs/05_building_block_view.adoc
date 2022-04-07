@@ -1,7 +1,7 @@
 [[section-building-block-view]]
 
 
-== Building Block View
+== Vista de bloques
 
 [role="arc42help"]
 ****
@@ -34,7 +34,7 @@ Thus it contains the white box description of selected building blocks of level 
 *Level 3* zooms into selected building blocks of level 2, and so on.
 ****
 
-=== Whitebox Overall System
+=== Sistema general de caja blanca
 
 [role="arc42help"]
 ****
