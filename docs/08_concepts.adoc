@@ -52,16 +52,22 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 
 === Domain model
 
-image:domainmodel.png["Possible topics for crosscutting concepts"]
+image:domain.png
 
 
 
-=== _<Concept 2>_
+=== Experiencia de usuario
 
-_<explanation>_
+La aplicación tiene una interfaz intuitiva y familiar para asegurarnos de que es sencillade usar para la gran mayoría de los clientes.
 
-...
+=== Internacionalización
 
-=== _<Concept n>_
+La aplicación principalmente actualmente solo está adaptada al español.
 
-_<explanation>_
+=== Seguridad y Privacidad
+
+La privacidad es el principal elemento de nuestra aplicación. En nuestra base de datos tan solo almacenaremos los pedidos realizados para que los usuarios puedan visualizarlos. Tanto la sesión como la información personal (en nuestro caso, las direcciones de envío) se obtendrán del POD del usuario.
+
+=== Pruebas
+
+Durante el desarrollo de la aplicación se van realizando pruebas para evitar vulnerabilidades que supongan una amenaza para el usuario y sus datos.
