@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 
-import {findAllProducts,findByCategory,findByCategoryAndSize} from '../controllers/ProductController';
+import {findAllProducts} from '../controllers/ProductController';
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
@@ -21,10 +21,6 @@ const Product = require('../models/Product')
 
 productRouter.get("/products/list", findAllProducts);
 
-productRouter.get("/products/:category", findByCategory);
-
-productRouter.get("/products/:category/:size", findByCategoryAndSize);
-
 
 // productRouter.get(
 //     "/producto/:id",
@@ -40,7 +36,12 @@ productRouter.get("/products/:category/:size", findByCategoryAndSize);
 // );
 
 
-
+// productRouter.get(
+//     "/products/category/:id",
+//     async (req: Request, res: Response) => {
+//         let productos = await Product.find({ categoria: req.params.categoria }).then(() => res.status(200).send(productos))
+//     }
+// );
 
 // productRouter.post(
 //     "/products/delete",

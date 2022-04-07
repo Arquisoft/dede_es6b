@@ -18,7 +18,6 @@ let bd = require('./utils/connectDB')
 const metricsMiddleware:RequestHandler = promBundle({includeMethod: true});
 app.use(metricsMiddleware);
 
-app.use(cors());
 app.use(cors(options));
 app.use(bp.json());
 app.use(express.json());
