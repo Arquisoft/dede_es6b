@@ -59,7 +59,7 @@ export const OrderPage= (props:PropsOrder)=> {
         <h4>Plazo de entrega: {getDeliveryTime()}</h4>
         <h3>Total: {getTotal(totalPrice(props.orderProducts)).toFixed(2)}€</h3> 
       </div>
-      <Button onClick={()=>addOrder(props.orderProducts,totalPrice(props.orderProducts),"mi dirección",session.info.webId)}>Realizar pedido</Button>
+      <Button onClick={()=>addOrder(props.orderProducts,getTotal(totalPrice(props.orderProducts)),"mi dirección",session.info.webId)}>Realizar pedido</Button>
       </>
       
     );
