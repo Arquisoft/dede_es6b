@@ -10,6 +10,8 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
+import { ProductAdd } from '../pages/HomePage';
+import { Button } from '@mui/material';
 import { Product } from '../shared/shareddtypes';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -27,7 +29,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-type ProductToAdd = {
+type ProductToAdd ={
   product: Product
   addToCart:(clickedItem: Product)=>void;
 }
@@ -64,7 +66,7 @@ export default function CardProduct(product:ProductToAdd) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+        <IconButton aria-label="add to cart">
           <AddShoppingCart fontSize='large' />
         </IconButton>
         <ExpandMore

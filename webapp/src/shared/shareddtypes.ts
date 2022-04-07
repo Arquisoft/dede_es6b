@@ -10,8 +10,8 @@ export type Product = {
     size:string,
     stock:number,
    // category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
-    category:string,
-    color:string,
+   category:string,
+    color:number,
     price:number,
     imagen: string,
     quantity: number
@@ -21,7 +21,7 @@ export type CartProduct ={
     id:string,
     name: string,
     size:string,
-    color:string,
+    color:number,
     price:number,
     imagen: string,
     quantity: number
