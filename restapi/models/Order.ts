@@ -19,10 +19,9 @@ const orderSchema = new mongoose.Schema({
         required: true,
         min: 0,
     },
-    direccion: {
+    url: {
         type: String,
         required: true,
-        lowercase: true,
     },
     date: {
         type: Date,

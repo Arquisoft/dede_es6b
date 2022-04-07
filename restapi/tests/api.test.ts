@@ -121,12 +121,12 @@ describe('Orders ', () => {
         let user_id = "celiabarral";
         //order.products = req.body.cartProducts;
         let price = 150.25;
-        let direccion = "direccion";
+        let url = "url";
         let date = Date.now();
         let status = "PREPARÁNDOSE";
         await api
         const response:Response = await request(app).post('/orders/add').send({code_order:code_order,user_id:user_id
-        ,price:price,direccion:direccion,date:date,status:status})
+        ,price:price,url:url,date:date,status:status})
         expect(response.statusCode).toBe(200);
         expect(response.text).toEqual("Añadido pedido correctamente")
     });
