@@ -52,7 +52,7 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 
 === Domain model
 
-image:domain.png
+image:domain.png["Dominio"]
 
 
 
