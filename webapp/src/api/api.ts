@@ -55,6 +55,13 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   return response.json();
 }
 
+//Producto por código
+export async function getProductByCode(code: string): Promise<Product[]>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint + "/products/find/" + code);
+  return response.json();
+}
+
 export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
   const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
   let response = await fetch(apiEndPoint+'/createOrder',{
