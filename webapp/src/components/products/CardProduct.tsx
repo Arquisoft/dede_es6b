@@ -44,16 +44,21 @@ export default function CardProduct(product:ProductToAdd) {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
+     <div style={{ height: 120 }}> 
+      <CardHeader height="120"
         action={
-            <Typography variant='h5' color='textSecondary'>
+            <Typography variant='h6' color='textSecondary'>
                 {product.product.price}$
             </Typography>
 
           }
-          title={product.product.name}
+          title={<Typography variant='h6' color='black'>
+          {product.product.name}
+      </Typography>
+          }
           subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
       />
+      </div>
       <CardMedia
         component="img"
         height="194"
