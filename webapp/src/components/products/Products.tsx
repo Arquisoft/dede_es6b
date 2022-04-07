@@ -20,11 +20,11 @@ export default function Products(product:ProductAdd) {
   
   return (
     <Grid container
-    spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}
-    rowSpacing={1} marginTop={2}
+    spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}
+    rowSpacing={5} marginTop={2}
   >
     {product.products.map((p, i) => (
-          <Grid item xs={2} sm={4} md={4} key={i} >
+          <Grid item xs={2} sm={4} md={3} key={i} >
               <CardProduct product={p} addToCart= {product.addToCart}></CardProduct>
           </Grid>
       ))}

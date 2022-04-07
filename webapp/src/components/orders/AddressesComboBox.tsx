@@ -16,9 +16,9 @@ export default function ComboBox() {
   const [options, setOptions] = React.useState<readonly string[]>([]);
   const {session} =useSession();
   const loading = open && options.length === 0;
-  
 
   React.useEffect(() => {
+    
 
     let active = true;
 

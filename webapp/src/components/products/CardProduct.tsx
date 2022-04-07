@@ -43,12 +43,12 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 320 }}>
      <div style={{ height: 120 }}> 
       <CardHeader height="120"
         action={
             <Typography variant='h6' color='textSecondary'>
-                {product.product.price}$
+                {product.product.price}€
             </Typography>
 
           }
