@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from 'express';
-import {findAllOrders, findOrdersByUserId} from '../controllers/OrderController';
+import { addOrder, findAllOrders, findOrdersByUser } from '../controllers/OrderController';
 
 const orderRouter = express.Router()
 const Order = require('../models/Order')
@@ -10,4 +10,12 @@ orderRouter.get("/orders/list", findAllOrders);
 
 orderRouter.get("/orders/list/:id", findOrdersByUserId);
 
-  export default orderRouter;
+orderRouter.get("/list", findAllOrders);
+
+orderRouter.get("/:user_id",findOrdersByUser);
+
+orderRouter.post("/add",addOrder);
+
+
+
+export default orderRouter;
