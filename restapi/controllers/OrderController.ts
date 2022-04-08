@@ -1,7 +1,7 @@
 require("../utils/connectDB")
 
 import { Request, Response } from 'express';
-import Pedido from '../models/Order';
+import Pedido  from '../models/Order';
 
 export const findAllOrders = async (req: Request, res: Response): Promise<Response> => {
     const pedidos = await Pedido.find({});

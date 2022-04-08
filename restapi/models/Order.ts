@@ -44,6 +44,6 @@ const orderSchema = new mongoose.Schema({
         default: "PREPARÁNDOSE",
     }
         
-})
+});
 
 export default mongoose.model("Order", orderSchema)
