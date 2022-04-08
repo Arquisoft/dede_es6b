@@ -6,9 +6,9 @@ const Order = require('../models/Order')
 
 let bd = require('../utils/connectDB')
 
-orderRouter.get("/orders/list", findAllOrders);
+orderRouter.get("orders/list", findAllOrders);
 
-orderRouter.get("/orders/list/:id", findOrdersByUserId);
+orderRouter.get("/list/:id", findOrdersByUser);
 
 orderRouter.get("/list", findAllOrders);
 

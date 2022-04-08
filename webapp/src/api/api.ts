@@ -1,6 +1,6 @@
 
 import {Product, Pedido} from '../shared/shareddtypes';
-import {ShipmentData, User} from '../shared/shareddtypes';
+import {ShipmentData, User} from '../shared/shareddtypes'; 
 import { CartProduct } from '../shared/shareddtypes';
 
 export async function addUser(user:User):Promise<boolean>{
@@ -56,8 +56,6 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   return response.json();
 }
 
-<<<<<<< HEAD
-=======
 //Producto por código
 export async function getProductByCode(code: string): Promise<Product[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
@@ -81,6 +79,7 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
 }
 
 export async function createTransaction(rate:string):Promise<JSON>{
+  debugger;
   const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
   let response = await fetch(apiEndPoint+'/createTransaction',{
     method: 'POST',
@@ -97,7 +96,6 @@ export async function createTransaction(rate:string):Promise<JSON>{
 const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
 
 
->>>>>>> shipment
     
 export async function getPedidos(): Promise<Pedido[]> {
   const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000'

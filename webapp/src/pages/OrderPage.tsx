@@ -29,8 +29,9 @@ export const OrderPage= (props:PropsOrder)=> {
     }
 
     const makeTransaction = async (order:any) =>{
-      if(getOrderData()!=null)
+      if(getOrderData()!=null){
         setTransaction(await createTransaction(order["rates"][0]["object_id"]));
+      }
       else
         setTransaction(null);
     }
@@ -72,10 +73,12 @@ export const OrderPage= (props:PropsOrder)=> {
 
     async function confirmOrder(){
       if(parseInt(getPrecioEnvio())!=0){
+        console.log(getURL())
          addOrder(props.orderProducts,getTotal(totalPrice(props.orderProducts)),getURL(),session.info.webId)
         console.log("Order added");
+        navigate('/orders/list');
         }
-        }
+      }
 
 
 

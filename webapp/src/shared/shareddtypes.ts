@@ -46,24 +46,43 @@ export type ShipmentData = {
   quantity: number;
 }*/
 
-export type Pedido = {
-  _id:string;
-  numero_pedido:number;
-  id_usuario:string;
-  precio_total:number;
-  estado: Estado;
-  fecha:string;
-  productos:[{
-      id_producto:string,
-      cantidad:number,
-      precio:number,
-  }];
-}
+// export type Pedido = {
+//   _id:string;
+//   numero_pedido:number;
+//   id_usuario:string;
+//   precio_total:number;
+//   estado: Estado;
+//   fecha:string;
+//   productos:[{
+//       id_producto:string,
+//       cantidad:number,
+//       precio:number,
+//   }];
+// }
 
-export enum Estado {
-  entregado = "Entregado",
-  reparto = "En reparto",
-  pendiente = "Pendiente",
-  listo = "Listo para repartir",
-  cancelado = "Cancelado"
+// export enum Estado {
+//   entregado = "Entregado",
+//   reparto = "En reparto",
+//   pendiente = "Pendiente",
+//   listo = "Listo para repartir",
+//   cancelado = "Cancelado"
+// }
+
+export type Pedido = {
+  code_order: string,
+
+
+  user_id: String,
+
+  products: [{
+    id_producto: String,
+    quantity: Number
+  }],
+  price: Number,
+  direccion: String,
+
+  date: Date,
+  status: String,
+
+
 }
