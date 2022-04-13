@@ -1,6 +1,15 @@
 require("../utils/connectDB")
 
 import { Request, Response } from 'express';
+import Pedido  from '../models/Order';
+
+
+export const findOrdersByUserId = async (req: Request, res: Response): Promise<Response> => {
+    const pedidos = await Pedido.find({  id_usuario: req.params.id });
+    return res.json(pedidos);
+};
+
+
 import Order from '../models/Order';
 import Product from '../models/Product';
 

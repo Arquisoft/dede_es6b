@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component, useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import { Product, Pedido, PaymentType } from './shared/shareddtypes';
+import {PaymentType, Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
 import { getProducts, getPedidos } from './api/api';
@@ -24,8 +24,7 @@ import Footer from './components/footer/Footer';
 
 function App(): JSX.Element {
 
-  const dispatch = useDispatch();
-  const history = createHashHistory();
+  
 
   const [cartProducts, setCart] = useState([] as Product[]);
 
@@ -44,20 +43,13 @@ function App(): JSX.Element {
   }, []);
 
   const addToCart = (clickedItem: Product) => {
-    setCart((prev) => {
-      const isItemInCart = prev.find((item) => item._id === clickedItem._id);
-
-      if (isItemInCart) {
-        return prev.map((item) =>
-          item._id === clickedItem._id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-
-      return [...prev, { ...clickedItem, quantity: 1 }];
+    setCart( estadoActual => {
+      const estaEnElCarrito = estadoActual.find(i => i._id === clickedItem._id);
+      if(!estaEnElCarrito)
+        return [...estadoActual,{...clickedItem, quantity: 1}];
+      return [...estadoActual];
     });
-  };
+  }
 
   const removeFromCart = (id: string) => {
     setCart((prev) =>
@@ -72,6 +64,8 @@ function App(): JSX.Element {
     );
 
   };
+
+
 
   const getTotalItems = (items: Product[]) =>
     items.reduce((acc, item) => acc + item.quantity, 0);
@@ -101,6 +95,7 @@ function App(): JSX.Element {
         <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
+        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
     </Routes>  
     </div>
     <Footer/>

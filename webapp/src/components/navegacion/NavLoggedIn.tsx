@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 export default function NavLoggedIn(props:CartItemsFunc){
     const classes = useStyles();
     const navigate = useNavigate();
-    const dispatch= useDispatch();
 
     function goToCart(){
       navigate('/cart');
@@ -43,7 +42,6 @@ export default function NavLoggedIn(props:CartItemsFunc){
    function goHome(){
     navigate('/');
  }
-
 
     return(     
     <Box sx={{ flexGrow: 1}}>
@@ -175,7 +173,7 @@ function PositionedMenu() {
           <MenuItem onClick={handleClose}>
           <LogoutButton>
               <Button onClick={goHome}><Logout></Logout>Log Out</Button>
-          </LogoutButton>
+            </LogoutButton>
               </MenuItem>
         </Menu>
       </div>

@@ -29,7 +29,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-type ProductToAdd = {
+type ProductToAdd ={
   product: Product
   addToCart:(clickedItem: Product)=>void;
 }

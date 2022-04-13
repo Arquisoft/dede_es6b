@@ -50,7 +50,12 @@ productRouter.get("/:category/:size", findByCategoryAndSize);
 // );
 
 
-
+// productRouter.get(
+//     "/products/category/:id",
+//     async (req: Request, res: Response) => {
+//         let productos = await Product.find({ categoria: req.params.categoria }).then(() => res.status(200).send(productos))
+//     }
+// );
 
 // productRouter.post(
 //     "/products/delete",
