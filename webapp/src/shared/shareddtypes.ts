@@ -28,6 +28,19 @@ export type CartProduct = {
 
 }
 
+export type PaymentType= {
+    name:string,
+    imagen:string
+}
+
+
+export type ShipmentData = {
+  name: string,
+  city: string,
+  street: string,
+  zipcode: string
+}
+
 /*export type CartProduct = {
   product: Product;
   quantity: number;

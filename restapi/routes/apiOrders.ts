@@ -1,12 +1,20 @@
 import express, { Request, Response, Router } from 'express';
-import {findAllOrders, findOrdersByUserId} from '../controllers/OrderController';
+import { addOrder, findAllOrders, findOrdersByUser } from '../controllers/OrderController';
 
 const orderRouter = express.Router()
 
 let bd = require('../utils/connectDB')
 
-orderRouter.get("/orders/list", findAllOrders);
+orderRouter.get("orders/list", findAllOrders);
 
-orderRouter.get("/orders/list/:id", findOrdersByUserId);
+orderRouter.get("/list/:id", findOrdersByUser);
 
-  export default orderRouter;
+orderRouter.get("/list", findAllOrders);
+
+orderRouter.get("/:user_id",findOrdersByUser);
+
+orderRouter.post("/add",addOrder);
+
+
+
+export default orderRouter;

@@ -9,30 +9,19 @@ const orderSchema = new mongoose.Schema({
         unique: true,
     },
     user_id: { 
-        type: mongoose.Types.ObjectId,
+        type: String,
         required: true,
         //ref: "User",
     },
-    products: [{
-        id_producto:{
-            type: mongoose.Types.ObjectId,
-            required: true,
-            //ref: "Product",
-        } ,
-        quantity: {
-            type: Number,
-            default: 0,
-        },
-    }],
+    products: [],
     price: {
         type: Number,
         required: true,
         min: 0,
     },
-    direccion: {
+    url: {
         type: String,
         required: true,
-        lowercase: true,
     },
     date: {
         type: Date,

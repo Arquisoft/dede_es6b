@@ -16,7 +16,7 @@ type PedidoProps = {
 
 
 export default function Pedidos(pedidos: PedidoProps) {
-  return (
+    return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead >
@@ -28,7 +28,7 @@ export default function Pedidos(pedidos: PedidoProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {pedidos.pedidos.filter((p) => p.user_id === pedidos.user).map((pedido) => (
+        {pedidos.pedidos.filter((p) => p.user_id === pedidos.user).map((pedido) => (
             <TableRow
               key={pedido.code_order}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

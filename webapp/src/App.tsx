@@ -5,7 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component, useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import { Product, Pedido } from './shared/shareddtypes';
+import {PaymentType, Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
 import { getProducts, getPedidos } from './api/api';
@@ -18,30 +18,19 @@ import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
 import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
+import { OrderPage } from './pages/OrderPage';
+import { PaymentPage } from './pages/PaymentPage';
+import Footer from './components/footer/Footer';
 
 function App(): JSX.Element {
 
   
 
   const [cartProducts, setCart] = useState([] as Product[]);
-  const [cartOpen, setCartOpen] = useState(false);
 
   const [productos, setProductos] = useState<Product[]>([]);
 
-//   debugger;
-//   cartProducts.push({
-//   _id:"555",
-//   name: "Sudadera",
-//   code:"232",
-//   size:"S",
-//   stock:20,
-//   category:'',
-//   color:1,
-//   price:22,
-//   imagen: "https://cdn.shopify.com/s/files/1/0190/1078/1284/products/IMG_1402_600x.jpg?v=1644447521",
-//   quantity: 1
-// },)
-
+  const [payments, setPayments] = useState<PaymentType[]>([]);
 
   const refreshProductList = async () => {
     setProductos(await getProducts());
@@ -91,18 +80,27 @@ function App(): JSX.Element {
   const { session } = useSession();
 
   return (
+   
     <BrowserRouter>
-      <NavBar getItems={getTotalItems(cartProducts)} />
-      <Routes>
-        <Route path="/" element={<HomePage products={productos} addToCart={addToCart} />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/cart" element={<CartPage cartItems={cartProducts}
-          addToCart={addToCart}
-          removeFromCart={removeFromCart} />} />
-          
+     <div className="page-container">
+    <div className='content-wrapper'>
+    <NavBar getItems={getTotalItems(cartProducts)}/>
+    
+    <Routes>
+        <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
+        <Route path="/login" element={<LoginPage />}/>  
+        <Route path="/cart" element={<CartPage  cartItems={cartProducts}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}/>}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
-      </Routes>
+    </Routes>  
+    </div>
+    <Footer/>
+    </div>
     </BrowserRouter>
+    
 
   );
 }

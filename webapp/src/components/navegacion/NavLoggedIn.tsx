@@ -20,6 +20,9 @@ import { useNavigate } from "react-router-dom";
 import Drawer from '@material-ui/core/Drawer';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
+import { setLogguedStatus } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { profile } from "console";
 
 const useStyles = makeStyles({
     appBar: {
@@ -36,6 +39,8 @@ export default function NavLoggedIn(props:CartItemsFunc){
       navigate('/cart');
    }
 
+
+
     return(     
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static" className={classes.appBar}>
@@ -49,10 +54,13 @@ export default function NavLoggedIn(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Button onClick={goHome}>
+          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
           </Typography>
+          </Button>
 
+          <Box sx={{ flexGrow: 1 }} />
           <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -85,12 +93,16 @@ function PositionedMenu() {
       setAnchorEl(null);
     };
     
-    const profileDocumentURI = session.info.webId!.split('#')[0];
+    const profileDocumentURI = session.info.webId!;
 
     const navigate = useNavigate();
 
     function goHome(){
        navigate('/');
+    }
+
+    function goToProfile(){
+      window.open(profileDocumentURI);
     }
 
     function goToMyOrders(){
@@ -149,7 +161,9 @@ function PositionedMenu() {
             {/*
         // @ts-ignore */}
         <CombinedDataProvider datasetUrl={session.info.webId} thingUrl={session.info.webId}>
-            <Text property={FOAF.name.iri.value} autosave />
+          <Button onClick={goToProfile}>
+            <Text color="black" property={FOAF.name.iri.value} autosave />
+            </Button>
         </CombinedDataProvider>
         </MenuItem>
           <MenuItem onClick={goToMyOrders}>Mis pedidos</MenuItem>
