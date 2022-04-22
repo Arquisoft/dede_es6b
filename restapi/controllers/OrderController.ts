@@ -16,7 +16,6 @@ import Product from '../models/Product';
 import { createBrotliDecompress } from 'zlib';
 import { findByCode } from './ProductController';
 
-import{getProductByCode} from "../../webapp/src/api/api"
 
 
 var randomstring = require("randomstring");
