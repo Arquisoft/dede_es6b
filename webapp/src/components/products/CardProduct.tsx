@@ -50,7 +50,7 @@ export default function CardProduct(product:ProductToAdd) {
         image={product.product.imagen}
         alt={product.product.name}
       />
-      <CardContent>
+      <CardContent >
         <Typography variant="body1" color="text.primary">
          {product.product.name}
         </Typography>
@@ -58,14 +58,13 @@ export default function CardProduct(product:ProductToAdd) {
          {product.product.price} €
         </Typography>
       </CardContent>
-      <div>
-      <CardActions disableSpacing>
+      <CardActions >
         <IconButton disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton>
       </CardActions>
-      </div>
+      
     </Card>
   );
 }
