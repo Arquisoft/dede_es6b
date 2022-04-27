@@ -39,10 +39,15 @@ export default function NavLoggedIn(props:CartItemsFunc){
     function goToCart(){
       navigate('/cart');
    }
+    function goHome(){
+      refreshProducts();
+      navigate('/');
+    }
 
-   function goHome(){
-    navigate('/');
- }
+    function refreshProducts(){
+      props.function();
+    }
+
 
     return(     
     <Box sx={{ flexGrow: 1}}>
