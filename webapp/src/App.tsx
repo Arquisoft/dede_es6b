@@ -93,7 +93,7 @@ function App(): JSX.Element {
     <BrowserRouter>
      <div className="page-container">
     <div className='content-wrapper'>
-    <NavBar getItems={getTotalItems(cartProducts)}/>
+    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList}/>
     
     <Routes>
         <Route path="/" element={<HomePage products={productos} addToCart={addToCart} function={refreshProductListCategory} categorys={categorys}/>}/>

@@ -39,8 +39,13 @@ export default function NavLoggedOut(props:CartItemsFunc){
     }
 
     function goHome(){
+      refreshProducts();
       navigate('/');
     }
+
+  function refreshProducts(){
+      props.function();
+  }
 
     return(     
     <Box sx={{ flexGrow: 1}}>
@@ -60,7 +65,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
             DeDe
           </Typography>
           </Button>
-          <Box sx={{ flexGrow: 1 }} />
+    <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ flexGrow: -3}}>
           <IconButton
