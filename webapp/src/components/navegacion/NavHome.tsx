@@ -7,29 +7,30 @@ import { getProductsByCategory } from '../../api/api';
 
 export type Props = {
     function: (s:string) => void;
+    categorys: string[];
   };
 
 const NavHome = (props: Props) => {
-    let categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
+    
     return(
         <div>
-            {categorys.map(c=>{
-                <Button>{c}</Button>
+            {props.categorys.map(c=>{
+                <div>Hola</div>
             })
             }
             <Button onClick={()=>refreshProducts("Sudaderas",props)}>
                 Sudaderas
             </Button>
-            <Button>
+            <Button onClick={()=>refreshProducts("Pantalones",props)}>
                 Pantalones
             </Button>
-            <Button>
+            <Button onClick={()=>refreshProducts("Camisetas",props)}>
                 Camisetas
             </Button>
-            <Button>
+            <Button onClick={()=>refreshProducts("Playeros",props)}>
                 Calzado
             </Button>
-            <Button>
+            <Button onClick={()=>refreshProducts("Sudaderas",props)}>
                 Accesorios
             </Button>
         </div>

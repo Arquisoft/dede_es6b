@@ -79,7 +79,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
-    <NavHome function={props.function}></NavHome>
+    <NavHome function={props.function} categorys={props.categorys}></NavHome>
     </AppBar>
     </Box>
 );

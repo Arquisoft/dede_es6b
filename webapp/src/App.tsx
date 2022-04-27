@@ -32,6 +32,8 @@ function App(): JSX.Element {
 
   const [payments, setPayments] = useState<PaymentType[]>([]);
 
+  const categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
+
 
 
   const refreshProductList = async () => {
@@ -91,7 +93,7 @@ function App(): JSX.Element {
     <BrowserRouter>
      <div className="page-container">
     <div className='content-wrapper'>
-    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductListCategory}/>
+    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductListCategory} categorys={categorys}/>
     
     <Routes>
         <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
