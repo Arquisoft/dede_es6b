@@ -3,6 +3,7 @@ import { AppBar, Button } from '@mui/material';
 import React, { Component, useEffect } from 'react'
 import {NavLink}  from 'react-router-dom'
 import { getProductsByCategory } from '../../api/api';
+import { Nav} from './NavHome.styles';
 
 
 export type Props = {
@@ -13,7 +14,8 @@ export type Props = {
 const NavHome = (props: Props) => {
     
     return(
-        <div>
+        <Nav>
+             <div>
             {props.categorys.map(c=>{
                 <div>Hola</div>
             })
@@ -34,6 +36,8 @@ const NavHome = (props: Props) => {
                 Accesorios
             </Button>
         </div>
+        </Nav>
+       
     )
 
 } ;
