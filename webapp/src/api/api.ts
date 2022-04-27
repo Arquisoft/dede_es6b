@@ -92,8 +92,6 @@ export async function createTransaction(rate:string):Promise<JSON>{
 
 
 
-const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
-
 
     
 export async function getPedidos(): Promise<Pedido[]> {

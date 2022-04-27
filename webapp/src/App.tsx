@@ -102,6 +102,7 @@ function App(): JSX.Element {
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
         <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
     </Routes>  
