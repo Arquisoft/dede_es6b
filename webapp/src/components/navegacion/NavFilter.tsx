@@ -21,27 +21,27 @@ const NavFilter = (props: Props) => {
             }
             <div className="buttons">
             <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
-                <Typography color="black" >
+                <Typography color="white" >
                     Sudaderas
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Pantalones",props)}>
-                <Typography color="black" >
+                <Typography color="white" >
                     Pantalones
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Camisetas",props)}>
-                <Typography color="black" >
+                <Typography color="white" >
                     Camisetas
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Playeros",props)}>
-                <Typography color="black" >
+                <Typography color="white" >
                     Calzado
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Sudaderas",props)}>
-                <Typography color="black" >
+                <Typography color="white" >
                     Accesorios
                 </Typography>
             </Button>
