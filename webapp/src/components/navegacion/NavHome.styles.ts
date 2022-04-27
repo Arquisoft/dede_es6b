@@ -6,5 +6,8 @@ export const Nav = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 20px;
 
-  
+  .information,
+  .buttons {
+    color="inherit"
+  }
 `;

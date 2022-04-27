@@ -15,12 +15,12 @@ const NavHome = (props: Props) => {
     
     return(
         <Nav>
-             <div>
             {props.categorys.map(c=>{
                 <div>Hola</div>
             })
             }
-            <Button onClick={()=>refreshProducts("Sudaderas",props)}>
+            <div className="buttons">
+            <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
                 Sudaderas
             </Button>
             <Button onClick={()=>refreshProducts("Pantalones",props)}>
@@ -35,7 +35,7 @@ const NavHome = (props: Props) => {
             <Button onClick={()=>refreshProducts("Sudaderas",props)}>
                 Accesorios
             </Button>
-        </div>
+            </div>
         </Nav>
        
     )

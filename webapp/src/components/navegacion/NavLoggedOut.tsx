@@ -43,7 +43,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
     }
 
     return(     
-    <Box sx={{ flexGrow: 1, height:300}}>
+    <Box sx={{ flexGrow: 1, height:200}}>
       <AppBar position="static" className={classes.appBar} sx={{height:200}}>
         <Toolbar>
           <IconButton
