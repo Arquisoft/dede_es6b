@@ -1,5 +1,5 @@
 import { PinDropSharp } from '@mui/icons-material';
-import { AppBar, Button } from '@mui/material';
+import { AppBar, Button, Typography } from '@mui/material';
 import React, { Component, useEffect } from 'react'
 import {NavLink}  from 'react-router-dom'
 import { getProductsByCategory } from '../../api/api';
@@ -11,7 +11,7 @@ export type Props = {
     categorys: string[];
   };
 
-const NavHome = (props: Props) => {
+const NavFilter = (props: Props) => {
     
     return(
         <Nav>
@@ -21,19 +21,29 @@ const NavHome = (props: Props) => {
             }
             <div className="buttons">
             <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
-                Sudaderas
+                <Typography color="white" >
+                    Sudaderas
+                </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Pantalones",props)}>
-                Pantalones
+                <Typography color="white" >
+                    Pantalones
+                </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Camisetas",props)}>
-                Camisetas
+                <Typography color="white" >
+                    Camisetas
+                </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Playeros",props)}>
-                Calzado
+                <Typography color="white" >
+                    Calzado
+                </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Sudaderas",props)}>
-                Accesorios
+                <Typography color="white" >
+                    Accesorios
+                </Typography>
             </Button>
             </div>
         </Nav>
@@ -48,5 +58,5 @@ function refreshProducts(category:string, props:Props){
 
 
 
-export default NavHome;
+export default NavFilter;
 

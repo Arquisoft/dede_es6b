@@ -16,7 +16,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
-import NavHome from "./NavHome";
+import NavFilter from "./NavFilter";
 
 
 const useStyles = makeStyles({
@@ -79,7 +79,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
-    <NavHome function={props.function} categorys={props.categorys}></NavHome>
+    <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
     </AppBar>
     </Box>
 );

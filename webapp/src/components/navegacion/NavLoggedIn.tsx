@@ -23,6 +23,7 @@ import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
+import NavFilter from "./NavFilter";
 
 const useStyles = makeStyles({
     appBar: {
@@ -76,9 +77,8 @@ export default function NavLoggedIn(props:CartItemsFunc){
            
           </IconButton>
         <PositionedMenu/>
-
-        
     </Toolbar>
+    <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
     </AppBar>
     </Box>
 );
