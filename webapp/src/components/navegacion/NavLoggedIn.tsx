@@ -46,7 +46,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
         <Toolbar>
           <IconButton
             size="large"
