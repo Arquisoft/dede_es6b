@@ -78,7 +78,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
           </IconButton>
         <PositionedMenu/>
     </Toolbar>
-    <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
+  
     </AppBar>
     </Box>
 );

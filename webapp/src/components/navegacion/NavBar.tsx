@@ -11,8 +11,6 @@ import { PinDropRounded } from "@mui/icons-material";
 
 export type CartItemsFunc = {
   getItems:number;
-  function: (s:string) => void;
-  categorys:string[];
 };
 
 export default function ButtonAppBar(props:CartItemsFunc) {
@@ -29,10 +27,10 @@ export default function ButtonAppBar(props:CartItemsFunc) {
 
 
   if(loggued){
-    return <NavLoggedIn getItems={props.getItems} function={props.function} categorys={props.categorys}></NavLoggedIn>
+    return <NavLoggedIn getItems={props.getItems} ></NavLoggedIn>
   }
   else{
-    return <NavLoggedOut getItems={props.getItems} function={props.function} categorys={props.categorys}></NavLoggedOut>
+    return <NavLoggedOut getItems={props.getItems} ></NavLoggedOut>
   }
 }
 //
