@@ -45,7 +45,7 @@ export default function CardProduct(product:ProductToAdd) {
   return (
     <Card sx={{ maxWidth: 320 }}>
      <div style={{ height: 120 }}> 
-      <CardHeader height="120"
+      <CardHeader height="50"
         action={
             <Typography variant='h6' color='textSecondary'>
                 {product.product.price}€
@@ -61,7 +61,7 @@ export default function CardProduct(product:ProductToAdd) {
       </div>
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={product.product.imagen}
         alt={product.product.name}
       />
