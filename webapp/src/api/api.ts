@@ -1,5 +1,5 @@
 
-import {Product, Pedido} from '../shared/shareddtypes';
+import {Product, Pedido, PaymentType} from '../shared/shareddtypes';
 import {ShipmentData, User} from '../shared/shareddtypes'; 
 import { CartProduct } from '../shared/shareddtypes';
 
@@ -106,6 +106,13 @@ export async function getPedidos(): Promise<Pedido[]> {
 export async function getPedidosByUser(user_id:string):Promise<Pedido[]>{
   const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
   let response = await fetch(apiEndPoint+'/orders/'+user_id);
+  //The objects returned by the api are directly convertible to Product objects
+  return response.json()
+}
+
+export async function getPaymentsType():Promise<PaymentType[]>{
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  let response = await fetch(apiEndPoint+'/payments');
   //The objects returned by the api are directly convertible to Product objects
   return response.json()
 }
