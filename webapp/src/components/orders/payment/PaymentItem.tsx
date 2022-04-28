@@ -40,6 +40,7 @@ const PaymentItem: React.FC<Payment> = ({paymentType}) => {
                         image={paymentType.img}
                         alt={paymentType.name}
                     />
+                    
             </CardActionArea>
         </Card>
         <div>

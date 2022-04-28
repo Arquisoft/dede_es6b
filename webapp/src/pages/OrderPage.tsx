@@ -91,6 +91,7 @@ export const OrderPage= (props:PropsOrder)=> {
       <h5>Selecciona tu dirección o <a href={profileDocumentURI} target="_blank">crea una nueva</a> en tu pod</h5>
       <AddressesComboBox></AddressesComboBox>
       <Button onClick={()=> confirmAddress(()=>console.log(order))}>Confirmar dirección</Button>
+      <h4>PAGO</h4> 
       <PaysList payments={props.payments}></PaysList>  
       <div className="datos">
         <h4>Gastos de envío: {getPrecioEnvio()}€</h4> 

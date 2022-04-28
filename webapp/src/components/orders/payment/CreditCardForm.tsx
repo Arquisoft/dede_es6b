@@ -18,7 +18,7 @@ export default function CreditCardForm(){
         <FormGroup>
             <label>Fecha de caducidad</label>
             <input type="text" value="05/2023"></input>
-        </FormGroup>
+        </FormGroup> 
         </Grid>
     );
 }

@@ -11,7 +11,7 @@ export type PropsPays = {
 
 const PaysList:React.FC<PropsPays> = ({payments}) => {
 
-    return (
+    return (  
             <Grid container direction="row" justifyContent="left" >
             {
                  payments.map((p) => (
