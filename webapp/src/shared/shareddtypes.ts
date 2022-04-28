@@ -30,7 +30,7 @@ export type CartProduct = {
 
 export type PaymentType= {
     name:string,
-    imagen:string
+    img:string
 }
 
 

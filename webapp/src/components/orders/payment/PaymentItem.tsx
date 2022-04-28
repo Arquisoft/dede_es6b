@@ -1,3 +1,4 @@
+import { Card , CardMedia} from "@mui/material";
 import { PaymentType } from "../../../shared/shareddtypes";
 
 type Payment = {
@@ -7,12 +8,15 @@ type Payment = {
 const PaymentItem: React.FC<Payment> = ({paymentType}) => {
 
     return (
-        <div className="container">
-            <img src={paymentType.imagen}/>
-            <div className="information">
-              <h2>{paymentType.name}</h2>
-            </div>
-        </div>
+        <Card sx={{ maxWidth: 300}}>
+            <CardMedia
+                component="img"
+                height="300"
+                image={paymentType.img}
+                alt={paymentType.name}
+            />
+        </Card>
+
         
     );
 }
