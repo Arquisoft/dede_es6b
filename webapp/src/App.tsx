@@ -88,12 +88,6 @@ function App(): JSX.Element {
 
   const getTotalItems = (items: Product[]) =>
     items.reduce((acc, item) => acc + item.quantity, 0);
-
-
- 
-
-
-
   const { session } = useSession();
 
   return (
@@ -109,7 +103,7 @@ function App(): JSX.Element {
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
-        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />

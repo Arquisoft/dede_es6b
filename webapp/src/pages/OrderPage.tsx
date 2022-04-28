@@ -7,6 +7,8 @@ import { Product, ShipmentData } from "../shared/shareddtypes";
 import { useSession } from "@inrupt/solid-ui-react";
 import { useEffect, useState } from "react";
 import AddressesComboBox, { getOrderData } from "../components/orders/AddressesComboBox";
+import PaymentList from "../components/orders/payment/PaymentList";
+import PaysList from "../components/orders/payment/PaymentList";
 
 export const OrderPage= (props:PropsOrder)=> {
 
@@ -85,10 +87,11 @@ export const OrderPage= (props:PropsOrder)=> {
 
     return (
       <>
-      <OrderList orderProducts={props.orderProducts}/>
+      <OrderList orderProducts={props.orderProducts} payments={props.payments}/>
       <h5>Selecciona tu dirección o <a href={profileDocumentURI} target="_blank">crea una nueva</a> en tu pod</h5>
       <AddressesComboBox></AddressesComboBox>
       <Button onClick={()=> confirmAddress(()=>console.log(order))}>Confirmar dirección</Button>
+      <PaysList payments={props.payments}></PaysList>  
       <div className="datos">
         <h4>Gastos de envío: {getPrecioEnvio()}€</h4> 
         <h4>Plazo de entrega: {getDeliveryTime()}</h4>
