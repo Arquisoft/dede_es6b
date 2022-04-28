@@ -55,7 +55,7 @@ export default function CardProduct(product:ProductToAdd) {
          {product.product.name}
         </Typography>
         <Typography variant="body1" color="text.primary">
-         {product.product.price} €
+         {product.product.price}€
         </Typography>
       </CardContent>
       <CardActions >
