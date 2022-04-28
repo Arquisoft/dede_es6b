@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, FormGroup, Grid } from "@mui/material";
 import { PaymentType } from "../../../shared/shareddtypes";
 import PaymentItem from "./PaymentItem";
 
@@ -6,6 +6,8 @@ import PaymentItem from "./PaymentItem";
 export type PropsPays = {
     payments: PaymentType[];
 }
+
+
 
 const PaysList:React.FC<PropsPays> = ({payments}) => {
 
@@ -20,5 +22,6 @@ const PaysList:React.FC<PropsPays> = ({payments}) => {
         </Grid>
     );
 }
+
 
 export default PaysList;
