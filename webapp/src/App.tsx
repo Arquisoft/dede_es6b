@@ -8,7 +8,7 @@ import React, { Component, useState, useEffect } from 'react';
 import {PaymentType, Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
-import { getProducts, getPedidos, getProductsByCategory } from './api/api';
+import { getProducts, getPedidos, getProductsByCategory, getPaymentsType } from './api/api';
 import Pedidos  from './components/Pedidos/Pedidos';
 import {
   handleIncomingRedirect,
@@ -30,7 +30,9 @@ function App(): JSX.Element {
 
   const [productos, setProductos] = useState<Product[]>([]);
 
-  const [payments, setPayments] = useState<PaymentType[]>([]);
+  const [payments, setPayments] = useState<PaymentType[]>([]); 
+  
+  const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
   const categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
 
@@ -38,7 +40,14 @@ function App(): JSX.Element {
 
   const refreshProductList = async () => {
     setProductos(await getProducts());
-    
+  }
+
+  const refreshPedidosList = async () => {
+    setPedidos(await getPedidos());
+  }
+
+  const refreshPayments = async () => {
+    setPayments(await getPaymentsType());
   }
 
   const refreshProductListCategory = async (category:string) => {
@@ -49,6 +58,7 @@ function App(): JSX.Element {
   useEffect(() => {
     refreshProductList();
     refreshPedidosList();
+    refreshPayments();
   }, []);
 
   const addToCart = (clickedItem: Product) => {
@@ -80,11 +90,9 @@ function App(): JSX.Element {
     items.reduce((acc, item) => acc + item.quantity, 0);
 
 
-  const [pedidos, setPedidos] = useState<Pedido[]>([]);
+ 
 
-  const refreshPedidosList = async () => {
-    setPedidos(await getPedidos());
-  }
+
 
   const { session } = useSession();
 
