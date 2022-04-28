@@ -15,10 +15,6 @@ const NavFilter = (props: Props) => {
     
     return(
         <Nav>
-            {props.categorys.map(c=>{
-                <div>Hola</div>
-            })
-            }
             <div className="buttons">
             <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
                 <Typography color="white" >
