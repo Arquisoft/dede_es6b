@@ -60,11 +60,24 @@ export default function NavLoggedOut(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Button onClick={goHome}>
-          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
-            DeDe
-          </Typography>
+          <div>
+          <Button >
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Atención al cliente
+                  </Typography>
           </Button>
+              <Button >
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Contáctanos
+                  </Typography>
+              </Button>
+              <Button>
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Promociones
+                  </Typography>
+              </Button>
+          </div>
+          
     <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ flexGrow: -3}}>
@@ -84,6 +97,11 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
+    <Button onClick={goHome}>
+          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
+            DeDe
+          </Typography>
+          </Button>
     </AppBar>
     </Box>
 );

@@ -23,7 +23,6 @@ import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
-import NavFilter from "./NavFilter";
 
 const useStyles = makeStyles({
     appBar: {
