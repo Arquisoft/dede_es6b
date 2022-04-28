@@ -24,12 +24,11 @@ import Footer from './components/footer/Footer';
 
 function App(): JSX.Element {
 
-  
+
 
   const [cartProducts, setCart] = useState([] as Product[]);
 
   const dispatch = useDispatch();
-  const history=  createHashHistory();
 
   const [productos, setProductos] = useState<Product[]>([]);
 
@@ -57,41 +56,72 @@ function App(): JSX.Element {
 
 
 
+useEffect(() => {
+    document.title = "DeDe";
+    handleIncomingRedirect({
+        restorePreviousSession: true
+    }).then(() => {
+        dispatch(setLogguedStatus(true));
+    });
+}, [dispatch]);
 
-
+useEffect(() => {
+  let sessionCart = localStorage.getItem("cartProducts");
+  let aux:Product[] = [];
+  if(sessionCart)
+    aux = JSON.parse(sessionCart);
+  setCart(aux);
+ }, []);
+//
 
   
-
 const addToCart = (clickedItem: Product) => {
-  setCart((prev) => {
-    const isItemInCart = prev.find((item) => item._id === clickedItem._id);
-
-    if (isItemInCart) {
-      return prev.map((item) =>
-        item._id === clickedItem._id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
+  let cart = loadCart();
+  let cartProducts = cart.slice();
+  let isInCart: boolean = false;
+    for(let i=0; i< cartProducts.length; i++){
+      if(cartProducts[i]._id === clickedItem._id){
+        cartProducts[i].quantity += 1;
+        isInCart = true;
+      }
+    }
+    if(!isInCart){
+      clickedItem.quantity=1;
+      var p:Product = clickedItem;
+      cartProducts.push(p);
     }
 
-    return [...prev, { ...clickedItem, quantity: 1 }];
-  });
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+    setCart(cartProducts);
 };
 
 const removeFromCart = (id: string) => {
-  setCart((prev)=>
-    prev.reduce((ack, item)=> {
-      if(item._id===id){
-        if(item.quantity===1) return ack;
-        return [...ack, {...item, quantity:item.quantity - 1}]
-      } else {
-        return [...ack, item];
+  let cart = loadCart();
+  let cartProducts = cart.slice();
+  let isInCart: boolean = false;
+  for(let i=0; i<= cartProducts.length; i++){
+    if(!isInCart)
+      if(cartProducts[i]._id === id){
+        isInCart = true;
+        cartProducts[i].quantity -= 1;
+        if (cartProducts[i].quantity === 0)
+            cartProducts.splice(i, 1);
       }
-    },[] as Product[]) 
-  );
+  }
 
+  localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  setCart(cartProducts);
 };
 
+
+function loadCart():Product[] {
+  let sessionCart = localStorage.getItem("cartProducts");
+
+  let cartProducts:Product[] = [];
+  if(sessionCart)
+      cartProducts = JSON.parse(sessionCart);
+  return cartProducts;
+}
 
 
   const getTotalItems = (items: Product[]) =>

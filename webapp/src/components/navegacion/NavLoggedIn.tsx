@@ -122,6 +122,7 @@ function PositionedMenu() {
 
     function goHome(){
        navigate('/');
+       window.location.reload();
     }
 
     function goToProfile(){

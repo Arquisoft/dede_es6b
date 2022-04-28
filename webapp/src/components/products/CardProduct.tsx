@@ -43,7 +43,7 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 300}}>
+    <Card sx={{ maxWidth: 300} }>
       <CardMedia
         component="img"
         height="300"

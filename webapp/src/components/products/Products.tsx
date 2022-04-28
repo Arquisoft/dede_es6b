@@ -19,10 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Products(product:ProductAdd) {
   
   return (
-    <Grid container rowSpacing={4} marginTop={2} marginLeft={3} marginBottom={4}>
+    <Grid 
+    container rowSpacing={4} marginTop={2} marginLeft={3} marginBottom={4}>
     {product.products.map((p, i) => (
-          <Grid item xs={2} sm={4} md={3} key={i} >
-              <CardProduct product={p} addToCart= {product.addToCart}></CardProduct>
+          <Grid item xs={2} sm={4} md={3} key={i}  >
+              <CardProduct product={p} addToCart= {product.addToCart}  ></CardProduct>
           </Grid>
       ))}
       
