@@ -12,7 +12,7 @@ export type PropsPays = {
 const PaysList:React.FC<PropsPays> = ({payments}) => {
 
     return (
-            <Grid container direction="row" justifyContent="center" >
+            <Grid container direction="row" justifyContent="left" >
             {
                  payments.map((p) => (
                     <PaymentItem 
