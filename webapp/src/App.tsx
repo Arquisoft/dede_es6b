@@ -21,6 +21,7 @@ import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/so
 import { OrderPage } from './pages/OrderPage';
 import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
+import { CreditCard } from './components/orders/payment/PayDataForm';
 
 function App(): JSX.Element {
 

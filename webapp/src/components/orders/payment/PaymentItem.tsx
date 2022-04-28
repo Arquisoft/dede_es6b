@@ -1,3 +1,4 @@
+
 import { Button, Card , CardActionArea, CardActions, CardMedia, Dialog, IconButton} from "@mui/material";
 import { render } from "react-dom";
 import { Modal } from "reactstrap";
@@ -11,10 +12,10 @@ type Payment = {
 
 const PaymentItem: React.FC<Payment> = ({paymentType}) => {
 
+
     return (
-        
         <Card sx={{ maxWidth: 150, height:100}}>
-            <CardActionArea>
+            <CardActionArea >
                     <CardMedia
                         component="img"
                         height="100"
@@ -24,11 +25,10 @@ const PaymentItem: React.FC<Payment> = ({paymentType}) => {
                     />
             </CardActionArea>
         </Card>
-
+        
         
     );
 }
-
 
 
 export default PaymentItem;
