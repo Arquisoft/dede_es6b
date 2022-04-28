@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { Product, ShipmentData } from "../../shared/shareddtypes";
+import { PaymentType, Product, ShipmentData } from "../../shared/shareddtypes";
 import { getAddressesFromPod } from "../../utils/Solid";
 //import InfiniteScroll from 'react-infinite-scroll-component';
 import OrderProductItem from "./OrderProduct";
@@ -11,6 +11,7 @@ import { createOrder } from "../../api/api";
 
 export type PropsOrder = {
     orderProducts: Product[];
+    payments: PaymentType[];
 }
 
 

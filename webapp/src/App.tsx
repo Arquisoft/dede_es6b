@@ -8,7 +8,7 @@ import React, { Component, useState, useEffect } from 'react';
 import {PaymentType, Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
-import { getProducts, getPedidos, getProductsByCategory } from './api/api';
+import { getProducts, getPedidos, getProductsByCategory, getPaymentsType } from './api/api';
 import Pedidos  from './components/Pedidos/Pedidos';
 import {
   handleIncomingRedirect,
@@ -21,6 +21,7 @@ import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/so
 import { OrderPage } from './pages/OrderPage';
 import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
+import { CreditCard } from './components/orders/payment/PayDataForm';
 
 function App(): JSX.Element {
 
@@ -32,7 +33,9 @@ function App(): JSX.Element {
 
   const [productos, setProductos] = useState<Product[]>([]);
 
-  const [payments, setPayments] = useState<PaymentType[]>([]);
+  const [payments, setPayments] = useState<PaymentType[]>([]); 
+  
+  const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
 
   const categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
@@ -41,7 +44,14 @@ function App(): JSX.Element {
 
   const refreshProductList = async () => {
     setProductos(await getProducts());
-    
+  }
+
+  const refreshPedidosList = async () => {
+    setPedidos(await getPedidos());
+  }
+
+  const refreshPayments = async () => {
+    setPayments(await getPaymentsType());
   }
 
   const refreshProductListCategory = async (category:string) => {
@@ -52,6 +62,7 @@ function App(): JSX.Element {
   useEffect(() => {
     refreshProductList();
     refreshPedidosList();
+    refreshPayments();
   }, []);
 
 
@@ -126,14 +137,6 @@ function loadCart():Product[] {
 
   const getTotalItems = (items: Product[]) =>
     items.reduce((acc, item) => acc + item.quantity, 0);
-
-
-  const [pedidos, setPedidos] = useState<Pedido[]>([]);
-
-  const refreshPedidosList = async () => {
-    setPedidos(await getPedidos());
-  }
-
   const { session } = useSession();
 
   return (
@@ -149,7 +152,7 @@ function loadCart():Product[] {
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
-        <Route path="/order" element={<OrderPage orderProducts={cartProducts} />}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
