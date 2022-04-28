@@ -20,6 +20,12 @@ test('filtermenu is rendered', () => {
     expect(component.container).toHaveTextContent('Accesorios')
   });
 
-  
+  /*test('navbar is rendered', () => {
+    const component = render(<NavLoggedOut getItems={0} function={function (): void {
+        throw new Error('Function not implemented.');
+    } }></NavLoggedOut>)
+    expect(component.container).toHaveTextContent('DEDE')
+    expect(component.container).toHaveTextContent('Iniciar sesión')
+  })*/
 
   
