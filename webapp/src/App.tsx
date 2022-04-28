@@ -28,9 +28,13 @@ function App(): JSX.Element {
 
   const [cartProducts, setCart] = useState([] as Product[]);
 
+  const dispatch = useDispatch();
+  const history=  createHashHistory();
+
   const [productos, setProductos] = useState<Product[]>([]);
 
   const [payments, setPayments] = useState<PaymentType[]>([]);
+
 
   const categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
 
@@ -51,28 +55,42 @@ function App(): JSX.Element {
     refreshPedidosList();
   }, []);
 
-  const addToCart = (clickedItem: Product) => {
-    setCart( estadoActual => {
-      const estaEnElCarrito = estadoActual.find(i => i._id === clickedItem._id);
-      if(!estaEnElCarrito)
-        return [...estadoActual,{...clickedItem, quantity: 1}];
-      return [...estadoActual];
-    });
-  }
 
-  const removeFromCart = (id: string) => {
-    setCart((prev) =>
-      prev.reduce((ack, item) => {
-        if (item._id === id) {
-          if (item.quantity === 1) return ack;
-          return [...ack, { ...item, quantity: item.quantity - 1 }]
-        } else {
-          return [...ack, item];
-        }
-      }, [] as Product[])
-    );
 
-  };
+
+
+
+  
+
+const addToCart = (clickedItem: Product) => {
+  setCart((prev) => {
+    const isItemInCart = prev.find((item) => item._id === clickedItem._id);
+
+    if (isItemInCart) {
+      return prev.map((item) =>
+        item._id === clickedItem._id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    }
+
+    return [...prev, { ...clickedItem, quantity: 1 }];
+  });
+};
+
+const removeFromCart = (id: string) => {
+  setCart((prev)=>
+    prev.reduce((ack, item)=> {
+      if(item._id===id){
+        if(item.quantity===1) return ack;
+        return [...ack, {...item, quantity:item.quantity - 1}]
+      } else {
+        return [...ack, item];
+      }
+    },[] as Product[]) 
+  );
+
+};
 
 
 
