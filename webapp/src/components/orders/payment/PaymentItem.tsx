@@ -8,10 +8,12 @@ type Payment = {
 const PaymentItem: React.FC<Payment> = ({paymentType}) => {
 
     return (
-        <Card sx={{ maxWidth: 300}}>
+        
+        <Card sx={{ maxWidth: 150, height:100}}>
             <CardMedia
                 component="img"
-                height="300"
+                height="100"
+                width="150"
                 image={paymentType.img}
                 alt={paymentType.name}
             />
