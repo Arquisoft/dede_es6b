@@ -61,11 +61,24 @@ export default function NavLoggedIn(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Button onClick={goHome}>
-          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
-            DeDe
-          </Typography>
+          <div>
+          <Button >
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Atención al cliente
+                  </Typography>
           </Button>
+              <Button >
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Contáctanos
+                  </Typography>
+              </Button>
+              <Button>
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Promociones
+                  </Typography>
+              </Button>
+          </div>
+          
 
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
@@ -82,7 +95,11 @@ export default function NavLoggedIn(props:CartItemsFunc){
           </IconButton>
         <PositionedMenu/>
     </Toolbar>
-  
+    <Button onClick={goHome}>
+          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
+            DeDe
+          </Typography>
+    </Button>
     </AppBar>
     </Box>
 );
