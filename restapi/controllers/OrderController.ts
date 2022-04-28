@@ -11,7 +11,7 @@ export const findOrdersByUserId = async (req: Request, res: Response): Promise<R
 
 
 import Order from '../models/Order';
-import Product from '../models/Product';
+import Payment from '../models/Payment';
 
 import { createBrotliDecompress } from 'zlib';
 import { findByCode } from './ProductController';
@@ -28,6 +28,9 @@ export const findAllOrders = async (req: Request, res: Response): Promise<Respon
     }
     return res.json(orders);
 };
+
+
+
 
 export const findOrdersByUser = async (req: Request, res: Response): Promise<Response> => {
     const orders = await Order.find({user_id:req.params.user_id});
