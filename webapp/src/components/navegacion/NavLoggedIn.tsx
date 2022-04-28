@@ -62,17 +62,17 @@ export default function NavLoggedIn(props:CartItemsFunc){
             <MenuIcon />
           </IconButton>
           <div>
-          <Button >
+          <Button style={{ textTransform: 'lowercase'}} >
                   <Typography color="white" sx={{ fontSize: 'default' }}>
-                      Atención al cliente
+                      Atención al cliente 
                   </Typography>
           </Button>
-              <Button >
+              <Button style={{ textTransform: 'lowercase'}}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Contáctanos
                   </Typography>
               </Button>
-              <Button>
+              <Button style={{ textTransform: 'lowercase'}}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Promociones
                   </Typography>
@@ -80,7 +80,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
           </div>
           
 
-          <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ flexGrow: 1 }} />
           <IconButton
           size="large"
           aria-label="show 17 new notifications"
@@ -96,7 +96,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
         <PositionedMenu/>
     </Toolbar>
     <Button onClick={goHome}>
-          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
           </Typography>
     </Button>
