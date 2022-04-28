@@ -29,7 +29,13 @@ export const findAllOrders = async (req: Request, res: Response): Promise<Respon
     return res.json(orders);
 };
 
-
+export const findPayments = async (req: Request, res: Response): Promise<Response> => {
+    const pays = await Payment.find({});
+    if(pays.length==0){
+        return res.send("No hay métodos de pago disponibles")
+    }
+    return res.json(pays);
+};
 
 
 export const findOrdersByUser = async (req: Request, res: Response): Promise<Response> => {

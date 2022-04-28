@@ -11,9 +11,9 @@ orderRouter.get("/list/:id", findOrdersByUser);
 
 orderRouter.get("/list", findAllOrders);
 
-orderRouter.get("/:user_id",findOrdersByUser);
 
-//orderRouter.get("/payments", findPayments);
+
+orderRouter.get("/:user_id",findOrdersByUser);
 
 orderRouter.post("/add",addOrder);
 
