@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Product } from '../shared/shareddtypes';
 import Cart from "../components/cart/Cart";
 
-test('carrito renderizado', ()=> {
+/*test('carrito renderizado', ()=> {
     const producto = {
         _id: "0",
         name: "Nike amarilla",
@@ -74,4 +74,4 @@ test('click al botón de añadir al carrito',() =>{
     }
     expect(mockHandler).toHaveBeenCalledTimes(1)
 
-})
+})*/

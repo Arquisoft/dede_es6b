@@ -8,7 +8,7 @@ import React, { Component, useState, useEffect } from 'react';
 import {PaymentType, Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
-import { getProducts, getPedidos } from './api/api';
+import { getProducts, getPedidos, getProductsByCategory } from './api/api';
 import Pedidos  from './components/Pedidos/Pedidos';
 import {
   handleIncomingRedirect,
@@ -32,8 +32,17 @@ function App(): JSX.Element {
 
   const [payments, setPayments] = useState<PaymentType[]>([]);
 
+  const categorys= ["Sudaderas", "Pantalones", "Camisetas", "Calzado", "Accesorios"]
+
+
+
   const refreshProductList = async () => {
     setProductos(await getProducts());
+    
+  }
+
+  const refreshProductListCategory = async (category:string) => {
+    setProductos(await getProductsByCategory(category));
     
   }
 
@@ -84,10 +93,10 @@ function App(): JSX.Element {
     <BrowserRouter>
      <div className="page-container">
     <div className='content-wrapper'>
-    <NavBar getItems={getTotalItems(cartProducts)}/>
+    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList}/>
     
     <Routes>
-        <Route path="/" element={<HomePage products={productos} addToCart={addToCart}/>}/>
+        <Route path="/" element={<HomePage products={productos} addToCart={addToCart} function={refreshProductListCategory} categorys={categorys}/>}/>
         <Route path="/login" element={<LoginPage />}/>  
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}

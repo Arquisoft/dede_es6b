@@ -16,6 +16,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
+import NavFilter from "./NavFilter";
 
 
 const useStyles = makeStyles({
@@ -38,12 +39,17 @@ export default function NavLoggedOut(props:CartItemsFunc){
     }
 
     function goHome(){
+      refreshProducts();
       navigate('/');
     }
 
+  function refreshProducts(){
+      props.function();
+  }
+
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -59,7 +65,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
             DeDe
           </Typography>
           </Button>
-          <Box sx={{ flexGrow: 1 }} />
+    <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ flexGrow: -3}}>
           <IconButton

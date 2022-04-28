@@ -23,6 +23,7 @@ import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
+import NavFilter from "./NavFilter";
 
 const useStyles = makeStyles({
     appBar: {
@@ -38,14 +39,19 @@ export default function NavLoggedIn(props:CartItemsFunc){
     function goToCart(){
       navigate('/cart');
    }
+    function goHome(){
+      refreshProducts();
+      navigate('/');
+    }
 
-   function goHome(){
-    navigate('/');
- }
+    function refreshProducts(){
+      props.function();
+    }
+
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -76,9 +82,8 @@ export default function NavLoggedIn(props:CartItemsFunc){
            
           </IconButton>
         <PositionedMenu/>
-
-        
     </Toolbar>
+  
     </AppBar>
     </Box>
 );

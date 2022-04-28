@@ -43,52 +43,28 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 320 }}>
-     <div style={{ height: 120 }}> 
-      <CardHeader height="120"
-        action={
-            <Typography variant='h6' color='textSecondary'>
-                {product.product.price}€
-            </Typography>
-
-          }
-          title={<Typography variant='h6' color='black'>
-          {product.product.name}
-      </Typography>
-          }
-          subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
-      />
-      </div>
+    <Card sx={{ maxWidth: 300}}>
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={product.product.imagen}
         alt={product.product.name}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-         {product.product.category}
+      <CardContent >
+        <Typography variant="body1" color="text.primary">
+         {product.product.name}
+        </Typography>
+        <Typography variant="body1" color="text.primary">
+         {product.product.price}€
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
         <IconButton disabled= {product.product.stock > 0 ? false : true}
-        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>"Descripción"</Typography>
-        </CardContent>
-      </Collapse>
+      
     </Card>
   );
 }

@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 import NavLoggedIn from "./NavLoggedIn";
 import NavLoggedOut from "./NavLoggedOut";
 import { CartProduct } from "../../shared/shareddtypes";
+import { PinDropRounded } from "@mui/icons-material";
 
 
 export type CartItemsFunc = {
   getItems:number;
+  function: ()=>void;
 };
 
 export default function ButtonAppBar(props:CartItemsFunc) {
@@ -26,10 +28,10 @@ export default function ButtonAppBar(props:CartItemsFunc) {
 
 
   if(loggued){
-    return <NavLoggedIn getItems={props.getItems}></NavLoggedIn>
+    return <NavLoggedIn getItems={props.getItems} function={props.function}></NavLoggedIn>
   }
   else{
-    return <NavLoggedOut getItems={props.getItems}></NavLoggedOut>
+    return <NavLoggedOut getItems={props.getItems} function={props.function}></NavLoggedOut>
   }
 }
 //
