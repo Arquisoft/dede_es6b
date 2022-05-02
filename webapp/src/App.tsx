@@ -31,7 +31,6 @@ function App(): JSX.Element {
 
   const [productos, setProductos] = useState<Product[]>([]);
 
-  const [payments, setPayments] = useState<PaymentType[]>([]); 
   
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
@@ -48,9 +47,6 @@ function App(): JSX.Element {
     setPedidos(await getPedidos());
   }
 
-  const refreshPayments = async () => {
-    setPayments(await getPaymentsType());
-  }
 
   const refreshProductListCategory = async (category:string) => {
     setProductos(await getProductsByCategory(category));
@@ -60,7 +56,6 @@ function App(): JSX.Element {
   useEffect(() => {
     refreshProductList();
     refreshPedidosList();
-    refreshPayments();
   }, []);
 
 
@@ -156,8 +151,7 @@ function loadCart():Product[] {
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
         <Route path="/order" element={<Checkout emptyCart={emptyCart}/>}/>
-        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
-        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
+        <Route path="/orders/list" element={<Pedidos/>} />
     </Routes>  
     </div>
     <Footer/>

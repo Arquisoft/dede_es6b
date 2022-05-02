@@ -74,13 +74,13 @@ export default function Checkout(props:RemoveCart) {
         setValidation("");
         setLoading(true);
          let transaction1=await createTransaction(order["rates"][0]["object_id"]);
-         console.log(transaction1);
          setTransaction(transaction1);
-         confirmOrder();
          props.emptyCart();
          setActiveStep(activeStep + 1);
          setLoading(false);
-         setValidation("");     
+         setValidation("");
+         confirmOrder(transaction1);
+            
       }
       else{
         setValidation("");  
@@ -96,17 +96,17 @@ export default function Checkout(props:RemoveCart) {
   function getURL():string{
     if(transaction != undefined){
       return transaction["tracking_url_provider"];
-  }
-
-
+  } else {
   return "0";
+  }
   }
   
     
-    async function confirmOrder(){
+    async function confirmOrder(transaction:any){
+        let url=transaction["tracking_url_provider"];
         let precio=parseFloat(localStorage.getItem("precioFinal")!);
         let products=JSON.parse(localStorage.getItem("cartProducts")!);
-        addOrder(products,precio,getURL(),session.info.webId!);
+        addOrder(products,precio,url,session.info.webId!);
      }
  
 

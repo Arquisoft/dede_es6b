@@ -79,7 +79,7 @@ export type Pedido = {
     quantity: Number
   }],
   price: Number,
-  direccion: String,
+  url: String,
 
   date: Date,
   status: String,

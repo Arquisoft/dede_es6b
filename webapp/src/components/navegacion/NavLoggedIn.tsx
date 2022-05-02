@@ -181,13 +181,11 @@ function PositionedMenu() {
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
 
-        <MenuItem>
+        <MenuItem onClick={goToProfile}>
             {/*
         // @ts-ignore */}
         <CombinedDataProvider datasetUrl={session.info.webId} thingUrl={session.info.webId}>
-          <Button onClick={goToProfile}>
             <Text color="black" property={FOAF.name.iri.value} autosave />
-            </Button>
         </CombinedDataProvider>
         </MenuItem>
           <MenuItem onClick={goToMyOrders}>Mis pedidos</MenuItem>
