@@ -14,7 +14,8 @@ export type Product = {
   color: number,
   price: number,
   imagen: string,
-  quantity: number
+  quantity: number,
+//  description : string
 }
 
 export type CartProduct = {

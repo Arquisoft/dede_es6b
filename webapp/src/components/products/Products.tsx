@@ -18,6 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Products(product:ProductAdd) {
   
+ 
+
   return (
     <Grid container
     spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}
@@ -25,7 +27,8 @@ export default function Products(product:ProductAdd) {
   >
     {product.products.map((p, i) => (
           <Grid item xs={2} sm={4} md={3} key={i} >
-              <CardProduct product={p} addToCart= {product.addToCart}></CardProduct>
+              <CardProduct product={p} addToCart= {product.addToCart} ></CardProduct>
+             
           </Grid>
       ))}
       

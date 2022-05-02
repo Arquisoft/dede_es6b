@@ -13,6 +13,7 @@ import { AddShoppingCart } from '@mui/icons-material';
 import { ProductAdd } from '../../pages/HomePage';
 import { Button } from '@mui/material';
 import { Product } from '../../shared/shareddtypes';
+import { useNavigate } from "react-router-dom";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -41,9 +42,13 @@ export default function CardProduct(product:ProductToAdd) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const navigate = useNavigate();
 
+  const viewDetails = () => {
+    navigate('/products/find/' + product.product._id)
+  };
   return (
-    <Card sx={{ maxWidth: 320 }}>
+    <Card sx={{ maxWidth: 320 }} >
      <div style={{ height: 120 }}> 
       <CardHeader height="120"
         action={
@@ -59,13 +64,13 @@ export default function CardProduct(product:ProductToAdd) {
           subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
       />
       </div>
-      <CardMedia
+      <CardMedia onClick={viewDetails}
         component="img"
         height="194"
         image={product.product.imagen}
         alt={product.product.name}
       />
-      <CardContent>
+      <CardContent >
         <Typography variant="body2" color="text.secondary">
          {product.product.category}
         </Typography>

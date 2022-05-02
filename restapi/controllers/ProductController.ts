@@ -22,7 +22,7 @@ export const findByCategoryAndSize = async (req: Request, res: Response) : Promi
 };
 
 export const findByCode= async (req: Request, res: Response) : Promise<Response>=> {
-    const producto = await Product.findOne({code: req.params.code});
+    const producto = await Product.findOne({_id: req.params.code});
     if(producto){
         return res.json(producto);
     }
