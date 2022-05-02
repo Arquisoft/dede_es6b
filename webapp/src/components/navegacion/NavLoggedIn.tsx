@@ -72,7 +72,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
                       Contáctanos
                   </Typography>
               </Button>
-              <Button style={{ textTransform: 'lowercase'}}>
+              <Button style={{ textTransform: 'lowercase'}} onClick={()=>navigate('/promotions')}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Promociones
                   </Typography>
