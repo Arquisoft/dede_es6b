@@ -12,7 +12,7 @@ type Producto = {
   }
 
 //function Producto (props: Producto, addToCarrito: void): JSX.Element{
-const detallesProducto: React.FC<Producto> = ({props, addToCarrito}) => {
+const DetallesProducto: React.FC<Producto> = ({props, addToCarrito}) => {
 
     const url = "./"+props.name+".jpg";
     let precio = "";

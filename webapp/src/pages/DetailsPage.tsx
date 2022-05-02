@@ -4,7 +4,9 @@ import Login from "../components/Login";
 import NavBar from "../components/navegacion/NavBar";
 import NavFilter from "../components/navegacion/NavFilter";
 import Products from "../components/products/Products";
+import DetallesProducto from "../components/products/DetallesProducto";
 import { Product } from "../shared/shareddtypes";
+
 
 export type ProductAdd = {
   products: Product[]
@@ -15,13 +17,11 @@ export type ProductAdd = {
 
 
 
-export const HomePage= (props:ProductAdd)=> {
+export const DetailsPage= (props:ProductAdd)=> {
     return (
-      <div className="HomePage">
+      <div className="DetailsPage">
         <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
-        <Products products={props.products} addToCart={props.addToCart} categorys={[]} function={function (s: string): void {
-          throw new Error("Function not implemented.");
-        } }/>   
+        <DetallesProducto addToCart={props.addToCart}/>   
       </div>
       
     );

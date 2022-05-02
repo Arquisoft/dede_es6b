@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 
-import {findAllProducts,findByCategory,findByCategoryAndSize, findByCode} from '../controllers/ProductController';
+import {findAllProducts,findByCategory,findByCategoryAndSize, findById} from '../controllers/ProductController';
 const productRouter = express.Router()
 const Product = require('../models/Product')
 
@@ -29,7 +29,7 @@ productRouter.post("/add", async (req:Request,res:Response) =>{
 
 productRouter.get("/:category", findByCategory);
 
-productRouter.get('/find/:code', findByCode);
+productRouter.get('/:id', findById);
 
 productRouter.get("/:category/:size", findByCategoryAndSize);
 

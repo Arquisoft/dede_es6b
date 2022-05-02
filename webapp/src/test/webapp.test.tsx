@@ -4,21 +4,21 @@ import '@testing-library/jest-dom/extend-expect';
 import { Product } from '../shared/shareddtypes';
 import Cart from "../components/cart/Cart";
 
-// test('carrito renderizado', ()=> {
-//     const producto = {
-//         _id: "0",
-//         name: "Nike amarilla",
-//         code: "123",
-//         size: "S",
-//         stock: 5,
-//         category: "Sudadera",
-//         color: "rojo",
-//         price: 3,
-//         imagen: "vacio",
-//         quantity: 2,
-//     }
-//     const productos: Product[] = [producto];
-//     const component = render(<Cart cartItems={productos} addToCart={() => {}} removeFromCart={() => {}}/>)
+/*test('carrito renderizado', ()=> {
+    const producto = {
+        _id: "0",
+        name: "Nike amarilla",
+        code: "123",
+        size: "S",
+        stock: 5,
+        category: "Sudadera",
+        color: "rojo",
+        price: 3,
+        imagen: "vacio",
+        quantity: 2,
+    }
+    const productos: Product[] = [producto];
+    const component = render(<Cart cartItems={productos} addToCart={() => {}} removeFromCart={() => {}}/>)
 
 //     expect(component.container).toHaveTextContent(producto.name);
 // })
@@ -74,4 +74,4 @@ import Cart from "../components/cart/Cart";
 //     }
 //     expect(mockHandler).toHaveBeenCalledTimes(1)
 
-// })
+})*/

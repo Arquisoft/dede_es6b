@@ -14,6 +14,7 @@ import { ProductAdd } from '../../pages/HomePage';
 import { Button } from '@mui/material';
 import { Product } from '../../shared/shareddtypes';
 import { useNavigate } from "react-router-dom";
+import DetallesProducto from './DetallesProducto';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -25,18 +26,18 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 })(({ theme, expand }) => ({
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
-  transition: theme.transitions.create('transform', { 
+  transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
 }));
 
-type ProductToAdd ={
+type ProductToAdd = {
   product: Product
-  addToCart:(clickedItem: Product)=>void;
+  addToCart: (clickedItem: Product) => void;
 }
 
 
-export default function CardProduct(product:ProductToAdd) {
+export default function CardProduct(product: ProductToAdd) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -45,55 +46,32 @@ export default function CardProduct(product:ProductToAdd) {
   const navigate = useNavigate();
 
   const viewDetails = () => {
-    navigate('/products/find/' + product.product._id)
+    navigate('/products/' + product.product._id)
   };
   return (
-    <Card sx={{ maxWidth: 320 }} >
-     <div style={{ height: 120 }}> 
-      <CardHeader height="120"
-        action={
-            <Typography variant='h6' color='textSecondary'>
-                {product.product.price}€
-            </Typography>
-
-          }
-          title={<Typography variant='h6' color='black'>
-          {product.product.name}
-      </Typography>
-          }
-          subheader={product.product.stock > 0 ? "En Stock" : "Agotado"}
-      />
-      </div>
-      <CardMedia onClick={viewDetails}
+    <Card sx={{ maxWidth: 300 }}>
+      <CardMedia
+        onClick={<DetallesProducto producto={product.product._id}/>}
         component="img"
-        height="194"
+        height="300"
         image={product.product.imagen}
         alt={product.product.name}
       />
       <CardContent >
-        <Typography variant="body2" color="text.secondary">
-         {product.product.category}
+        <Typography variant="body1" color="text.primary">
+          {product.product.name}
+        </Typography>
+        <Typography variant="body1" color="text.primary">
+          {product.product.price}€
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton disabled= {product.product.stock > 0 ? false : true}
-        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+      <CardActions >
+        <IconButton disabled={product.product.stock > 0 ? false : true}
+          onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>"Descripción"</Typography>
-        </CardContent>
-      </Collapse>
+
     </Card>
   );
 }

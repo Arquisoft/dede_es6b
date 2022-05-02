@@ -1,16 +1,18 @@
-import { Grid } from "@mui/material";
+import { Box, FormGroup, Grid } from "@mui/material";
 import { PaymentType } from "../../../shared/shareddtypes";
-//import InfiniteScroll from 'react-infinite-scroll-component';
 import PaymentItem from "./PaymentItem";
+
 
 export type PropsPays = {
     payments: PaymentType[];
 }
 
+
+
 const PaysList:React.FC<PropsPays> = ({payments}) => {
 
-    return (
-            <Grid container direction="column" justifyContent="flex-end" >
+    return (  
+            <Grid container direction="row" justifyContent="left" >
             {
                  payments.map((p) => (
                     <PaymentItem 
@@ -20,5 +22,6 @@ const PaysList:React.FC<PropsPays> = ({payments}) => {
         </Grid>
     );
 }
+
 
 export default PaysList;

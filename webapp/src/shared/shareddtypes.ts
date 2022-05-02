@@ -11,7 +11,7 @@ export type Product = {
   stock: number,
   // category:{type: string, enum:['Camisetas', 'Sudaderas', 'Pantalones']},
   category: string,
-  color: number,
+  color: string,
   price: number,
   imagen: string,
   quantity: number,
@@ -31,7 +31,7 @@ export type CartProduct = {
 
 export type PaymentType= {
     name:string,
-    imagen:string
+    img:string
 }
 
 

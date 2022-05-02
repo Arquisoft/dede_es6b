@@ -3,6 +3,7 @@ require("../utils/connectDB")
 import { Request, Response } from 'express';
 import Pedido  from '../models/Order';
 
+import Order from '../models/Order';
 
 export const findOrdersByUserId = async (req: Request, res: Response): Promise<Response> => {
     const pedidos = await Pedido.find({  id_usuario: req.params.id });
@@ -10,13 +11,6 @@ export const findOrdersByUserId = async (req: Request, res: Response): Promise<R
 };
 
 
-import Order from '../models/Order';
-import Product from '../models/Product';
-
-import { createBrotliDecompress } from 'zlib';
-import { findByCode } from './ProductController';
-
-import{getProductByCode} from "../../webapp/src/api/api"
 
 
 var randomstring = require("randomstring");
@@ -29,6 +23,9 @@ export const findAllOrders = async (req: Request, res: Response): Promise<Respon
     }
     return res.json(orders);
 };
+
+
+
 
 export const findOrdersByUser = async (req: Request, res: Response): Promise<Response> => {
     const orders = await Order.find({user_id:req.params.user_id});
