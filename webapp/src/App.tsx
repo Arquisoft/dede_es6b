@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component, useState, useEffect } from 'react';
@@ -29,6 +29,8 @@ function App(): JSX.Element {
 
   const dispatch = useDispatch();
 
+  const navigate=useNavigate();
+
   const [productos, setProductos] = useState<Product[]>([]);
 
   
@@ -52,6 +54,9 @@ function App(): JSX.Element {
     setProductos(await getProductsByCategory(category));
     
   }
+
+  
+
 
   useEffect(() => {
     refreshProductList();
@@ -139,7 +144,7 @@ function loadCart():Product[] {
 
   return (
    
-    <BrowserRouter>
+    
      <div className="page-container">
     <div className='content-wrapper'>
     <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList}/>
@@ -156,7 +161,6 @@ function loadCart():Product[] {
     </div>
     <Footer/>
     </div>
-    </BrowserRouter>
     
 
   );

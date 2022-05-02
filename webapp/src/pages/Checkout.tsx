@@ -152,11 +152,11 @@ export default function Checkout(props:RemoveCart) {
                 
                 <Typography color="red" sx={{ mt: 4, mr: 27 }}>{validation}</Typography>
                 {loading && (
-                   <CircularProgress sx={{ mt: 4, ml: 5 }} color="inherit" size={20}/>
+                   <CircularProgress sx={{ mt: 4, mr: 2 }} color="inherit" size={20}/>
                   )}
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                      Back
+                      Atrás
                     </Button>
                   )}
                   <Button
@@ -164,7 +164,7 @@ export default function Checkout(props:RemoveCart) {
                     onClick={handleNext}
                     sx={{ mt: 3, ml: 1 }}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Realizar pedido' : 'Siguiente'}
                   </Button>
                 </Box>
               </React.Fragment>

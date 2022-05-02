@@ -12,6 +12,7 @@ import { useSession } from '@inrupt/solid-ui-react';
 
 
 
+
 export default function Pedidos() {
   
   const [pedidos, setPedidos] = React.useState<Pedido[]>([]);
@@ -24,6 +25,8 @@ export default function Pedidos() {
   React.useEffect(() => {
     refreshPedidosList();
   }, []);
+
+
   
 
     return (
