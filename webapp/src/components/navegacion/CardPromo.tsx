@@ -38,4 +38,4 @@ const CardPromo: React.FC<PromoProps> = ({img,title,description}) => {
 
 
 
-export default PaymentItem;
+export default CardPromo;
