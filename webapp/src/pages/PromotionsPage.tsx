@@ -22,7 +22,11 @@ export const PromotionsPage = (props:Props)=> {
         <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
         <p>DeDe / Promociones</p>
         <Box sx={{ display: 'flex' , justifyContent: 'center'}}><img src={promotionSeason} alt={"primavera-verano"}/></Box>
-        {data.map(d => <CardPromo img={d.img} title={d.title} description={d.description} ></CardPromo>)}
+        <Box sx={{justifyContent: 'space-between',display: 'flex'}}>
+            {data.map(d => 
+                <CardPromo img={d.img} title={d.title} description={d.description} ></CardPromo> 
+        )}
+        </Box>
 
     </div>
         
