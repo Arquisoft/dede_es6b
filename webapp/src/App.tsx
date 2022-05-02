@@ -22,7 +22,6 @@ import { OrderPage } from './pages/OrderPage';
 import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
 import { CreditCard } from './components/orders/payment/PayDataForm';
-import Checkout from './components/checkout/Checkout';
 
 function App(): JSX.Element {
 
@@ -107,11 +106,6 @@ const addToCart = (clickedItem: Product) => {
     setCart(cartProducts);
 };
 
-const emptyCart=() => {
-  localStorage.setItem("cartProducts", JSON.stringify([]));
-  setCart([]);
-};
-
 const removeFromCart = (id: string) => {
   let cart = loadCart();
   let cartProducts = cart.slice();
@@ -158,7 +152,7 @@ function loadCart():Product[] {
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
-        <Route path="/order" element={<Checkout emptyCart={emptyCart}/>}/>
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
