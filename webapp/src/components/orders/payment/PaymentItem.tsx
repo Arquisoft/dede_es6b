@@ -28,11 +28,19 @@ const PaymentItem: React.FC<Payment> = ({paymentType}) => {
         setButtonClickedPP(!buttonClickedPP)
     }
 
+    function chooseButtonDisplay(type:string) {
+        if (type=="Credit Card"){
+            handleButtonClickCC()
+        }else{
+            handleButtonClickPP()
+        }
+    }
+
 
     return (
         <div>
         <Card sx={{ maxWidth: 150, height:100}}>
-            <CardActionArea onClick={handleButtonClickCC}>
+            <CardActionArea onClick={()=>chooseButtonDisplay(paymentType.name)}>
                     <CardMedia
                         component="img"
                         height="100"
@@ -44,7 +52,7 @@ const PaymentItem: React.FC<Payment> = ({paymentType}) => {
             </CardActionArea>
         </Card>
         <div>
-            {buttonClickedCC ? (<CreditCardForm></CreditCardForm>): null}
+            {(buttonClickedCC && !buttonClickedPP ) || (!buttonClickedCC && buttonClickedPP )? (<CreditCardForm></CreditCardForm>): null}
         </div>
         </div>
     );
