@@ -35,6 +35,10 @@ export const findOrdersByUser = async (req: Request, res: Response): Promise<Res
     return res.json(orders);
 };
 
+const formatDate = (date:Date)=>{
+    let formatted_date = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+     return formatted_date;
+}
 
 export const addOrder = async (req: Request, res: Response) => {
    try{
@@ -45,7 +49,7 @@ export const addOrder = async (req: Request, res: Response) => {
         //Actualizar el stock
         order.price = req.body.price;
         order.url = req.body.url;
-        order.date = Date.now();
+        order.date = formatDate(new Date());
         order.status = "PREPARÁNDOSE";
     
     await order.save();
