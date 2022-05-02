@@ -18,11 +18,8 @@ import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
 import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
-import { OrderPage } from './pages/OrderPage';
-import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
-import { CreditCard } from './components/orders/payment/PayDataForm';
-import Checkout from './components/checkout/Checkout';
+import Checkout from './pages/Checkout';
 
 function App(): JSX.Element {
 
@@ -160,7 +157,6 @@ function loadCart():Product[] {
             removeFromCart={removeFromCart}/>}/>
         <Route path="/order" element={<Checkout emptyCart={emptyCart}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
-        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
     </Routes>  
     </div>
