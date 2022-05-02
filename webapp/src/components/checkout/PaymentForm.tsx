@@ -80,6 +80,7 @@ export default function PaymentForm() {
             autoComplete="cc-name"
             variant="standard"
             value={cardName}
+            type="text"
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -92,6 +93,8 @@ export default function PaymentForm() {
             autoComplete="cc-number"
             variant="standard"
             value={cardNum}
+            type="text"
+            inputProps={{ maxLength: 16} }
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -119,6 +122,8 @@ export default function PaymentForm() {
             autoComplete="cc-csc"
             variant="standard"
             value={cardCVV}
+            type="text"
+            inputProps={{ maxLength: 3 }}
           />
         </Grid>
       </Grid>
