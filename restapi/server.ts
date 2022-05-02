@@ -4,7 +4,8 @@ import bp from 'body-parser';
 import promBundle from 'express-prom-bundle';
 
 import apiProducts from "./routes/apiProducts";
-import apiOrders from "./routes/apiOrders";
+//import apiOrders from "./routes/apiOrders";
+import apiPays from "./routes/apiPays";
 import api from "./api"
 const app: Application = express();
 const port: number = 5000;
@@ -24,7 +25,8 @@ app.use(express.json());
 
 app.use("/api", api)
 app.use("/products",apiProducts)
-app.use("/orders",apiOrders)
+//app.use("/orders",apiOrders)
+app.use("/payments",apiPays)
 
 app.listen(port, ():void => {
     console.log('Restapi listening on '+ port);

@@ -16,6 +16,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
+import NavFilter from "./NavFilter";
 
 
 const useStyles = makeStyles({
@@ -38,12 +39,17 @@ export default function NavLoggedOut(props:CartItemsFunc){
     }
 
     function goHome(){
+      refreshProducts();
       navigate('/');
     }
 
+  function refreshProducts(){
+      props.function();
+  }
+
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -54,12 +60,25 @@ export default function NavLoggedOut(props:CartItemsFunc){
           >
             <MenuIcon />
           </IconButton>
-          <Button onClick={goHome}>
-          <Typography variant="h6" color="white" component="div" sx={{ flexGrow: 1 }}>
-            DeDe
-          </Typography>
+          <div>
+          <Button style={{ textTransform: 'lowercase'}} >
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Atención al cliente 
+                  </Typography>
           </Button>
-          <Box sx={{ flexGrow: 1 }} />
+              <Button style={{ textTransform: 'lowercase'}}>
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Contáctanos
+                  </Typography>
+              </Button>
+              <Button style={{ textTransform: 'lowercase'}}>
+                  <Typography color="white" sx={{ fontSize: 'default' }}>
+                      Promociones
+                  </Typography>
+              </Button>
+          </div>
+          
+    <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ flexGrow: -3}}>
           <IconButton
@@ -78,6 +97,11 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
+    <Button onClick={goHome} >
+          <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1}}>
+            DeDe
+          </Typography>
+          </Button>
     </AppBar>
     </Box>
 );
