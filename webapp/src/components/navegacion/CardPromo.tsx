@@ -12,7 +12,7 @@ type PromoProps = {
 const CardPromo: React.FC<PromoProps> = ({img,title,description}) => {
     return (
         <div>
-        <Card sx={{ maxWidth: 300, height:500}}>
+        <Card sx={{ maxWidth: 300, height:500, textAlign:'center'}}>
             <CardActionArea >
             <CardContent >
                     <Typography variant="body1" color="text.primary">
