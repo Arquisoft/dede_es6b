@@ -1,7 +1,4 @@
-import { Container } from "@mui/material";
-import Cart from "../components/cart/Cart";
-import Login from "../components/Login";
-import NavBar from "../components/navegacion/NavBar";
+
 import NavFilter from "../components/navegacion/NavFilter";
 import Products from "../components/products/Products";
 import { Product } from "../shared/shareddtypes";
