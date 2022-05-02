@@ -9,6 +9,7 @@ import { StringMappingType } from 'typescript';
 import { ShipmentData } from '../../shared/shareddtypes';
 
 var orderData:ShipmentData | null;
+var selected=false;
 
 export default function ComboBox() {
   const [open, setOpen] = React.useState(false);
@@ -18,7 +19,7 @@ export default function ComboBox() {
 
   React.useEffect(() => {
     
-
+    selected=false;
     let active = true;
 
     if (!loading) {
@@ -52,17 +53,22 @@ export default function ComboBox() {
   }, [open]);
 
   async function setOrderData(o:string){
-    if(o){
+    if(o && o!=="No options"){
       orderData={
         name:"prueba",
         street:o.split(", ")[0],
         city:o.split(", ")[1],
         zipcode:o.split(", ")[2]
       }
-    } else{
-      orderData=null;
-    }
+      selected=true;
+      localStorage.setItem("address", JSON.stringify(orderData));
+      localStorage.setItem("completeAddress", o);
+      console.log(selected);
   }
+  else{
+    selected=false;
+  }
+}
   return (
     <Autocomplete
       id="asynchronous-demo"
@@ -100,8 +106,8 @@ export function getOrderData(){
   return orderData;
 }
 
-
-
-
+export function isSelected(){
+  return selected;
+}
 
 
