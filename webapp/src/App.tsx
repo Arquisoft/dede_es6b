@@ -23,6 +23,7 @@ import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
 import { CreditCard } from './components/orders/payment/PayDataForm';
 import { ContactPage } from './pages/ContactPage';
+import { PromotionsPage } from './pages/PromotionsPage';
 
 
 function App(): JSX.Element {
@@ -159,6 +160,7 @@ function loadCart():Product[] {
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/contactPage" element={<ContactPage function={refreshProductListCategory} categorys={categorys}/>}/>
+        <Route path="/promotions" element={<PromotionsPage function={refreshProductListCategory} categorys={categorys}/>}/>
     </Routes>  
     </div>
     <Footer/>
