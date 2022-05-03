@@ -12,7 +12,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-container">
                 <div className="item1">
-                   <FooterLink href="https://arquisoft.github.io/dede_es6b/">Sobre nostros</FooterLink>
+                   <FooterLink href="https://arquisoft.github.io/dede_es6b/">Sobre nosotros</FooterLink>
                 </div>
 
                 <div className="item2">
