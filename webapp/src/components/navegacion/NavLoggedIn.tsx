@@ -136,7 +136,7 @@ function PositionedMenu() {
   
     return (
       <div>
-        <IconButton
+        <IconButton placeholder="profileButton"
           id="demo-positioned-button"
           aria-controls={open ? 'demo-positioned-menu' : undefined}
           aria-haspopup="true"
