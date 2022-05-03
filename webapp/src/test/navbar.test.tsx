@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Cart from '../components/cart/Cart';
 import NavBar from '../components/navegacion/NavBar';
+import NavLoggedIn from '../components/navegacion/NavLoggedIn';
 import NavLoggedOut from '../components/navegacion/NavLoggedOut';
 import CardProduct from '../components/products/CardProduct';
 import Products from '../components/products/Products';
@@ -67,6 +68,20 @@ test('filtermenu is rendered', () => {
     expect(component.getByText("Atención al cliente"));
     expect(component.getByText("Contáctanos"));
     expect(component.getByText("Promociones"));
+  });
+
+  test('navbar loging is rendered', () => {
+    const component = render(<BrowserRouter><NavLoggedIn getItems={0} function={function (): void {
+        throw new Error('Function not implemented.');
+    } }></NavLoggedIn></BrowserRouter>)
+
+    expect(component.getByText("DeDe"));
+    expect(component.getByText("Atención al cliente"));
+    expect(component.getByText("Contáctanos"));
+    expect(component.getByText("Promociones"));
+    expect(component.getByPlaceholderText("shoppingCartButton"));
+
+    
   });
 
   test('click button Iniciar sesión', () => {

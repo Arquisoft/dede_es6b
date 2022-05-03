@@ -81,14 +81,14 @@ export default function NavLoggedIn(props:CartItemsFunc){
           
 
       <Box sx={{ flexGrow: 1 }} />
-          <IconButton
+          <IconButton placeholder="shoppingCartButton"
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
           onClick= {
             goToCart
           }>
-          <Badge badgeContent={props.getItems} color="error">
+          <Badge  badgeContent={props.getItems} color="error">
              <ShoppingCartIcon/>
            </Badge>
            
