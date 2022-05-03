@@ -1,7 +1,6 @@
 import { Box, Card, CardActionArea, CardMedia, Grid } from "@mui/material";
 import NavFilter, { Props } from "../components/navegacion/NavFilter"
 import promotionSeason from "../utils/img/promocion-temporada.jpeg"
-import "./ImgPromo.css"
 import promo1 from "../utils/img/promo1.png"
 import promo2 from "../utils/img/promo2.png"
 import promo3 from "../utils/img/promo3.png"
