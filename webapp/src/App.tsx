@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component, useState, useEffect } from 'react';
@@ -18,10 +18,8 @@ import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
 import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
-import { OrderPage } from './pages/OrderPage';
-import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
-import { CreditCard } from './components/orders/payment/PayDataForm';
+import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';
 import { PromotionsPage } from './pages/PromotionsPage';
 
@@ -34,9 +32,11 @@ function App(): JSX.Element {
 
   const dispatch = useDispatch();
 
+  const navigate=useNavigate();
+  const location=useLocation();
+
   const [productos, setProductos] = useState<Product[]>([]);
 
-  const [payments, setPayments] = useState<PaymentType[]>([]); 
   
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
 
@@ -53,21 +53,31 @@ function App(): JSX.Element {
     setPedidos(await getPedidos());
   }
 
-  const refreshPayments = async () => {
-    setPayments(await getPaymentsType());
-  }
 
   const refreshProductListCategory = async (category:string) => {
     setProductos(await getProductsByCategory(category));
     
   }
 
+  
+
+
   useEffect(() => {
+    if(location.pathname!=="/")
+       localStorage.setItem("lastLocation", location.pathname);
+    onSessionRestore(() => {
+      if(localStorage.getItem("lastLocation"))
+        navigate(localStorage.getItem("lastLocation")!);
+      else{
+        navigate("/");
+      }
+      localStorage.removeItem("lastLocation");
+  })
     refreshProductList();
     refreshPedidosList();
-    refreshPayments();
   }, []);
 
+  
 
 
 useEffect(() => {
@@ -109,6 +119,11 @@ const addToCart = (clickedItem: Product) => {
     setCart(cartProducts);
 };
 
+const emptyCart=() => {
+  localStorage.setItem("cartProducts", JSON.stringify([]));
+  setCart([]);
+};
+
 const removeFromCart = (id: string) => {
   let cart = loadCart();
   let cartProducts = cart.slice();
@@ -144,7 +159,7 @@ function loadCart():Product[] {
 
   return (
    
-    <BrowserRouter>
+    
      <div className="page-container">
     <div className='content-wrapper'>
     <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList}/>
@@ -158,14 +173,12 @@ function loadCart():Product[] {
         <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
-        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/contactPage" element={<ContactPage function={refreshProductListCategory} categorys={categorys}/>}/>
         <Route path="/promotions" element={<PromotionsPage function={refreshProductListCategory} categorys={categorys}/>}/>
     </Routes>  
     </div>
     <Footer/>
     </div>
-    </BrowserRouter>
     
 
   );

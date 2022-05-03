@@ -51,7 +51,7 @@ var addressTo = {
     "state": "ES",
     "zip": req.body.zipcode,
     "country": "ES",
-    "phone":"+34676136030"
+    "phone":"+34676137030",
 };
 var parcel = {
     "length": "5",
@@ -85,6 +85,7 @@ shippo.customsdeclaration.create({
     "parcels": [parcel],
     "customs_declaration": customsDeclaration,
     "async": false
+
 }, function(err:any, shipment:any){
     if(err){
       return res.status(400).send(err);
