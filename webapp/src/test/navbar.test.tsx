@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import CardPromo from '../components/navegacion/CardPromo';
 import NavFilter from '../components/navegacion/NavFilter';
 import NavLoggedIn from '../components/navegacion/NavLoggedIn';
 import NavLoggedOut from '../components/navegacion/NavLoggedOut';
@@ -128,9 +129,19 @@ test('filtermenu is rendered', () => {
 
     expect(mockfilter).toHaveBeenCalledTimes(5)
 
-
-    
   });
 
 
-  
+  test('CardPromo is rendered', () => {
+      let mockPromo={
+          img:"imagen1",
+          title:"prueba1",
+          description:"descripción"
+      }
+
+    const component = render(<CardPromo img={mockPromo.img} title={mockPromo.title} description={mockPromo.description}></CardPromo>)
+    
+    expect(component.container).toHaveTextContent("prueba1")
+    expect(component.container).toHaveTextContent("descripción")
+    expect(component.getByAltText("prueba1"))
+  });
