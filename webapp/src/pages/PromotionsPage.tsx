@@ -1,10 +1,10 @@
 import { Box, Card, CardActionArea, CardMedia, Grid } from "@mui/material";
 import NavFilter, { Props } from "../components/navegacion/NavFilter"
 import promotionSeason from "../utils/img/promocion-temporada.jpeg"
-import promo1 from "../utils/img/promo1.png"
-import promo2 from "../utils/img/promo2.png"
-import promo3 from "../utils/img/promo3.png"
-import promo4 from "../utils/img/promo4.png"
+import promo1 from "../utils/img/promo1.jpg"
+import promo2 from "../utils/img/promo2.jpg"
+import promo3 from "../utils/img/promo3.jpg"
+import promo4 from "../utils/img/promo4.jpg"
 import CardPromo from "../components/navegacion/CardPromo";
 import { textAlign } from "@mui/system";
 
