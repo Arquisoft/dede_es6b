@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import React, { Component, useState, useEffect } from 'react';
@@ -30,6 +30,7 @@ function App(): JSX.Element {
   const dispatch = useDispatch();
 
   const navigate=useNavigate();
+  const location=useLocation();
 
   const [productos, setProductos] = useState<Product[]>([]);
 
@@ -59,10 +60,21 @@ function App(): JSX.Element {
 
 
   useEffect(() => {
+    if(location.pathname!=="/")
+       localStorage.setItem("lastLocation", location.pathname);
+    onSessionRestore(() => {
+      if(localStorage.getItem("lastLocation"))
+        navigate(localStorage.getItem("lastLocation")!);
+      else{
+        navigate("/");
+      }
+      localStorage.removeItem("lastLocation");
+  })
     refreshProductList();
     refreshPedidosList();
   }, []);
 
+  
 
 
 useEffect(() => {

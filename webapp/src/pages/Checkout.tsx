@@ -61,6 +61,7 @@ export default function Checkout(props:RemoveCart) {
         setValidation("");
          setLoading(true);
          let order=await createOrder(JSON.parse(localStorage.getItem("address")!));
+         console.log(order);
          localStorage.setItem("order", JSON.stringify(order));
          setOrder(order);
          setActiveStep(activeStep + 1);
@@ -150,7 +151,7 @@ export default function Checkout(props:RemoveCart) {
                 {getStepContent(activeStep)}
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 
-                <Typography color="red" sx={{ mt: 4, mr: 27 }}>{validation}</Typography>
+                <Typography color="red" sx={{ mt: 4, mr: 22 }}>{validation}</Typography>
                 {loading && (
                    <CircularProgress sx={{ mt: 4, mr: 2 }} color="inherit" size={20}/>
                   )}
