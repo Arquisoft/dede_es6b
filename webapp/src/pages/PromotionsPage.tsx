@@ -16,9 +16,9 @@ const data = [{img:promo1, title: "Vuelve el crochet", description: ""},
 
 export const PromotionsPage = (props:Props)=> {
     return (
-    <div>
+    <Box sx={{textAlign:'center'}}>
         <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
-        <p >DeDe / Promociones</p>
+        <p>DeDe / Promociones</p>
         <Box sx={{ display: 'flex' , justifyContent: 'center'}}><img src={promotionSeason} alt={"primavera-verano"}/></Box>
         <Box sx={{justifyContent: 'space-between',display: 'flex', marginRight:2, marginLeft:2, marginBottom:5 }}>
             {data.map(d => 
@@ -26,7 +26,7 @@ export const PromotionsPage = (props:Props)=> {
         )}
         </Box>
 
-    </div>
+    </Box>
         
       );
 }
