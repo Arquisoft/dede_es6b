@@ -31,7 +31,7 @@ test('cart is rendered', () => {
         category: "Camisetas",
         color: "Azul",
         price: 22,
-        imagen: "",
+        imagen: "imagen1",
         quantity: 1
         },
         {
@@ -43,7 +43,7 @@ test('cart is rendered', () => {
         category: "Camisetas",
         color: "Azul",
         price: 20,
-        imagen: "",
+        imagen: "imagen2",
         quantity: 1
         }
     ]
@@ -70,6 +70,9 @@ test('cart is rendered', () => {
     expect(component.container).toHaveTextContent("1")
     expect(component.container).toHaveTextContent("1")
 
+    expect(component.getByAltText("imagen1"));
+    expect(component.getByAltText("imagen2"));
+
     expect(component.container).toHaveTextContent("Continuar compra")
 
   });
@@ -85,17 +88,25 @@ test('cart is rendered', () => {
         category: "Camisetas",
         color: "Azul",
         price: 22,
-        imagen: "",
+        imagen: "imagen",
         quantity: 1
     }} addCart={mockAdd} remove={function (id: string): void {
         throw new Error('Function not implemented.');
     } }></CartProductItem></BrowserRouter>)
 
+    expect(component.container).toHaveTextContent("nombre_Prueba1")
+
+    expect(component.container).toHaveTextContent("Precio: 22€")
+
+    expect(component.container).toHaveTextContent("Total: 22.00€")
+
+    expect(component.container).toHaveTextContent("1")
+    expect(component.getByAltText("imagen"));
+    
     const buttonAdd = component.getByText("+");
     fireEvent.click(buttonAdd)
 
     expect(mockAdd).toHaveBeenCalledTimes(1)
-
   })
 
   test('button delete cart product', () => {
@@ -109,9 +120,19 @@ test('cart is rendered', () => {
         category: "Camisetas",
         color: "Azul",
         price: 22,
-        imagen: "",
+        imagen: "imagen",
         quantity: 1
     }} addCart={()=>{}} remove={mockDelete }></CartProductItem></BrowserRouter>)
+
+    expect(component.container).toHaveTextContent("nombre_Prueba1")
+
+    expect(component.container).toHaveTextContent("Precio: 22€")
+
+    expect(component.container).toHaveTextContent("Total: 22.00€")
+
+    expect(component.container).toHaveTextContent("1")
+
+    expect(component.getByAltText("imagen"));
 
     const buttonDelete= component.getByText("-");
     fireEvent.click(buttonDelete)
