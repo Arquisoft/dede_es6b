@@ -59,7 +59,7 @@ export default function CardProduct(product:ProductToAdd) {
         </Typography>
       </CardContent>
       <CardActions >
-        <IconButton disabled= {product.product.stock > 0 ? false : true}
+        <IconButton placeholder="addToCart" disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton>

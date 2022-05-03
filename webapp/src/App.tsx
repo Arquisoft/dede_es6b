@@ -20,6 +20,9 @@ import { createHashHistory } from "history";
 import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
 import Footer from './components/footer/Footer';
 import Checkout from './pages/Checkout';
+import { ContactPage } from './pages/ContactPage';
+import { PromotionsPage } from './pages/PromotionsPage';
+
 
 function App(): JSX.Element {
 
@@ -167,8 +170,11 @@ function loadCart():Product[] {
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
-        <Route path="/order" element={<Checkout emptyCart={emptyCart}/>}/>
-        <Route path="/orders/list" element={<Pedidos/>} />
+        <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
+        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
+        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
+        <Route path="/contactPage" element={<ContactPage function={refreshProductListCategory} categorys={categorys}/>}/>
+        <Route path="/promotions" element={<PromotionsPage function={refreshProductListCategory} categorys={categorys}/>}/>
     </Routes>  
     </div>
     <Footer/>

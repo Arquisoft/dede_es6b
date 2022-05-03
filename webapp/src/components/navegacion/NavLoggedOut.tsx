@@ -66,12 +66,12 @@ export default function NavLoggedOut(props:CartItemsFunc){
                       Atención al cliente 
                   </Typography>
           </Button>
-              <Button style={{ textTransform: 'lowercase'}}>
+              <Button style={{ textTransform: 'lowercase'}} onClick={()=>navigate('/contactPage')}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Contáctanos
                   </Typography>
               </Button>
-              <Button style={{ textTransform: 'lowercase'}}>
+              <Button style={{ textTransform: 'lowercase'}} onClick={()=>navigate('/promotions')}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Promociones
                   </Typography>

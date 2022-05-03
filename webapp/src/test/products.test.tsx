@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Cart from '../components/cart/Cart';
 import CardProduct from '../components/products/CardProduct';
 import Products from '../components/products/Products';
@@ -58,11 +58,18 @@ test("A list of products is rendered", async () => {
         }
     ]
 
+    const mockHandler = jest.fn()
     const components = render(
-        <Products products={products} addToCart={() => { } } categorys={[]} function={function (s: string): void {
+        <Products products={products} addToCart={mockHandler } categorys={[]} function={function (s: string): void {
             throw new Error('Function not implemented.');
         } }></Products>
     );
+
+    const cardProductButtons = components.getAllByPlaceholderText("addToCart")
+    fireEvent.click(cardProductButtons[0])
+
+    expect(mockHandler).toHaveBeenCalledTimes(1)
+
 
     expect(components.container).toHaveTextContent('nombre_Prueba1');
     expect(components.container).toHaveTextContent('nombre_Prueba2');
