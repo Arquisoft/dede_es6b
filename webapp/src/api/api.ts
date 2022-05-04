@@ -5,7 +5,7 @@ import { CartProduct } from '../shared/shareddtypes';
 
 
 export async function addOrder(cartProducts:Product[], price:number, url:string, user_id:string|undefined){
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint+'/orders/add', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -15,7 +15,7 @@ export async function addOrder(cartProducts:Product[], price:number, url:string,
 }
 
 export async function getOrdersByUser(user_id:string|undefined){
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint + "/orders/" + user_id);
   return response.json();
 
@@ -24,27 +24,27 @@ export async function getOrdersByUser(user_id:string|undefined){
 
 //Devuelve los productos de la base de datos
 export async function getProducts():Promise<Product[]>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint+'/products/list');
   //The objects returned by the api are directly convertible to Product objects
   return response.json()
 }
 
 export async function getProductsByCategory(category: string): Promise<Product[]>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint + "/products/" + category);
   return response.json();
 }
 
 //Producto por código
 export async function getProductByCode(code: string): Promise<Product[]>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint + "/products/find/" + code);
   return response.json();
 }
 
 export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
-  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000';
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
   let response = await fetch(apiEndPoint+'/createOrder',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -60,7 +60,7 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
 
 export async function createTransaction(rate:string):Promise<JSON>{
   debugger;
-  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000';
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
   let response = await fetch(apiEndPoint+'/createTransaction',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -76,7 +76,7 @@ export async function createTransaction(rate:string):Promise<JSON>{
 
     
 export async function getPedidos(): Promise<Pedido[]> {
-  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint + '/orders/list');
   //The objects returned by the api are directly convertible to User objects
   console.log(response);
@@ -85,14 +85,14 @@ export async function getPedidos(): Promise<Pedido[]> {
 
     
 export async function getPedidosByUser(user_id:string):Promise<Pedido[]>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint+'/orders/'+user_id);
   //The objects returned by the api are directly convertible to Product objects
   return response.json()
 }
 
 export async function getPaymentsType():Promise<PaymentType[]>{
-  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000'
+  const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
   let response = await fetch(apiEndPoint+'/payments');
   //The objects returned by the api are directly convertible to Product objects
   return response.json()
