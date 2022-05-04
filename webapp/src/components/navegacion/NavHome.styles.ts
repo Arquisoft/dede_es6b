@@ -5,7 +5,6 @@ export const Nav = styled.div`
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: x-small;
-  padding-bottom: 20px;
-  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  background: linear-gradient(45deg, #A6ACAF 30%, #A6ACAF 90%);
   color: #fff;
 `;
