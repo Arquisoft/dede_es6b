@@ -170,9 +170,8 @@ function loadCart():Product[] {
         <Route path="/cart" element={<CartPage  cartItems={cartProducts}
             addToCart={addToCart}
             removeFromCart={removeFromCart}/>}/>
-        <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
-        <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
-        <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
+        <Route path="/order" element={<Checkout emptyCart={emptyCart}/>}/>
+        <Route path="/orders/list" element={<Pedidos/>} />
         <Route path="/contactPage" element={<ContactPage function={refreshProductListCategory} categorys={categorys}/>}/>
         <Route path="/promotions" element={<PromotionsPage function={refreshProductListCategory} categorys={categorys}/>}/>
     </Routes>  

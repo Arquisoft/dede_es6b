@@ -16,6 +16,7 @@ const NavFilter = (props: Props) => {
     return(
         <Nav>
             <div className="buttons">
+            
             <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
                 <Typography color="white" >
                     Sudaderas
