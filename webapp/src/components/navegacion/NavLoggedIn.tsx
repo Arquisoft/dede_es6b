@@ -14,7 +14,7 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
-import { Button, Divider, ListItemIcon } from "@mui/material";
+import { Button, Divider, Grid, ListItemIcon } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Drawer from '@material-ui/core/Drawer';
@@ -23,10 +23,13 @@ import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
+import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
+import logoDede2 from "../../utils/img/logo2Dede-nofondo.jpg"
+
 
 const useStyles = makeStyles({
     appBar: {
-      background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background:  'linear-gradient(45deg, #ccd0c7 20%,  #ccd0c7 100%)',
       color: '#fff'
     }
   });
@@ -50,7 +53,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
+      <AppBar position="static" className={classes.appBar} sx={{height:140}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -78,9 +81,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
                   </Typography>
               </Button>
           </div>
-          
-
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ flexGrow: 1}} />
           <IconButton placeholder="shoppingCartButton"
           size="large"
           aria-label="show 17 new notifications"
@@ -91,15 +92,17 @@ export default function NavLoggedIn(props:CartItemsFunc){
           <Badge  badgeContent={props.getItems} color="error">
              <ShoppingCartIcon/>
            </Badge>
-           
           </IconButton>
         <PositionedMenu/>
     </Toolbar>
-    <Button onClick={goHome}>
-          <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
+    <Grid container sx={{justifyContent:"center",position:"absolute", top:"5%" }} >
+    <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
+        {/* <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
-          </Typography>
-    </Button>
+        </Typography> */}
+        <img src={logoDede} alt="Logo DeDe" />
+    </Button></Grid>
+    </Grid>
     </AppBar>
     </Box>
 );

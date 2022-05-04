@@ -10,18 +10,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { useNavigate } from 'react-router-dom';
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Props } from "../cart/Cart";
 import { CartItemsFunc } from "./NavBar";
 import NavFilter from "./NavFilter";
-
+import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
 
 const useStyles = makeStyles({
     appBar: {
-      background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      background:  'linear-gradient(45deg, #ccd0c7 20%,  #ccd0c7 100%)',
       color: '#fff'
     }
   });
@@ -49,7 +49,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
+      <AppBar position="static" className={classes.appBar} sx={{height:140}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -97,11 +97,14 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
-    <Button onClick={goHome} >
-          <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1}}>
+    <Grid container sx={{justifyContent:"center",position:"absolute", top:"5%" }} >
+    <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
+        {/* <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
-          </Typography>
-          </Button>
+        </Typography> */}
+        <img src={logoDede} alt="Logo DeDe" />
+    </Button></Grid>
+    </Grid>
     </AppBar>
     </Box>
 );
