@@ -10,9 +10,9 @@ import api from "./api"
 const app: Application = express();
 const port: number = 5000;
 
-const options: cors.CorsOptions = {
-  origin: ['http://localhost:3000']
-};
+// const options: cors.CorsOptions = {
+//   origin: ['http://localhost:3000']
+// };
 
 let bd = require('./utils/connectDB')
 
