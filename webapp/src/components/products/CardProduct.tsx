@@ -43,14 +43,14 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 300} }>
+    <Card sx={{ maxWidth: 250} }>
       <CardMedia
         component="img"
-        height="300"
+        height="270"
         image={product.product.imagen}
         alt={product.product.name}
       />
-      <CardContent >
+      <CardContent sx={{height:25}}>
         <Typography variant="body1" color="text.primary">
          {product.product.name}
         </Typography>
@@ -58,11 +58,17 @@ export default function CardProduct(product:ProductToAdd) {
          {product.product.price}€
         </Typography>
       </CardContent>
-      <CardActions >
-        <IconButton placeholder="addToCart" disabled= {product.product.stock > 0 ? false : true}
+      <CardActions sx={{justifyContent:"center"}}>
+        {/* <IconButton placeholder="addToCart" disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
-        </IconButton>
+        </IconButton> */}
+        <Button size="small" sx={{color:"white",backgroundColor :"#A6ACAF"}}
+        style={{ textTransform: 'lowercase'}}
+        disabled= {product.product.stock > 0 ? false : true}
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+          Añadir al carrito
+        </Button>
       </CardActions>
       
     </Card>
