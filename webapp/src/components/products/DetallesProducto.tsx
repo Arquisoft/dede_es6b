@@ -4,7 +4,7 @@ import {Product} from '../../shared/shareddtypes';
 import Card from '../../../node_modules/react-bootstrap/Card'
 import Button from '../../../node_modules/react-bootstrap/Button'
 //import Carrito from './cart/Carrito';
-import './catalogo.css';
+//import './catalogo.css';
 
 type Producto = {
     props: Product;
