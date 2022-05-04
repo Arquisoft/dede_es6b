@@ -24,7 +24,6 @@ import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
 import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
-import logoDede2 from "../../utils/img/logo2Dede-nofondo.jpg"
 
 
 const useStyles = makeStyles({
