@@ -44,7 +44,7 @@ export async function getProductById(id: string): Promise<Product[]>{
 }
 
 export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
-  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000';
   let response = await fetch(apiEndPoint+'/createOrder',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -60,7 +60,7 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
 
 export async function createTransaction(rate:string):Promise<JSON>{
   debugger;
-  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
+  const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000';
   let response = await fetch(apiEndPoint+'/createTransaction',{
     method: 'POST',
     headers: {'Content-Type':'application/json'},
