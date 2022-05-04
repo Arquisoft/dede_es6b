@@ -21,7 +21,7 @@ import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
 
 const useStyles = makeStyles({
     appBar: {
-      background:  'linear-gradient(45deg, #ccd0c7 20%,  #ccd0c7 100%)',
+      background:  'linear-gradient(to bottom, #ccd0c7 60%, #A6ACAF)',
       color: '#fff'
     }
   });
@@ -49,7 +49,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar} sx={{height:140}}>
+      <AppBar position="static" className={classes.appBar} sx={{height:145}}>
         <Toolbar>
           <IconButton
             size="large"

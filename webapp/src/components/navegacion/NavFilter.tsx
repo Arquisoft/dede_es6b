@@ -36,7 +36,7 @@ const NavFilter = (props: Props) => {
                     Calzado
                 </Typography>
             </Button>
-            <Button onClick={()=>refreshProducts("Sudaderas",props)}>
+            <Button onClick={()=>refreshProducts("Accesorios",props)}>
                 <Typography color="black" >
                     Accesorios
                 </Typography>
