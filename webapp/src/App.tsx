@@ -1,14 +1,14 @@
 
 import './App.css';
-import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import React, { Component, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 //import { CartProduct } from './shared/shareddtypes';
-import {PaymentType, Product, Pedido} from './shared/shareddtypes';
+import {Product, Pedido} from './shared/shareddtypes';
 import NavBar from './components/navegacion/NavBar';
 import { CartPage } from './pages/CartPage';
-import { getProducts, getPedidos, getProductsByCategory, getPaymentsType } from './api/api';
+import { getProducts, getPedidos, getProductsByCategory} from './api/api';
 import Pedidos  from './components/Pedidos/Pedidos';
 import {
   handleIncomingRedirect,
@@ -16,8 +16,8 @@ import {
 } from "@inrupt/solid-client-authn-browser"
 import { useDispatch } from 'react-redux';
 import { setLogguedStatus } from './redux/userSlice';
-import { createHashHistory } from "history";
-import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
+import {  } from "history";
+import { useSession } from "@inrupt/solid-ui-react";
 import Footer from './components/footer/Footer';
 import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';

@@ -5,8 +5,7 @@ import { setLogguedStatus }  from "../../redux/userSlice"
 import { useEffect } from 'react';
 import NavLoggedIn from "./NavLoggedIn";
 import NavLoggedOut from "./NavLoggedOut";
-import { CartProduct } from "../../shared/shareddtypes";
-import { PinDropRounded } from "@mui/icons-material";
+
 
 
 export type CartItemsFunc = {
