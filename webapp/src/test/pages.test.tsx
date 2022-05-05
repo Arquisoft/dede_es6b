@@ -12,6 +12,7 @@ import { Product } from '../shared/shareddtypes';
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import Checkout from '../pages/Checkout';
+import PaymentForm from '../components/checkout/PaymentForm';
 
 
 test('promoPage is rendered', () => {
@@ -75,7 +76,9 @@ test('promoPage is rendered', () => {
     expect(component.container).toHaveTextContent("Resumen de pedido")
     expect(component.container).toHaveTextContent("Selecciona tu dirección o crea una nueva en tu pod")
 
-    const buttonSig = component.getByText("Siguiente")
+    expect(component.container).toHaveTextContent("Siguiente")
+
+ 
   });
 
 
