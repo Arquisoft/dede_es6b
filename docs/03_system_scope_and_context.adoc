@@ -20,7 +20,7 @@ User --> DeDe : Quiere realizar pedido
 User --> POD : Crea y gestiona
 DeDe -u-> User : Devuelve vistas
 DeDe -l-> POD : Solicita información
-DeDe -r-> ShippingAPI : Procedimiento de envío de pedido
+DeDe -r-> Shippo : Procedimiento de envío de pedido
 POD --> DeDe : Devuelve información
 @enduml
 ....
