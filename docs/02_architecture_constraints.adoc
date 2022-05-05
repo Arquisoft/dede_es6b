@@ -22,23 +22,15 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones técnicas
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|TC1
 |Implementación en Typescript utilizando React
 |La aplicación debe ser un sitio web de venta online de productos utilizando React con TypeScript.
 
-|TC2
 |Código abierto
 |Al trabajar con un repositorio público, se podría consultar y/o sugerir cambios para el proyecto. Tanto la documentación como el código se publican como código abierto.
 
-|TC3
-|El sistema de venta online debe llamarse DeDe
-|Decentralized Delivery.
-
-|TC4
 |Desarrollo independiente del sistema
 |La aplicación debe ser compilable en los 3 sistemas operativos principales (Mac OS X, Linux y Windows).
 
@@ -48,27 +40,21 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones de organización
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|OC1
 |Equipo
-|El proyecto se desarrolla en un equipo de 5 integrantes llamado dede_es6b.
+|El proyecto se desarrolla en un equipo de 3 integrantes llamado dede_es6b.
 
-|OC2
 |Reuniones
 |Como mínimo es obligatorio que tengamos y constemos acta de una reunión semanal.
 
-|OC3
 |Configuración y control/gestión de versiones
 |La dinámica de trabajo se basa en que todos los miembros del equipo de trabajo comparten un repositorio público remoto en Github al que deben subir sus aportaciones para el proyecto.
 
-|OC4
 |Pruebas (Test unitarios, Testting E2E, Gatling)
-|Los dos primeros tipos de tests se realizan utilizando jest y cada vez que se ejecutan se realiza un analisis de covertura de código. Para realizar los tests de carga se utilizará Gatling, que simulará la carga de datos en nuestro sistema haciendo peticiones a la webapp.
+|Los dos primeros tipos de tests se realizan utilizando jest. Para realizar los tests de carga se utilizará Gatling.
 
-|OC5
 |Integración continua / Entrega continua
 |La idea es que cada vez que creemos una nuevo entregable (release) se construya el sistema (restapi y webapi), se ejecuten los tests y se suba el proyecto a GiHub packages.
 
@@ -78,15 +64,12 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones convencionales
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|C1
 |Principios SOLID
 |Los datos de los usuarios se almacenan en pods que son propiedad de los mismos. Son ellos los que permiten qué personas y aplicaciones pueden acceder a ellos.
 
-|C2
 |Documentación del proyecto
 |Basada en la arquitectura arc42.
 
