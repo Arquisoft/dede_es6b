@@ -58,7 +58,7 @@ export default function CardProduct(product:ProductToAdd) {
         onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton> */}
-        <Button size="small" sx={{color:"white",backgroundColor :"#A6ACAF"}}
+        <Button placeholder="addToCart" size="small" sx={{color:"white",backgroundColor :"#A6ACAF"}}
         style={{ textTransform: 'lowercase'}}
         disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart">

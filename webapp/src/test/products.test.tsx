@@ -81,6 +81,9 @@ test("A list of products is rendered", async () => {
     expect(components.container).toHaveTextContent('15€');
     expect(components.container).toHaveTextContent('7.95€');
 
+    expect(components.container).toHaveTextContent('Añadir al carrito');
+    expect(components.container).toHaveTextContent('Añadir al carrito');
+
 });
 
 test("A product is rendered", async () => {
@@ -105,4 +108,5 @@ test("A product is rendered", async () => {
 
     expect(components.container).toHaveTextContent('nombre_Prueba1');
     expect(components.container).toHaveTextContent('22€');
+    expect(components.container).toHaveTextContent('Añadir al carrito');
 });

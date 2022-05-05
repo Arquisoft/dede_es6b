@@ -6,8 +6,12 @@ import CartProductItem from '../components/cart/CartProductItem';
 import { CartPage } from '../pages/CartPage';
 import { ContactPage } from '../pages/ContactPage';
 import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../pages/LoginPage';
 import { PromotionsPage } from '../pages/PromotionsPage';
 import { Product } from '../shared/shareddtypes';
+import { Provider } from "react-redux";
+import store from "../redux/store";
+import Checkout from '../pages/Checkout';
 
 
 test('promoPage is rendered', () => {
@@ -44,12 +48,9 @@ test('promoPage is rendered', () => {
 
   });
 
- /* test('loginPage is rendered', () => {
-
-    const component = render(<BrowserRouter>
-    <LoginPage ></LoginPage></BrowserRouter>)
-
-  });*/
+ test('loginPage is rendered', () => {
+  const component = render( <BrowserRouter><Provider store={store}> <LoginPage/></Provider></BrowserRouter> );
+});
 
    test('homePage is rendered', () => {
 
@@ -62,6 +63,21 @@ test('promoPage is rendered', () => {
 
 
   });
+
+  test('checkout is rendered', () => {
+
+    const component = render(<BrowserRouter>
+    <Checkout emptyCart={function (): void {
+        throw new Error('Function not implemented.');} } ></Checkout></BrowserRouter>)
+    expect(component.container).toHaveTextContent("Checkout")
+    expect(component.container).toHaveTextContent("Dirección de envío")
+    expect(component.container).toHaveTextContent("Detalles de pago")
+    expect(component.container).toHaveTextContent("Resumen de pedido")
+    expect(component.container).toHaveTextContent("Selecciona tu dirección o crea una nueva en tu pod")
+
+    const buttonSig = component.getByText("Siguiente")
+  });
+
 
 
 
