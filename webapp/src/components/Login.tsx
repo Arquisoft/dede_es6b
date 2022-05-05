@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
-    background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background:  'linear-gradient(to bottom, #ccd0c7 60%, #A6ACAF)',
     color: '#fff'
   },
   card: {

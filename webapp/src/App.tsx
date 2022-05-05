@@ -162,7 +162,7 @@ function loadCart():Product[] {
     
      <div className="page-container">
     <div className='content-wrapper'>
-    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList}/>
+    <NavBar getItems={getTotalItems(cartProducts)} function={refreshProductList} emptyCart={emptyCart}/>
     
     <Routes>
         <Route path="/" element={<HomePage products={productos} addToCart={addToCart} function={refreshProductListCategory} categorys={categorys}/>}/>
