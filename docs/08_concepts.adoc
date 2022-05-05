@@ -1,5 +1,5 @@
 [[section-concepts]]
-== Cross-cutting Concepts
+== Conceptos cross-cutting 
 
 
 [role="arc42help"]
@@ -50,7 +50,7 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 ****
 
 
-=== Domain model
+=== Modelo de dominio
 
 image:domain.png["Dominio"]
 
@@ -62,7 +62,7 @@ La aplicación tiene una interfaz intuitiva y familiar para asegurarnos de que e
 
 === Internacionalización
 
-La aplicación principalmente actualmente solo está adaptada al español.
+La aplicación actualmente solo está adaptada al español.
 
 === Seguridad y Privacidad
 

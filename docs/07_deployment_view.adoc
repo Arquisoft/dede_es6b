@@ -1,7 +1,7 @@
 [[section-deployment-view]]
 
 
-== Deployment View
+== Vista de despliegue
 
 [role="arc42help"]
 ****
@@ -34,7 +34,7 @@ when your infrastructure is more complex.
 * When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.
 ****
 
-=== Infrastructure Level 1
+=== Infraestructura nivel 1
 
 [role="arc42help"]
 ****
@@ -50,15 +50,15 @@ For multiple environments or alternative deployments please copy that section of
 
 image:deploymentview.png["Deployment Diagram"]
 
-Motivation::
+Motivación::
 
 La motivación detrás de esta estructura de despligue es el conocimiento total de cómo los diferentes componentes de la aplicación se relacionan entre sí en tiempo de ejecución.
 
-Quality and/or Performance Features::
+Características de calidad y rendimiento::
 
 El rendimiento de la aplicación depende en su mayoría del servidor en el que está desplegada y de la conexión a internet del cliente. Ya que no tenemos control sobre ninguna de esas dos cosas, intentamos siempre que nuestro código sea lo más eficiente y limpio posible.
 
-Mapping of Building Blocks to Infrastructure::
+Funcionalidad de los elementos de la infraestructura::
 |===
 | Componente         | Descripción
 | ClientDevice    | Es el dispositivo del cliente. Debe tener acceso a internet.

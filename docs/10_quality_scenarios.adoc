@@ -1,13 +1,13 @@
 [[section-quality-scenarios]]
-== Quality Requirements
+== Requisitos de calidad
 
 En esta sección se incluyen todos los requerimientos de calidad con escenarios de uso. Los requirimientos más relevantes han sido descritos en la sección 1.2. 
 
-=== Quality Tree
+=== Árbol de calidad
 
 image:10_QualityTree.png["Quality Tree"]
 
-=== Quality Scenarios
+=== Escenarios de calidad
 
 
 [%header, cols=3]
@@ -24,25 +24,18 @@ image:10_QualityTree.png["Quality Tree"]
 |Los datos del cliente deben estar protegidos en todo momento. Nos debemos asegurar de que información como tarjetas de crédito o cualquier dato personal permanezan protegidos frente a posibles ataques, para ello tenemos que minimizar al máximo las vulnerabilidades.
 |Alta
 
-|Usabilidad
-|La interfaz debe de ser intuitiva y atractiva de cara al cliente ya que esto repercutirá en las ventas finales.
-|Alta
-
 |Fiabilidad
 |Requisito de calidad relacionado con la integridad y robustez de la aplicación. Esta se programará siguiendo las características ACID para evitar inconsistencias en la base de datos y asegurando que las transacciones o se completan o se abandonan dejando el sistema como estaba previamente. Esto quiere decir que si ocurre algún error, por ejemplo, al realizar el pago el usuario deberá estar informado y se debe volver a un estado consistente. La recuperación de la aplicación ante estos posibles fallos repercute en la confianza del cliente hacia la aplicación.
-|Alta
+|Media
+
+|Usabilidad
+|La interfaz debe de ser intuitiva y atractiva de cara al cliente ya que esto repercutirá en las ventas finales.
+|Media
 
 |Mantenibilidad
 |La codificación de la aplicación debe de seguir una guía de estilo para facilitar su mantenimiento. De esta manera será más fácil que se pueda incorporar un desarrollador al equipo, realizar modificaciones, solucionar bugs y ejecutar test para comprobar el correcto funcionamiento.
-|Media
+|Baja
 
-|Disponibilidad
-|Los clientes recibirán los servicios prestados por la aplicación el 95% del tiempo como media a lo largo del año. Se busca maximizar el porcentaje para no perder ventas ni clientes.
-|Media
-
-|Robustez
-|La aplicación deberá encargarse de posibles errores que puedan surgir, el usuario tiene que estar informado en todo momento.
-|Media
 
 |Compatibilidad
 |La aplicación deberá de funcionar en múltiples plataformas con el propósito de llegar a un público más amplio.

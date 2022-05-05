@@ -1,13 +1,10 @@
 import { Grid } from "@mui/material";
-import { PaymentType, Product, ShipmentData } from "../../shared/shareddtypes";
-import { getAddressesFromPod } from "../../utils/Solid";
+import { PaymentType, Product } from "../../shared/shareddtypes";
+
 //import InfiniteScroll from 'react-infinite-scroll-component';
 import OrderProductItem from "./OrderProduct";
-import {useSession} from "@inrupt/solid-ui-react";
-import React, { useEffect, useState } from "react";
-import AddressesComboBox from "./AddressesComboBox";
-import { ConstructionOutlined } from "@mui/icons-material";
-import { createOrder } from "../../api/api";
+import React from "react";
+
 
 export type PropsOrder = {
     orderProducts: Product[];

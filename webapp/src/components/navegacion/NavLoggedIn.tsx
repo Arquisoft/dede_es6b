@@ -14,7 +14,7 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
-import { Button, Divider, ListItemIcon } from "@mui/material";
+import { Button, Divider, Grid, ListItemIcon } from "@mui/material";
 import { Logout } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import Drawer from '@material-ui/core/Drawer';
@@ -23,10 +23,13 @@ import { CartItemsFunc } from "./NavBar";
 import { setLogguedStatus } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
 import { profile } from "console";
+import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
+
 
 const useStyles = makeStyles({
     appBar: {
-      background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      
+      background: 'linear-gradient(to bottom, #ccd0c7 60%, #A6ACAF)',
       color: '#fff'
     }
   });
@@ -47,10 +50,14 @@ export default function NavLoggedIn(props:CartItemsFunc){
       props.function();
     }
 
+    function emptyCart(){
+      props.emptyCart();
+    }
+
 
     return(     
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="static" className={classes.appBar} sx={{height:130}}>
+      <AppBar position="static" className={classes.appBar} sx={{height:145}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -62,11 +69,6 @@ export default function NavLoggedIn(props:CartItemsFunc){
             <MenuIcon />
           </IconButton>
           <div>
-          <Button style={{ textTransform: 'lowercase'}} >
-                  <Typography color="white" sx={{ fontSize: 'default' }}>
-                      Atención al cliente 
-                  </Typography>
-          </Button>
               <Button style={{ textTransform: 'lowercase'}} onClick={()=>navigate('/contactPage')}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Contáctanos
@@ -78,34 +80,35 @@ export default function NavLoggedIn(props:CartItemsFunc){
                   </Typography>
               </Button>
           </div>
-          
-
-      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ flexGrow: 1}} />
           <IconButton placeholder="shoppingCartButton"
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
+          id="cartBtn"
           onClick= {
             goToCart
           }>
           <Badge  badgeContent={props.getItems} color="error">
              <ShoppingCartIcon/>
            </Badge>
-           
           </IconButton>
-        <PositionedMenu/>
+        <PositionedMenu getItems={props.getItems} function={props.function} emptyCart={props.emptyCart}/>
     </Toolbar>
-    <Button onClick={goHome}>
-          <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
+    <Grid container sx={{justifyContent:"center",position:"absolute", top:"3%" }} >
+    <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
+        {/* <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
-          </Typography>
-    </Button>
+        </Typography> */}
+        <img src={logoDede} alt="Logo DeDe" />
+    </Button></Grid>
+    </Grid>
     </AppBar>
     </Box>
 );
 }
 
-function PositionedMenu() {
+function PositionedMenu(props:CartItemsFunc) {
     const { session } = useSession();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -114,6 +117,7 @@ function PositionedMenu() {
     };
     const handleClose = () => {
       setAnchorEl(null);
+      props.emptyCart();
     };
     
     const profileDocumentURI = session.info.webId!;

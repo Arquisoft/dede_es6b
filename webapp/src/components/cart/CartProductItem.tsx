@@ -1,7 +1,5 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography, Input } from "@mui/material";
 import { Product } from '../../shared/shareddtypes';
-import Grid from '@mui/material/Grid';
-import internal from "stream";
 import { Wrapper } from "./CartProduct.styles";
 
 type Cart = {

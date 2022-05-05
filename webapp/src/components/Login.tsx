@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect, SyntheticEvent } from 'react';
+import  { useState} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { Autocomplete, CardHeader } from '@mui/material';
 import { useDispatch } from "react-redux";
-import { LoginButton, Text, useSession, CombinedDataProvider, LogoutButton } from "@inrupt/solid-ui-react";
+import { LoginButton, useSession } from "@inrupt/solid-ui-react";
 import { setLogguedStatus } from '../redux/userSlice';
 
 const useStyles = makeStyles({
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
-    background:  'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background:  'linear-gradient(to bottom, #ccd0c7 60%, #A6ACAF)',
     color: '#fff'
   },
   card: {
