@@ -27,4 +27,12 @@
 |Código más preciso y más corto. El código se puede testar fácilmente. Código fácilmente verificable.
 |La programación recurrente puede dar lugar a errores graves. No se permite el acceso eficiente a grandes cantidades de datos. Los datos no se pueden modificar.
 
+|AWS
+|Buen rendimiento de la máquina en la que se realiza el despliegue debido al soporte de Amazon.
+|IP dinámica
+
+|Shippo
+|API fácil de usar
+|Lenta, y costes de envío solo desde EEUU en su versión de prueba, lo que desemboca en un precio elevado de los mismos.
+
 |===
