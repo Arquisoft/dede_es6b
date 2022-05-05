@@ -11,12 +11,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import { useNavigate } from 'react-router-dom';
 import { Button, Grid } from "@mui/material";
-import * as React from 'react';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { Props } from "../cart/Cart";
+
 import { CartItemsFunc } from "./NavBar";
-import NavFilter from "./NavFilter";
+
 import logoDede from "../../utils/img/logo-reescalado-nofondo.jpg"
 
 const useStyles = makeStyles({

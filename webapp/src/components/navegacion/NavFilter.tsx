@@ -1,8 +1,6 @@
-import { PinDropSharp } from '@mui/icons-material';
-import { AppBar, Button, Typography } from '@mui/material';
-import React, { Component, useEffect } from 'react'
-import {NavLink}  from 'react-router-dom'
-import { getProductsByCategory } from '../../api/api';
+
+import { Button, Typography } from '@mui/material';
+
 import { Nav} from './NavHome.styles';
 
 

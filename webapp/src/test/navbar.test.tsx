@@ -58,10 +58,11 @@ test('filtermenu is rendered', () => {
 
   test('navbar logout is rendered', () => {
     const component = render(<BrowserRouter><NavLoggedOut getItems={0} function={function (): void {
-        throw new Error('Function not implemented.');
+      throw new Error('Function not implemented.');
+    } } emptyCart={function (): void {
+      throw new Error('Function not implemented.');
     } }></NavLoggedOut></BrowserRouter>)
     expect(component.getByText("Iniciar sesión"));
-    expect(component.getByText("DeDe"));
     expect(component.getByText("Atención al cliente"));
     expect(component.getByText("Contáctanos"));
     expect(component.getByText("Promociones"));
@@ -69,10 +70,11 @@ test('filtermenu is rendered', () => {
 
   test('navbar loging is rendered', () => {
     const component = render(<BrowserRouter><NavLoggedIn getItems={0} function={function (): void {
-        throw new Error('Function not implemented.');
+      throw new Error('Function not implemented.');
+    } } emptyCart={function (): void {
+      throw new Error('Function not implemented.');
     } }></NavLoggedIn></BrowserRouter>)
 
-    expect(component.getByText("DeDe"));
     expect(component.getByText("Atención al cliente"));
     expect(component.getByText("Contáctanos"));
     expect(component.getByText("Promociones"));
@@ -83,7 +85,9 @@ test('filtermenu is rendered', () => {
 
   test('click button Iniciar sesión', () => {
     const component = render(<BrowserRouter><NavLoggedOut getItems={0} function={function (): void {
-        throw new Error('Function not implemented.');
+      throw new Error('Function not implemented.');
+    } } emptyCart={function (): void {
+      throw new Error('Function not implemented.');
     } }></NavLoggedOut></BrowserRouter>)
 
     const mockHandler = jest.fn()

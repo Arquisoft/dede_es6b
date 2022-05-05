@@ -50,6 +50,10 @@ export default function NavLoggedIn(props:CartItemsFunc){
       props.function();
     }
 
+    function emptyCart(){
+      props.emptyCart();
+    }
+
 
     return(     
     <Box sx={{ flexGrow: 1}}>
@@ -93,7 +97,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
              <ShoppingCartIcon/>
            </Badge>
           </IconButton>
-        <PositionedMenu/>
+        <PositionedMenu getItems={props.getItems} function={props.function} emptyCart={props.emptyCart}/>
     </Toolbar>
     <Grid container sx={{justifyContent:"center",position:"absolute", top:"5%" }} >
     <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
@@ -108,7 +112,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
 );
 }
 
-function PositionedMenu() {
+function PositionedMenu(props:CartItemsFunc) {
     const { session } = useSession();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -117,6 +121,7 @@ function PositionedMenu() {
     };
     const handleClose = () => {
       setAnchorEl(null);
+      props.emptyCart();
     };
     
     const profileDocumentURI = session.info.webId!;

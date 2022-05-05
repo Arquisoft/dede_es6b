@@ -1,9 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Provider, useDispatch } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { render } from '@testing-library/react';
 import Footer from '../components/footer/Footer';
-import Login from '../components/Login';
-import { LoginPage } from '../pages/LoginPage';
 
 
 
