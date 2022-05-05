@@ -119,11 +119,6 @@ const addToCart = (clickedItem: Product) => {
     setCart(cartProducts);
 };
 
-const emptyCart=() => {
-  localStorage.setItem("cartProducts", JSON.stringify([]));
-  setCart([]);
-};
-
 const removeFromCart = (id: string) => {
   let cart = loadCart();
   let cartProducts = cart.slice();
