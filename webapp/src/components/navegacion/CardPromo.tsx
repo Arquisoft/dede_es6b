@@ -1,6 +1,4 @@
-import { Button, Card , CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography} from "@mui/material";
-import { render } from "react-dom";
-import { Box, FormGroup, Grid } from "@mui/material";
+import {  Card , CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 
 type PromoProps = {
     img: string,

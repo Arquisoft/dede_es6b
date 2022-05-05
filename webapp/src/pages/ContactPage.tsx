@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+
 import { ContactWrapper } from "../components/navegacion/ContactOption.styles";
 import NavFilter, { Props } from "../components/navegacion/NavFilter"
 
@@ -14,7 +14,6 @@ export const ContactPage = (props:Props)=> {
             <h4>EMAIL</h4>
             <p>Podemos responder a tus preguntas a través de contactDede@gmail.com </p>
             <h4>TELÉFONO</h4>
-            <p>Horario: </p>
             <p>800 000 333 </p>
             <h4>REDES SOCIALES</h4>
             <p>Twitter: dedeASW6b </p>

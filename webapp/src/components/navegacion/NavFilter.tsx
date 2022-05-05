@@ -1,8 +1,6 @@
-import { PinDropSharp } from '@mui/icons-material';
-import { AppBar, Button, Typography } from '@mui/material';
-import React, { Component, useEffect } from 'react'
-import {NavLink}  from 'react-router-dom'
-import { getProductsByCategory } from '../../api/api';
+
+import { Button, Typography } from '@mui/material';
+
 import { Nav} from './NavHome.styles';
 
 
@@ -16,29 +14,28 @@ const NavFilter = (props: Props) => {
     return(
         <Nav>
             <div className="buttons">
-            
             <Button  onClick={()=>refreshProducts("Sudaderas",props)}>
-                <Typography color="white" >
+                <Typography color="black" >
                     Sudaderas
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Pantalones",props)}>
-                <Typography color="white" >
+                <Typography color="black" >
                     Pantalones
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Camisetas",props)}>
-                <Typography color="white" >
+                <Typography color="black" >
                     Camisetas
                 </Typography>
             </Button>
             <Button onClick={()=>refreshProducts("Playeros",props)}>
-                <Typography color="white" >
+                <Typography color="black" >
                     Calzado
                 </Typography>
             </Button>
-            <Button onClick={()=>refreshProducts("Sudaderas",props)}>
-                <Typography color="white" >
+            <Button onClick={()=>refreshProducts("Accesorios",props)}>
+                <Typography color="black" >
                     Accesorios
                 </Typography>
             </Button>

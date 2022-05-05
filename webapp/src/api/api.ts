@@ -1,7 +1,7 @@
 
 import {Product, Pedido, PaymentType} from '../shared/shareddtypes';
 import {ShipmentData, User} from '../shared/shareddtypes'; 
-import { CartProduct } from '../shared/shareddtypes';
+
 
 
 export async function addOrder(cartProducts:Product[], price:number, url:string, user_id:string|undefined){

@@ -1,16 +1,11 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { AddShoppingCart } from '@mui/icons-material';
-import { ProductAdd } from '../../pages/HomePage';
 import { Button } from '@mui/material';
 import { Product } from '../../shared/shareddtypes';
 
@@ -43,14 +38,14 @@ export default function CardProduct(product:ProductToAdd) {
   };
 
   return (
-    <Card sx={{ maxWidth: 300} }>
+    <Card sx={{ maxWidth: 250} }>
       <CardMedia
         component="img"
-        height="300"
+        height="270"
         image={product.product.imagen}
         alt={product.product.name}
       />
-      <CardContent >
+      <CardContent sx={{height:25}}>
         <Typography variant="body1" color="text.primary">
          {product.product.name}
         </Typography>
@@ -58,11 +53,17 @@ export default function CardProduct(product:ProductToAdd) {
          {product.product.price}€
         </Typography>
       </CardContent>
-      <CardActions >
-        <IconButton placeholder="addToCart" disabled= {product.product.stock > 0 ? false : true}
+      <CardActions sx={{justifyContent:"center"}}>
+        {/* <IconButton placeholder="addToCart" disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
-        </IconButton>
+        </IconButton> */}
+        <Button placeholder="addToCart" size="small" sx={{color:"white",backgroundColor :"#A6ACAF"}}
+        style={{ textTransform: 'lowercase'}}
+        disabled= {product.product.stock > 0 ? false : true}
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart">
+          Añadir al carrito
+        </Button>
       </CardActions>
       
     </Card>
