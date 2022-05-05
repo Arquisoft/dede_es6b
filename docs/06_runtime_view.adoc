@@ -1,8 +1,8 @@
 [[section-runtime-view]]
-== Runtime View
+== Vista de ejecución
 
 
-=== <Runtime Scenario 1>
+=== <Escenario de ejecución 1>
 
 Un usuario inicia sesión en la aplicación.
 
@@ -25,7 +25,7 @@ Alice <-- Pod: Pide los datos para iniciar sesión
 Alice -> Pod: Inserta los datos
 DeDe <-- Pod: Confirmación de datos
 ----
-=== <Runtime Scenario 2>
+=== <Escenario de ejecución 2>
 Búsqueda de artículos mediante los filtros proporcionados en la aplicación.
 [plantuml,"06_runtime_filtro",png]
 ----
@@ -48,7 +48,7 @@ DataBase --> DeDe: Devuelve la lista de sudaderas
 DeDe-> DeDe: Muestra solo las sudaderas
 ----
 
-=== <Runtime Scenario 3>
+=== <Escenario de ejecución 3>
 El usuario inicia sesión para poder realizar un pedido.
 [plantuml,"06_runtime_pedido",png]
 ----
@@ -70,7 +70,7 @@ Cliente -> DeDe: Selecciona su dirección y rellena los datos de pago
 DeDe -> DataBase: Añade el pedido a la BD
 Cliente <-- DeDe: Pedido realizado con éxito
 ----
-=== <Runtime Scenario 4>
+=== <Escenario de ejecución 4>
 El cliente inicia sesión para ver el listado de pedidos que ha realizado.
 [plantuml,"06_runtime_verPedido",png]
 ----

@@ -1,13 +1,13 @@
 [[section-quality-scenarios]]
-== Quality Requirements
+== Requisitos de calidad
 
 En esta sección se incluyen todos los requerimientos de calidad con escenarios de uso. Los requirimientos más relevantes han sido descritos en la sección 1.2. 
 
-=== Quality Tree
+=== Árbol de calidad
 
 image:10_QualityTree.png["Quality Tree"]
 
-=== Quality Scenarios
+=== Escenarios de calidad
 
 
 [%header, cols=3]

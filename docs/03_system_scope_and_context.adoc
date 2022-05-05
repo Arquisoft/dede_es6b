@@ -1,11 +1,11 @@
 [[section-system-scope-and-context]]
-== System Scope and Context
+== Ámbito y contexto del sistema
 
 
 
 
 
-=== Business Context
+=== Contexto de negocio
 
 [plantuml]
 ....
@@ -40,7 +40,7 @@ El resto de información se almacenará en una base de datos MongoDB.
 
 
 
-=== Technical Context
+=== Contexto Técnico
 [%header, cols=2]
 |===
 |Tecnología utilizada
