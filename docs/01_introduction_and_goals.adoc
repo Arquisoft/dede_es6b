@@ -1,15 +1,21 @@
 [[section-introduction-and-goals]]
-== Introduction and Goals
+== Introducción y metas
 
 
 
-Se quiere crear un sistema de venta online que llamaremos DeDe.(Decentralized Delivery) Este sistema, deberá utilizar los principios SOLID para respetar la privacidad de los usuarios.
+Se quiere crear un sistema de venta online que llamaremos DeDe(Decentralized Delivery), en el que se venderá ropa, de varias categorías, así como accesorios, playeros, etc. En nuestro negocio destacamos la inclusividad ya que todos los productos son unisex, no se categorizan por sexo. 
 
-Para conseguir esto, los clientes tendrán un POD donde guardarán su información personal siempre que los usuarios asi lo autoricen a DeDe.
+Este sistema, deberá utilizar los principios SOLID para respetar la privacidad de los usuarios y las decisiones de compartir o no sus datos propios. Para conseguir esto, los clientes tendrán un POD donde guardarán su información personal siempre que los usuarios así lo autoricen a DeDe.
+
+En cuanto a la funcionalidad de la aplicación, será similar a cualquier sitio de venta online, es decir, permitirá:
+- Ver el catálogo de productos.
+- Filtrar los productos por categorías.
+- Realizar una compra.
+- Calcular gastos de envío y fecha de entrega.
+- Ver los pedidos de cada usuario.
 
 
-
-=== Requirements Overview
+=== Descripción general de los requisitos
 
 
 
@@ -18,12 +24,13 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 * Cuando se cree un pedido, el sistema calculará el coste de envío teniendo en cuenta la dirección del usuario almacenada en su pod y la distancia al centro de distribución.
 
 * DeDe mostrará el precio final del pedido y una vez que el cliente decida comprarlo, se registrará el movimiento y se procederá al envío correspondiente.
-* El sistema permitirá a los usuarios ver los pedidos realizados
+* El sistema permitirá a los usuarios ver los pedidos realizados.
 
 .Requisitos No Funcionales
 
 - La aplicación deberá estar implementada utilizando React y Typescript
-- El sistema debe ser desplegado en contenedores y servicios en la nube.
+- El sistema debe ser desplegado en contenedores(Docker) y servicios en la nube.
+- Se deben realizar tests de carga, end-to-end y tests unitarios con jest.
 
 
 
@@ -38,7 +45,6 @@ _Tabla 1: Objetivos de Calidad_
 |Objetivo|Detalles
 | _Privacidad_ | _El objetivo primordial del sistema será guardar la privacidad del usuario. Basándose en SOLID, la información que se almacene en base de datos y se muestre será siempre la autorizada por el cliente y la mínima para asegurar el funcionamiento de la aplicación._
 | _Usabilidad_ | _El uso de la aplicación debe resultar un proceso intuitivo y sencillo para el usuario final._
-| _Rendimiento_ | _Habrá de garantizar la máxima rapidez a la hora de responder a las interacciones del usuario._
 | _Mantenibilidad_ | _La arquitectura de la aplicación debe permitir añadir o modificar la funcionalidad de la misma con el menor número posible de cambios._
 | _Testeabilidad_ | _DeDe estará sometido a una serie de pruebas unitarias que se realizan de forma automática en el servidor para asegurar el correcto funcionamiento del sistema._
 |===
@@ -53,7 +59,7 @@ _Tabla 2: Stakeholders_
 |===
 |Rol|Descripción|Expectativas
 | _Cliente_ | _Persona u organización que encarga o solicita el desarrollo de la aplicación. (En nuestro caso, serán los profesores de Arquitectura del Software)_ | _Entrega de especificación al equipo de desarrollo y seguimiento del ciclo de vida de la aplicación con el fin de verificar que se ajusta lo máximo a los requisitos especificados._
-
 | _Equipo de Desarrollo_ | _Conjunto de personas dedicadas a construir,  programar y desplegar la aplicación y su arquitectura. (En nuestro caso, el grupo formado en el laboratorio)_ | _Desarrollo de la aplicación con su correspondiente puesta en funcionamiento, ajustada en la medida de lo posible a los requisitos del cliente._
+| _Estudiantes_ | _Tanto nuestros compañeros de equipo como el resto de estudiantes de la escuela_ | _Tomar como ejemplo, referencias o conocimientos de nuestro sitio web para seguir formándose o desarrollando._
 | _Usuario Final_ | _Conjunto de personas que van a utilizar la aplicación construida._ | _Se espera que el usuario final sea capaz de adaptarse al sistema de manera correcta y fluida._
 |===
