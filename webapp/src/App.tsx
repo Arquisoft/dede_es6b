@@ -19,14 +19,11 @@ import { setLogguedStatus } from './redux/userSlice';
 import {  } from "history";
 import { useSession } from "@inrupt/solid-ui-react";
 import Footer from './components/footer/Footer';
-<<<<<<< HEAD
+
 import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';
 import { PromotionsPage } from './pages/PromotionsPage';
 
-=======
-import { CreditCard } from './components/orders/payment/PayDataForm';
->>>>>>> master
 
 function App(): JSX.Element {
 
