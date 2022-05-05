@@ -41,7 +41,7 @@ export default function Pedidos() {
           </TableRow>
         </TableHead>
         <TableBody>
-        {pedidos.filter((p) => p.user_id === session.info.webId!).map((pedido) => (
+        {pedidos.filter((p) => p.user_id === session.info.webId!).reverse().map((pedido) => (
             <TableRow
               key={pedido.code_order}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
