@@ -85,6 +85,7 @@ export default function NavLoggedIn(props:CartItemsFunc){
           size="large"
           aria-label="show 17 new notifications"
           color="inherit"
+          id="cartBtn"
           onClick= {
             goToCart
           }>

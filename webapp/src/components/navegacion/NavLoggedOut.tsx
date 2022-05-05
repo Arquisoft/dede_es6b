@@ -75,6 +75,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
           <Box sx={{ flexGrow: -3}}>
           <IconButton
           size="large"
+          id="cartBtn"
           aria-label="show 17 new notifications"
           color="inherit"
           onClick= {
@@ -84,7 +85,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
              <ShoppingCartIcon/>
            </Badge>
           </IconButton>      
-          <Button color="inherit" onClick={goToLogIn}>
+          <Button color="inherit" id="btnLogin" onClick={goToLogIn}>
             Iniciar sesión
           </Button>
           </Box>

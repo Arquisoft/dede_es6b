@@ -60,6 +60,7 @@ export default function CardProduct(product:ProductToAdd) {
         </IconButton> */}
         <Button placeholder="addToCart" size="small" sx={{color:"white",backgroundColor :"#A6ACAF"}}
         style={{ textTransform: 'lowercase'}}
+        id={product.product._id}
         disabled= {product.product.stock > 0 ? false : true}
         onClick={() => product.addToCart(product.product)} aria-label="add to cart">
           Añadir al carrito

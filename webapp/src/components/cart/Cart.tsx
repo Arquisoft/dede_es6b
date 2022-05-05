@@ -40,7 +40,7 @@ export const totalPrice = (items:Product[]) =>
                         <p>El carrito está vacío</p>
                 }
                 <h2>Total: {totalPrice(cartItems).toFixed(2)}€</h2>
-                <Button disabled={cartItems.length>0 ? false : true } onClick={()=>{ if(session.info.isLoggedIn)
+                <Button disabled={cartItems.length>0 ? false : true } id="continueBuy" onClick={()=>{ if(session.info.isLoggedIn)
                 navigate('/order');
             else
                 navigate('/login')}}>
