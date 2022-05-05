@@ -52,7 +52,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@3.04
       env:
-        API_URI: http://${{ secrets.DEPLOY_HOST }}:5000/api
+        API_URI: https://${{ secrets.DEPLOY_HOST }}:5000/api
       with:
           name: arquisoft/dede_es6b/webapp
           username: ${{ github.actor }}
