@@ -63,7 +63,6 @@ test('filtermenu is rendered', () => {
       throw new Error('Function not implemented.');
     } }></NavLoggedOut></BrowserRouter>)
     expect(component.getByText("Iniciar sesión"));
-    expect(component.getByText("Atención al cliente"));
     expect(component.getByText("Contáctanos"));
     expect(component.getByText("Promociones"));
   });
@@ -75,7 +74,6 @@ test('filtermenu is rendered', () => {
       throw new Error('Function not implemented.');
     } }></NavLoggedIn></BrowserRouter>)
 
-    expect(component.getByText("Atención al cliente"));
     expect(component.getByText("Contáctanos"));
     expect(component.getByText("Promociones"));
     expect(component.getByPlaceholderText("shoppingCartButton"));

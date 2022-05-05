@@ -4,7 +4,7 @@
 
 === <Runtime Scenario 1>
 
-Un usuario se registra o inicia sesión en la aplicación.
+Un usuario inicia sesión en la aplicación.
 
 [plantuml,"06_runtime_registro",png]
 ----
@@ -13,8 +13,8 @@ actor Alice
 participant DeDe
 participant Pod
 database bd as "Base de datos"
-Bob -> DeDe: Bob pide registrarse
-DeDe -> Pod: Redirecciona el registro al proveedor del POD
+Bob -> DeDe: Bob pide iniciar sesión
+DeDe -> Pod: Redirecciona el inicio de sesión al proveedor del POD
 Bob <-- Pod: Pide los datos para registro
 Bob -> Pod: Inserta los datos
 DeDe <-- Pod: Validación
@@ -63,18 +63,12 @@ Cliente-> Pod: Inserta los datos
 DeDe <-- Pod: Confirmación de datos
 Cliente<-- DeDe: Sesión iniciada
 Cliente-> DeDe: Añadir producto
-DeDe-> DataBase: Comprueba stock
-DataBase --> DeDe: Notifica comprobación
 DeDe-> DeDe: Añade producto al carrito
 Cliente -> DeDe: Realizar pedido
-DeDe -> DataBase: Añade y actualiza datos del pedido
-Cliente-> Pod: Inicia sesión en su pod
-Pod--> DeDe: Proporciona su token
-Cliente->DeDe: Solicita guardar la dirección
-DeDe -> Pod: Guarda la dirección
-Pod--> DeDe: Verifica y notifica
-DeDe--> Cliente: Verifica y notifica
-DeDe--> Cliente: Notifica la realización del pedido
+DeDe <-- Pod: Direcciones asociadas a su perfil de SOLID
+Cliente -> DeDe: Selecciona su dirección y rellena los datos de pago
+DeDe -> DataBase: Añade el pedido a la BD
+Cliente <-- DeDe: Pedido realizado con éxito
 ----
 === <Runtime Scenario 4>
 El cliente inicia sesión para ver el listado de pedidos que ha realizado.
