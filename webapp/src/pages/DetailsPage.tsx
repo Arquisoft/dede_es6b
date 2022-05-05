@@ -17,11 +17,11 @@ export type ProductAdd = {
 
 
 
-export const DetailsPage= (props:ProductAdd)=> {
+export const DetailsPage= ()=> { //props:ProductAdd
     return (
       <div className="DetailsPage">
         <NavFilter function={props.function} categorys={props.categorys}></NavFilter>
-        <DetallesProducto addToCart={props.addToCart}/>   
+        <DetallesProducto }/>   
       </div>
       
     );

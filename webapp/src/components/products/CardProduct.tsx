@@ -51,27 +51,27 @@ export default function CardProduct(product: ProductToAdd) {
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardMedia
-        onClick={<DetallesProducto producto={product.product._id}/>}
         component="img"
         height="300"
         image={product.product.imagen}
         alt={product.product.name}
+        onClick={viewDetails()}
       />
       <CardContent >
         <Typography variant="body1" color="text.primary">
-          {product.product.name}
+         {product.product.name}
         </Typography>
         <Typography variant="body1" color="text.primary">
-          {product.product.price}€
+         {product.product.price}€
         </Typography>
       </CardContent>
       <CardActions >
-        <IconButton disabled={product.product.stock > 0 ? false : true}
-          onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
+        <IconButton disabled= {product.product.stock > 0 ? false : true}
+        onClick={() => product.addToCart(product.product)} aria-label="add to cart"  >
           <AddShoppingCart fontSize='large' />
         </IconButton>
       </CardActions>
-
+      
     </Card>
   );
 }

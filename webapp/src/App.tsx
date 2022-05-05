@@ -23,6 +23,7 @@ import { OrderPage } from './pages/OrderPage';
 import { PaymentPage } from './pages/PaymentPage';
 import Footer from './components/footer/Footer';
 import { CreditCard } from './components/orders/payment/PayDataForm';
+import { DetailsPage } from './pages/DetailsPage';
 
 function App(): JSX.Element {
 
@@ -156,7 +157,7 @@ function loadCart():Product[] {
         <Route path="/order" element={<OrderPage orderProducts={cartProducts} payments={payments}/>}/>
         <Route path="/orders/list" element={<Pedidos pedidos={pedidos} user={session.info.webId} />} />
         <Route path="/pays" element={<PaymentPage  payments={payments} />}/> 
-        <Route path= "/products/:id" element = {<DetallesProducto producto={'a'}/>}/>
+        <Route path= "/products/:id" element = {<DetailsPage/>}/>
     </Routes>  
     </div>
     <Footer/>
