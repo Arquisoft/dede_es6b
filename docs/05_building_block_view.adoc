@@ -104,7 +104,23 @@ image:05Nivel_1v2.png["Nivel 1"]
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
-| _Dede_ | _Aplicación._
+| _Dede_ | _Aplicación, servicio web, tienda de ropa._
+|===
+
+
+==== Cajas blancas 
+
+
+[role="arc42help"]
+****
+...describes the internal structure of _building block 1_.
+****
+
+[cols="1,2" options="header"]
+|===
+| **Name** | **Responsibility**
+| _Servicios externos_ | _Cualquier servicio usado para completar la funcionalidad._
+| _POD_ | _Almacén y recuperación de datos del usuario cumpliendo SOLID._
 |===
 
 

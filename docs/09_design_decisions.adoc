@@ -16,15 +16,28 @@
 |Desconocimiento actual sobre su funcionamiento.
 
 |TypeScript
-|Lenguaje que usaremos tanto en el backend como en el frontend. Fácil de usar con Solid y muy documentado.
+|Lenguaje que usaremos tanto en el backend como en el frontend. Muy documentado y de actualidad.
 |Debemos adaptarnos al lenguaje. Difícil de probar.
 
 |Mongo
-|Código abierto, implementación sencilla y gran compatibilidad con Node.js.
+|Código abierto, implementación sencilla y gran compatibilidad con Node.js base de datos no relacional.
 |Usa mucha memoria para el almacenamiento de datos.
+
+|Idioma español
+|Más sencillo y cómodo para todos nosotros por ser la lengua nativa.
+|Menos internacional.
 
 |Prog. Funcional
 |Código más preciso y más corto. El código se puede testar fácilmente. Código fácilmente verificable.
 |La programación recurrente puede dar lugar a errores graves. No se permite el acceso eficiente a grandes cantidades de datos. Los datos no se pueden modificar.
+
+|API Shippo
+|Nos despreocupamos de temas relacionados con el envío como el cálculo de los costes, la fecha de entrega
+o el seguimiento de los pedidos.
+|Instalarla y comprender sus funciones para poder trabajar con ella fue complejo.
+
+|AWS
+|Permite desplegar nuestra aplicación.
+|No es intuitiva, dio muchos problemas (como protocolo HTTPS), no da una ip estática.
 
 |===

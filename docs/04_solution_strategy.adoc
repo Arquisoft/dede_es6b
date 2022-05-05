@@ -26,19 +26,27 @@ Refer to details in the following sections.
 === Decisiones de tecnología
 Las tecnologías que hemos decidido utilizar para el desarrollo de la aplicación son:
 
-*React* -> Para el desarrollo de la interfaz con TypeScript.
+*GitHub* -> Restricción. Es una plataforma de control de versiones Git.
 
-*Node.js* -> Para la gestión de múltiples conexiones simultáneas.
+*React* -> Restricción. Para el desarrollo de la interfaz con TypeScript.
 
-*Typescript* -> Como lenguaje de programación.
+*Node.js* -> Restricción. Para la gestión de múltiples conexiones simultáneas.
 
-*MongoDB* -> Para la base de datos que contendrá la información sobre productos y envíos.
+*Typescript* -> Restricción. Como lenguaje de programación.
+
+*PODs* -> Servidores web personales seguros para los datos del usuario.
+
+*MongoDB* -> Para la base de datos, no SQL, que contendrá la información sobre productos y envíos.
+
+*AWS* -> Es una colección de servicios de computación en la nube pública que en conjunto forman una plataforma de computación en la nube. La usamos para el despliegue de nuestra aplicación.
+
+*API GoShippo* -> API para gestionar el envío de un pedido: costes, fecha de entrega y URL de seguimiento.
 
 
 === Decisiones de cómo alcancar objetivos de calidad.
 * Para la usabilidad, intentaremos que la interfaz de nuestra aplicación sea lo más intuitiva posible, de manera que cualquier usuario, nuevo o antiguo, sepa navegar a través de ella con facilidad.
 * Para la privacidad, utilizaremos los PODs del usuario para obtener los datos necesarios. De esta manera ninguna información personal quedará guardada en nuestra base de datos.
-* Para la seguridad, realizaremos todo tipo de tests para evitar cualquier posible error que desemboque en una vulnerabilidad.
+* Para la seguridad, realizaremos tests para evitar cualquier posible error que desemboque en una vulnerabilidad.
 
 === Decisiones de organización
-Las reuniones de equipo se harán a través de Microsoft Teams. Durante estas organizaremos y asignaremos las distintas tareas con la ayuda de las herramientras proporcionadas por GitHub.
+Las reuniones de equipo se harán a través de Microsoft Teams, aparte de la reunión semanal que transcurre en el aula. Durante estas, organizaremos y asignaremos las distintas tareas con la ayuda de las herramientras proporcionadas por GitHub.
