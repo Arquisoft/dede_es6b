@@ -58,11 +58,6 @@ export default function NavLoggedOut(props:CartItemsFunc){
             <MenuIcon />
           </IconButton>
           <div>
-          <Button style={{ textTransform: 'lowercase'}} >
-                  <Typography color="white" sx={{ fontSize: 'default' }}>
-                      Atención al cliente 
-                  </Typography>
-          </Button>
               <Button style={{ textTransform: 'lowercase'}} onClick={()=>navigate('/contactPage')}>
                   <Typography color="white" sx={{ fontSize: 'default' }}>
                       Contáctanos
@@ -94,7 +89,7 @@ export default function NavLoggedOut(props:CartItemsFunc){
           </Button>
           </Box>
     </Toolbar>
-    <Grid container sx={{justifyContent:"center",position:"absolute", top:"5%" }} >
+    <Grid container sx={{justifyContent:"center",position:"absolute", top:"3%" }} >
     <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
         {/* <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
