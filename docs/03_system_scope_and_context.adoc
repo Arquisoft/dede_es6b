@@ -7,8 +7,37 @@
 
 === Business Context
 
+[plantuml]
+....
+@startuml
+Actor User
+database POD
+component Shippo
+node DeDe {
+  database MongoDB
+}
+User --> DeDe : Quiere realizar pedido
+User --> POD : Crea y gestiona
+DeDe -u-> User : Devuelve vistas
+DeDe -l-> POD : Solicita información
+DeDe -r-> ShippingAPI : Procedimiento de envío de pedido
+POD --> DeDe : Devuelve información
+@enduml
+....
+
 DeDe solo almacena datos que no sean privados. Es decir, los datos personales del usuario se reservan únicamente para el POD del usuario.
 El resto de información se almacenará en una base de datos MongoDB. 
+
+[options="header", cols="1,2,2"]
+|===
+|Elemento de comunicación|Entrada|Salida
+|Usuario|El usuario recibirá una respuesta de la aplicación a través del dispositivo que esté utilizando para acceder a la web|El usuario interactuará constantemente con la aplicación. También es el responsable de la creación y gestión de su POD de Solid.
+|DeDe|La aplicación recibirá peticiones por parte del usuario e información del POD y MongoDB.|La aplicación enviará respuestas al usuario y solicitudes al POD y la base de datos.
+|Solid POD|El usuario creará su POD para que nuestra aplicación tenga acceso a su información personal|El POD solo compartirá información si el usuario ha sido autentificado.
+|MongoDB|La base de datos aceptará peticiones de la aplicación|La base de datos responderá a la aplicación con los datos solicitados.
+|Shipping API|La API recibirá peticiones de la aplicación|Enviará respuestas, principalmente enfocadas en el proceso de envío de un pedido (gastos de envío, tiempo de entrega...)
+|===
+
 
 
 === Technical Context
@@ -34,6 +63,5 @@ El resto de información se almacenará en una base de datos MongoDB.
 
 |===
 
-image:03_Technical_Context.png["Technical Context"]
 
 

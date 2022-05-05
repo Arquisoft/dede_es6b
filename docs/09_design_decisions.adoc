@@ -15,7 +15,7 @@
 |Es simple, tiene mucha documentación y muy buena testabilidad. Se usa para el frontend.
 |Desconocimiento actual sobre su funcionamiento.
 
-|JavaScript
+|TypeScript
 |Lenguaje que usaremos tanto en el backend como en el frontend. Fácil de usar con Solid y muy documentado.
 |Debemos adaptarnos al lenguaje. Difícil de probar.
 
