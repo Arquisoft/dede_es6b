@@ -7,9 +7,13 @@ RUN npm install
 
 #Create an optimized version of the webapp
 ARG API_URI="http://localhost:5000/api"
+#ARG API_URI="54.242.225.248:5000/api"
 ENV REACT_APP_API_URI=$API_URI
+ENV API_KEY=$API_KEY  
+ENV API_CERT=$API_CERT  
 RUN npm run build
 
 #Ver como podemos llamar npm run prod aquí
-#CMD [ "npm", "run", "prod" ]
-CMD [ "npm", "start"]
+
+CMD [ "npm", "run", "prod" ]
+#CMD [ "npm", "start"]

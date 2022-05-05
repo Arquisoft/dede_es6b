@@ -19,10 +19,14 @@ import { setLogguedStatus } from './redux/userSlice';
 import { createHashHistory } from "history";
 import { useSession, CombinedDataProvider, Text, LogoutButton } from "@inrupt/solid-ui-react";
 import Footer from './components/footer/Footer';
+<<<<<<< HEAD
 import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';
 import { PromotionsPage } from './pages/PromotionsPage';
 
+=======
+import { CreditCard } from './components/orders/payment/PayDataForm';
+>>>>>>> master
 
 function App(): JSX.Element {
 
@@ -117,11 +121,6 @@ const addToCart = (clickedItem: Product) => {
 
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
     setCart(cartProducts);
-};
-
-const emptyCart=() => {
-  localStorage.setItem("cartProducts", JSON.stringify([]));
-  setCart([]);
 };
 
 const removeFromCart = (id: string) => {
