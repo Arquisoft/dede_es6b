@@ -23,7 +23,6 @@ import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';
 import { PromotionsPage } from './pages/PromotionsPage';
 
-import { CreditCard } from './components/orders/payment/PayDataForm';
 
 function App(): JSX.Element {
 
@@ -147,6 +146,11 @@ function loadCart():Product[] {
       cartProducts = JSON.parse(sessionCart);
   return cartProducts;
 }
+
+const emptyCart=() => {
+    localStorage.setItem("cartProducts", JSON.stringify([]));
+    setCart([]);
+  };
 
 
   const getTotalItems = (items: Product[]) =>
