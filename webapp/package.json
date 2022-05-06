@@ -39,6 +39,8 @@
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.2",
     "shippo": "^1.7.1",
+    "date-fns": "^2.28.0",
+    "@date-io/date-fns": "^2.13.1",
     "simple-react-footer": "^1.0.2",
     "simplebar-react": "^2.3.6",
     "stream-http": "^3.2.0",
