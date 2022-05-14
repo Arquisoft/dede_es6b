@@ -19,6 +19,7 @@ import { setLogguedStatus } from './redux/userSlice';
 import {  } from "history";
 import { useSession } from "@inrupt/solid-ui-react";
 import Footer from './components/footer/Footer';
+
 import Checkout from './pages/Checkout';
 import { ContactPage } from './pages/ContactPage';
 import { PromotionsPage } from './pages/PromotionsPage';
@@ -107,11 +108,6 @@ const addToCart = (clickedItem: Product) => {
 
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
     setCart(cartProducts);
-};
-
-const emptyCart=() => {
-  localStorage.setItem("cartProducts", JSON.stringify([]));
-  setCart([]);
 };
 
 const removeFromCart = (id: string) => {

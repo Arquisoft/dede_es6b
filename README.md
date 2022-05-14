@@ -15,6 +15,8 @@ Este proyecto es un ejemplo basico de un sitio web utilizando **React** con **Ty
 
 ## Guia de inicio rápido
 
+Aplicación desplegada [AQUI](https://54.85.204.233:3000/)
+
 <mark>Si tienes instalados node.js y npm, asegurate de actualizarlos antes de intentar construir las imagenes</mark>
 
 Si quieres ejecutar el proyecto necesitarás [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) y [Docker](https://docs.docker.com/get-docker/). Asegurate de tenerlos instalados en tu equipo. Descarga el proyecto con `git clone https://github.com/Arquisoft/dede_es6b`. La manera más rápìda de ejecutar todo es con Docker.

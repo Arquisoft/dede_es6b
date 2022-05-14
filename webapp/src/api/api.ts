@@ -58,6 +58,7 @@ export async function createOrder(DataOrder:ShipmentData):Promise<JSON>{
 }
 
 export async function createTransaction(rate:string):Promise<JSON>{
+  debugger;
   const apiEndPoint = process.env.REACT_APP_API_URI || 'http://localhost:5000/api';
   let response = await fetch(apiEndPoint+'/createTransaction',{
     method: 'POST',
