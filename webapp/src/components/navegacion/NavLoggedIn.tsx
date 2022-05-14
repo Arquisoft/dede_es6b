@@ -94,12 +94,12 @@ export default function NavLoggedIn(props:CartItemsFunc){
           </IconButton>
         <PositionedMenu getItems={props.getItems} function={props.function} emptyCart={props.emptyCart}/>
     </Toolbar>
-    <Grid container sx={{justifyContent:"center",position:"absolute", top:"3%" }} >
-    <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:110}}>
+    <Grid container sx={{justifyContent:"center",position:"absolute", top:"5.5%" }} >
+    <Grid item sx={{}}><Button onClick={goHome} sx={{backgroundColor:"transparent", height:80}}>
         {/* <Typography variant="h4" color="white" component="div" sx={{ flexGrow: 1 }}>
             DeDe
         </Typography> */}
-        <img src={logoDede} alt="Logo DeDe" />
+        <img src={logoDede} alt="Logo DeDe" width="100" height="80"/>
     </Button></Grid>
     </Grid>
     </AppBar>
