@@ -63,16 +63,6 @@ function App(): JSX.Element {
 
 
   useEffect(() => {
-    if(location.pathname!=="/")
-       localStorage.setItem("lastLocation", location.pathname);
-    onSessionRestore(() => {
-      if(localStorage.getItem("lastLocation"))
-        navigate(localStorage.getItem("lastLocation")!);
-      else{
-        navigate("/");
-      }
-      localStorage.removeItem("lastLocation");
-  })
     refreshProductList();
     refreshPedidosList();
   }, []);

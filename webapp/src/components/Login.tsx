@@ -42,6 +42,7 @@ const authOptions = {
 
 const providers = [
   { name: "SolidCommunity", value: "https://solidcommunity.net" },
+  { name: "Inrupt", value: "https://broker.pod.inrupt.com" },
 ];
 
 
@@ -70,7 +71,7 @@ return (
       placeholder="Identity Provider"
       fullWidth
       margin="normal"
-      defaultValue={idp}
+      value={idp}
       onChange={(e) => setIdp(e.target.value)}
     />
     <Autocomplete
