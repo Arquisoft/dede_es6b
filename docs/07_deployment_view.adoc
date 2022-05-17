@@ -1,7 +1,7 @@
 [[section-deployment-view]]
 
 
-== Deployment View
+== Vista de Despliegue
 
 [role="arc42help"]
 ****
@@ -34,8 +34,7 @@ when your infrastructure is more complex.
 * When your (hardware) stakeholders prefer other kinds of diagrams rather than the deployment diagram, let them use any kind that is able to show nodes and channels of the infrastructure.
 ****
 
-=== Infrastructure Level 1
-
+=== Infraestructura nivel 1
 [role="arc42help"]
 ****
 Describe (usually in a combination of diagrams, tables, and text):
@@ -61,9 +60,13 @@ El rendimiento de la aplicación depende en su mayoría del servidor en el que e
 Mapping of Building Blocks to Infrastructure::
 |===
 | Componente         | Descripción
-| ClientDevice    | Es el dispositivo del cliente. Debe tener acceso a internet.
-| :WebServer    | Es el servidor utilizado por el navegador web del cliente.
-| :DeDe    | Nuestra aplicación, desplegada en :Host.
-| :PodProvider    | Es el proveedor de PODs de Solid utilizado por el cliente.
-| :MongoDBServer    | Es el servidor de nuestra base de datos, donde se almacena la información de nuestros productos.
+| Navegador   | Es el navegador utilizado por el cliente
+| WebServer    | Es el servidor en el que está desplegada nuestra máquina virtual
+| WebApp    | Nuestra webapp.
+| RestApi    | Nuestra RestApi
+| MongoDBAtlas    | Es el servicio que proporciona un servidor para nuestra base de datos
+| Cluster    | Contenedor donde se encuentra nuestra base de datos en la nube
+| SolidProvider    | Es el proveedor de POD utilizado por el cliente
+| POD    | Componente al que accede nuestra webapp para la lectura de información
+| ShippoAPI    | API utilizada para los envíos
 |===
