@@ -1,5 +1,5 @@
 [[section-concepts]]
-== Cross-cutting Concepts
+== Conceptos cross-cutting 
 
 
 [role="arc42help"]
@@ -50,23 +50,29 @@ image:08-Crosscutting-Concepts-Structure-EN.png["Possible topics for crosscuttin
 ****
 
 
-=== Domain model
+=== Modelo de dominio
 
 image:domain.png["Dominio"]
 
+.Tabla modelo de dominio
+[cols="1,2" options="header"]
+|===
+| **Nombre** | **Descripción**
+| Pedido | Un pedido contiene una lista de productos que han sido comprados, así como el webId del comprador, un link para poder seguir su estado y un identificador único.
+| Producto | Un producto contiene un identificador único, un color, una talla, se encuentra dentro de una categoría, y un precio de venta. También un stock que depende de las ventas.
+|===
 
-
-=== Experiencia de usuario
-
-La aplicación tiene una interfaz intuitiva y familiar para asegurarnos de que es sencillade usar para la gran mayoría de los clientes.
-
-=== Internacionalización
-
-La aplicación principalmente actualmente solo está adaptada al español.
+Cabe destacar que aunque sean los usuarios los clientes finales de nuestra tienda, no almacenamos datos personales, para fomentar la privacidad.
 
 === Seguridad y Privacidad
 
 La privacidad es el principal elemento de nuestra aplicación. En nuestra base de datos tan solo almacenaremos los pedidos realizados para que los usuarios puedan visualizarlos. Tanto la sesión como la información personal (en nuestro caso, las direcciones de envío) se obtendrán del POD del usuario.
+
+
+=== Experiencia de usuario
+
+La aplicación tiene una interfaz intuitiva y familiar para asegurarnos de que es sencilla de usar para la gran mayoría de los clientes.
+
 
 === Pruebas
 

@@ -1,5 +1,5 @@
 [[section-architecture-constraints]]
-== Architecture Constraints
+== Restricciones de arquitectura
 
 
 [role="arc42help"]
@@ -22,23 +22,24 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones técnicas
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|TC1
-|Implementación en Typescript utilizando React
-|La aplicación debe ser un sitio web de venta online de productos utilizando React con TypeScript.
+|Typescript
+|El lenguaje de programación utilizado para desarrollar tanto frontend como backend, aunque combinado con otras tecnologías, es principalmente Typescript.
 
-|TC2
+|React
+|La implementación de la parte visual (frontend) de la aplicación se desarrollará con el framework de React.
+
+|Pod´s de SOLID
+|Se encargarán del inicio de sesión del usuario así como de gestionar y suministrar los datos del mismo. Garantizan la privacidad de los usuarios.
+
+|GitHub
+|Plataforma basada en la web que incorpora las funciones de control de versiones de git.
+
 |Código abierto
 |Al trabajar con un repositorio público, se podría consultar y/o sugerir cambios para el proyecto. Tanto la documentación como el código se publican como código abierto.
 
-|TC3
-|El sistema de venta online debe llamarse DeDe
-|Decentralized Delivery.
-
-|TC4
 |Desarrollo independiente del sistema
 |La aplicación debe ser compilable en los 3 sistemas operativos principales (Mac OS X, Linux y Windows).
 
@@ -48,29 +49,26 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones de organización
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|OC1
 |Equipo
-|El proyecto se desarrolla en un equipo de 5 integrantes llamado dede_es6b.
+|El proyecto se desarrolla en un equipo de 3 integrantes llamado dede_es6b. Si hubiera bajas de compañeros, habrá que hacerse cargo de su parte.
 
-|OC2
 |Reuniones
-|Como mínimo es obligatorio que tengamos y constemos acta de una reunión semanal.
+|Como mínimo es obligatorio que tengamos y constemos acta de una reunión semanal en la que discutiremos sobre el reparto del trabajo y los problemas que vayan surgiendo.
 
-|OC3
 |Configuración y control/gestión de versiones
-|La dinámica de trabajo se basa en que todos los miembros del equipo de trabajo comparten un repositorio público remoto en Github al que deben subir sus aportaciones para el proyecto.
+|Repositorio público remoto en Github común para todos los miembros, al que deben subir sus aportaciones para el proyecto. También registrar reuniones, issues, actions...
 
-|OC4
 |Pruebas (Test unitarios, Testting E2E, Gatling)
-|Los dos primeros tipos de tests se realizan utilizando jest y cada vez que se ejecutan se realiza un analisis de covertura de código. Para realizar los tests de carga se utilizará Gatling, que simulará la carga de datos en nuestro sistema haciendo peticiones a la webapp.
+|Los dos primeros tipos de tests se realizan utilizando jest. Para realizar los tests de carga se utilizará Gatling.
 
-|OC5
 |Integración continua / Entrega continua
 |La idea es que cada vez que creemos una nuevo entregable (release) se construya el sistema (restapi y webapi), se ejecuten los tests y se suba el proyecto a GiHub packages.
+
+|Fechas de entrega
+|El 25 de Febrero de 2022 se entregará el primer borrador de la documentación. El 18 de Marzo,el primer prototipo de la aplicación. El 8 de Abril, nuevo prototipo y documentación actualizada. La presentación final el 6 de Mayo de 2022.
 
 
 |===
@@ -78,19 +76,23 @@ conventions (e.g. programming or versioning guidelines, documentation or naming 
 [cols=".<2,.^4,.^5",options="header"]
 .Lista de restricciones convencionales
 |===
-|
 |Restricción
 |Antecedentes y/o motivación
 
-|C1
-|Principios SOLID
-|Los datos de los usuarios se almacenan en pods que son propiedad de los mismos. Son ellos los que permiten qué personas y aplicaciones pueden acceder a ellos.
-
-|C2
 |Documentación del proyecto
 |Basada en la arquitectura arc42.
 
+|Idioma
+|Tanto el proyecto como la documentación se harán en español por ser nuestro lenguaje nativo.
+
+|Convenciones de codificación
+|El proyecto compila el código a Javascript escrito con el estándar ES5ECMAScript 2009, también conocido como ES5.
+
+|TSC
+|Ni node.js ni el browser pueden interpretar directamente código typescript, por ello hay que compilarlo a javascript. Para ello se hace uso del compilador tsc.
+
+
+
 
 |===
-
 

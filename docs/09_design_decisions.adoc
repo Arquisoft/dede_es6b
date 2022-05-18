@@ -1,5 +1,5 @@
 [[section-design-decisions]]
-== Design Decisions
+== Decisiones de diseño
 
 [%header, cols=3]
 |===
@@ -7,24 +7,37 @@
 |Ventajas
 |Desventajas
 
-|Node.js
-|Permite hacer una aplicación escalable. Es fácil y muy versátil.
-|Somos nuevos en ello y debemos adaptarnos. Resulta pesado al principio debido a sus módulos.
-
-|React
-|Es simple, tiene mucha documentación y muy buena testabilidad. Se usa para el frontend.
-|Desconocimiento actual sobre su funcionamiento.
-
-|JavaScript
-|Lenguaje que usaremos tanto en el backend como en el frontend. Fácil de usar con Solid y muy documentado.
-|Debemos adaptarnos al lenguaje. Difícil de probar.
-
 |Mongo
-|Código abierto, implementación sencilla y gran compatibilidad con Node.js.
+|Código abierto, implementación sencilla y gran compatibilidad con Node.js por ser una base de datos no relacional.
 |Usa mucha memoria para el almacenamiento de datos.
+
+|Mongoose
+|Permite trabajar con mongoDB y typescript de manera muy sencilla y automatizada.
+|Tuvimos que aprender a usarla al inicio.
+
+|Idioma español
+|Más sencillo y cómodo para todos nosotros por ser la lengua nativa.
+|Menos internacional.
+
+|URL para imágenes
+|No almacenarlas de manera local, asociamos a cada producto su imagen en la base de datos.
+|Necesitan estar publicadas.
 
 |Prog. Funcional
 |Código más preciso y más corto. El código se puede testar fácilmente. Código fácilmente verificable.
 |La programación recurrente puede dar lugar a errores graves. No se permite el acceso eficiente a grandes cantidades de datos. Los datos no se pueden modificar.
+
+|Material UI
+|Permitiía crear nuestros componentes mucho más rápido. Muy documentado. Mejoran el resultado visual de nuestra aplicación y por tanto la experiencia del usuario.
+|No permiten la total personalización del diseño.
+
+|API Shippo
+|Nos despreocupamos de temas relacionados con el envío como el cálculo de los costes, la fecha de entrega
+o el seguimiento de los pedidos.
+|Instalarla y comprender sus funciones para poder trabajar con ella fue complejo.
+
+|AWS
+|Permite desplegar nuestra aplicación.
+|No es intuitiva, dio muchos problemas (como protocolo HTTPS), no da una ip estática.
 
 |===

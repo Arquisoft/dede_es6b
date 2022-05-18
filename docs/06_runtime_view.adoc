@@ -1,82 +1,67 @@
 [[section-runtime-view]]
-== Runtime View
+== Vista de ejecución
 
 
-=== <Runtime Scenario 1>
+=== Usuario se registra o inicia sesión
 
-Un usuario se registra o inicia sesión en la aplicación.
+Un usuario inicia sesión o se registra en la aplicación. Desde un POD.
 
 [plantuml,"06_runtime_registro",png]
 ----
 actor Bob
-actor Alice
 participant DeDe
 participant Pod
-database bd as "Base de datos"
-Bob -> DeDe: Bob pide registrarse
-DeDe -> Pod: Redirecciona el registro al proveedor del POD
-Bob <-- Pod: Pide los datos para registro
+Bob -> DeDe: goToLogIn()
+DeDe -> Pod: Redirecciona el inicio de sesión al proveedor del POD
+Bob <-- Pod: Pide los datos para registro/inicio sesión
 Bob -> Pod: Inserta los datos
 DeDe <-- Pod: Validación
-Bob <-- DeDe: Confirmación registro realizado con éxito
-Alice -> DeDe: Alice inicia sesión 
-DeDe -> Pod: Redirecciona al proveedor del POD
-Alice <-- Pod: Pide los datos para iniciar sesión
-Alice -> Pod: Inserta los datos
-DeDe <-- Pod: Confirmación de datos
+Bob <-- DeDe: Vuele a la página principal pero logueado
 ----
-=== <Runtime Scenario 2>
-Búsqueda de artículos mediante los filtros proporcionados en la aplicación.
+
+=== Usuario filtra los productos
+Búsqueda de artículos mediante los filtros proporcionados por la aplicación. Este caso simula que el usuario quiere ver las sudaderas.
 [plantuml,"06_runtime_filtro",png]
 ----
 actor Bob
 participant DeDe
 participant Pod
 database DataBase as "DataBase"
-Bob -> DeDe: Pulsa "Log-In" 
-DeDe -> Pod: Redirecciona al proveedor del POD
-Bob <-- Pod: Pide los datos para iniciar sesión
-Bob -> Pod: Inserta los datos
-DeDe <-- Pod: Confirmación de datos
-Bob <-- DeDe: Sesión iniciada
-DeDe-> DeDe: Entra a la web
-Bob -> DeDe: Pulsa "Filtrar"
-DeDe-> DeDe: Muestra los filtros
-Bob -> DeDe: Pulsa "Sudaderas"
+Bob -> DeDe: Pulsa "Sudaderas": refreshProducts("Sudaderas")
 DeDe-> DataBase: Pide la lista de sudaderas
 DataBase --> DeDe: Devuelve la lista de sudaderas
 DeDe-> DeDe: Muestra solo las sudaderas
 ----
 
-=== <Runtime Scenario 3>
-El usuario inicia sesión para poder realizar un pedido.
+=== Usuario logueado realiza un pedido
+Un usuario que está en sesión realiza un pedido. Para ello añade los productos al carrito,
+selecciona una de sus direcciones alamacenadas en el pod, inserta datos de la tarjeta y una API de shippment se
+encarga de calcular los gatos de envío, la fecha de entrega y la URL para que el usuario pueda seguir su pedido.
+Antes de confirmarlo se le mostrarán al usuario todos los datos, precios, fechas, etc.
+
 [plantuml,"06_runtime_pedido",png]
 ----
-actor Cliente
+actor Bob
 participant DeDe
 participant Pod
+participant API shippo
 database DataBase as "DataBase"
-Cliente-> DeDe: Pulsa "Log-In" 
-DeDe -> Pod: Redirecciona al proveedor del POD
-Cliente<-- Pod: Pide los datos para iniciar sesión
-Cliente-> Pod: Inserta los datos
-DeDe <-- Pod: Confirmación de datos
-Cliente<-- DeDe: Sesión iniciada
-Cliente-> DeDe: Añadir producto
-DeDe-> DataBase: Comprueba stock
-DataBase --> DeDe: Notifica comprobación
+Bob-> DeDe: Sobre un producto addToCart()
 DeDe-> DeDe: Añade producto al carrito
-Cliente -> DeDe: Realizar pedido
-DeDe -> DataBase: Añade y actualiza datos del pedido
-Cliente-> Pod: Inicia sesión en su pod
-Pod--> DeDe: Proporciona su token
-Cliente->DeDe: Solicita guardar la dirección
-DeDe -> Pod: Guarda la dirección
-Pod--> DeDe: Verifica y notifica
-DeDe--> Cliente: Verifica y notifica
-DeDe--> Cliente: Notifica la realización del pedido
+Bob -> DeDe: Abre el carrito: goToCart()
+Bob -> DeDe: goToOrder()
+Dede -> Bob: Comienza la realización del pedido
+Dede -> Bob: getAddressesFromPod()
+Bob -> Dede: Selecciona dirección a la que se enviará el pedido
+Bob -> Dede: Mete los datos de la tarjeta
+API shippo -> Dede: Calcula gastos de envío, fecha de entrega y url de seguimiento
+Dede -> Bob: Muestra resumen del pedido
+Bob -> Dede : Confirma el pedido
+Dede -> DataBase: addOrder()
+Bob <-- DeDe: Pedido realizado con éxito
 ----
-=== <Runtime Scenario 4>
+
+=== Usuario se loguea para ver sus pedidos
 El cliente inicia sesión para ver el listado de pedidos que ha realizado.
 [plantuml,"06_runtime_verPedido",png]
 ----
@@ -84,15 +69,15 @@ actor Bob
 participant DeDe
 participant Pod
 database database
-Bob -> DeDe: Pulsa "Log-In" 
+Bob -> DeDe: goToLogin()
 DeDe -> Pod: Redirecciona al proveedor del POD
 Bob <-- Pod: Pide los datos para iniciar sesión
 Bob -> Pod: Inserta los datos
 DeDe <-- Pod: Confirmación de datos
 Bob <-- DeDe: Sesión iniciada
 DeDe -> DeDe: Bob es redireccionado a la home page
-Bob -> DeDe: Bob hace click en "Mis pedidos"
-database <- DeDe: query para obtener lista de pedidos con id_user=bob
-database -> DeDe: lista de pedidos de id_user=bob
-DeDe -> DeDe: Bob es redireccionado a la vista de pedidos
+Bob -> DeDe: goToMyOrders() 
+DeDe -> database: findOrdersByUser(Bob.webId)
+database -> DeDe: Devuelve los pedidos que hizo Bob
+DeDe -> Bob: Lista con sus pedidos
 ----
