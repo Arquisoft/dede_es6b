@@ -182,7 +182,7 @@ En este apartado, se explicarán las interfaces principales de usaurio perteneci
 | _HomeView_ | _Muestra al usuario los productos disponibles, con la posibilidad de añadirlos al carrito_
 | _Carrito_ | _Muestra los productos añadidos al mismo y permite iniciar el proceso de compra_
 | _Checkout_ | _Proceso de compra. Se conecta con el POD para utilizar una dirección de envío y con el OrderController para guardar el pedido en caso de que se realice con éxito_
-| _Pedidos_ | _Vista en la que el usuario puede ver su historial de pedidos_
+| _OrdersView_ | _Vista en la que el usuario puede ver su historial de pedidos_
 |===
 
 
