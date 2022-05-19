@@ -14,11 +14,11 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 
 .Requisitos funcionales
-* El sistema deberá permitir a los usuarios seleccionar y comprar productos de manera online.
+* El sistema deberá permitir a los usuarios comprar productos de manera online.
 * Cuando se cree un pedido, el sistema calculará el coste de envío teniendo en cuenta la dirección del usuario almacenada en su pod y la distancia al centro de distribución.
 
 * DeDe mostrará el precio final del pedido y una vez que el cliente decida comprarlo, se registrará el movimiento y se procederá al envío correspondiente.
-* El sistema permitirá a los usuarios ver los pedidos realizados
+* El sistema permitirá a los usuarios ver los pedidos realizados.
 
 .Requisitos No Funcionales
 
@@ -27,7 +27,7 @@ Para conseguir esto, los clientes tendrán un POD donde guardarán su informaci�
 
 
 
-=== Quality Goals
+=== Objetivos de calidad
 
 
 
@@ -40,7 +40,7 @@ _Tabla 1: Objetivos de Calidad_
 | _Usabilidad_ | _El uso de la aplicación debe resultar un proceso intuitivo y sencillo para el usuario final._
 | _Rendimiento_ | _Habrá de garantizar la máxima rapidez a la hora de responder a las interacciones del usuario._
 | _Mantenibilidad_ | _La arquitectura de la aplicación debe permitir añadir o modificar la funcionalidad de la misma con el menor número posible de cambios._
-| _Testeabilidad_ | _DeDe estará sometido a una serie de pruebas unitarias que se realizan de forma automática en el servidor para asegurar el correcto funcionamiento del sistema._
+| _Testeabilidad_ | _DeDe estará sometido a una serie de pruebas unitarias que se realizan de forma automática en el servidor para asegurar el correcto funcionamiento del sistema._Se harán test para la parte de las Restapi y la webapp. Tambien se harán test e2e y de carga.
 |===
 
 === Stakeholders

@@ -5,7 +5,7 @@ En esta sección se incluyen todos los requerimientos de calidad con escenarios 
 
 === Quality Tree
 
-image:tree.png["Quality Tree"]
+image:10_QualityTree.png["Quality Tree"]
 
 === Quality Scenarios
 
@@ -37,11 +37,11 @@ image:tree.png["Quality Tree"]
 |Media
 
 |Disponibilidad
-|Los clientes recibirán los servicios prestados por la aplicación el 95% del tiempo como media a lo largo del año. Se busca maximizar el porcentaje para no perder ventas ni clientes.
+|Los clientes recibirán los servicios prestados por la aplicación el 95% del tiempo como media a lo largo del año. Se busca maximizar el porcentaje para no perder ventas ni clientes. La aplicación está probada con test de carga para comprobar que no falle bajo un elevado flujo de usuarios.
 |Media
 
 |Robustez
-|La aplicación deberá encargarse de posibles errores que puedan surgir, el usuario tiene que estar informado en todo momento.
+|La aplicación deberá encargarse de envolver los posibles errores que puedan surgir, el usuario tiene que estar informado en todo momento.
 |Media
 
 |Compatibilidad
