@@ -13,15 +13,18 @@
 Actor User
 database POD
 cloud ShippoAPI
-node DeDe {
-  database MongoDB
-}
+node DeDe
+database MongoDB
+
 User --> DeDe : Quiere realizar pedido
 User --> POD : Crea y gestiona
 DeDe -u-> User : Devuelve vistas
-DeDe -l-> POD : Solicita información
-DeDe -r-> Shippo : Procedimiento de envío de pedido
-POD --> DeDe : Devuelve información
+DeDe -l-> POD : Solicita direcciones del cliente
+DeDe --> ShippoAPI: Envia dirección de envío
+ShippoAPI --> DeDe: Calcula gastos
+POD --> DeDe : Devuelve direcciones del cliente
+DeDe --> MongoDB: Almacena pedidos
+MongoDB --> DeDe: Carga lista de productos
 @enduml
 ....
 
