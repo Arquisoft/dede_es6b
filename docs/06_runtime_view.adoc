@@ -10,13 +10,13 @@ Un usuario inicia sesión o se registra en la aplicación. Desde un POD.
 ----
 actor Bob
 participant DeDe
-participant Pod
+database Pod
 Bob -> DeDe: goToLogIn()
 DeDe -> Pod: Redirecciona el inicio de sesión al proveedor del POD
 Bob <-- Pod: Pide los datos para registro/inicio sesión
 Bob -> Pod: Inserta los datos
 DeDe <-- Pod: Validación
-Bob <-- DeDe: Vuele a la página principal pero logueado
+Bob <-- DeDe: VueLve a la página principal pero logueado
 ----
 
 === Usuario filtra los productos
@@ -25,7 +25,6 @@ Búsqueda de artículos mediante los filtros proporcionados por la aplicación. 
 ----
 actor Bob
 participant DeDe
-participant Pod
 database DataBase as "DataBase"
 Bob -> DeDe: Pulsa "Sudaderas": refreshProducts("Sudaderas")
 DeDe-> DataBase: Pide la lista de sudaderas
@@ -43,21 +42,23 @@ Antes de confirmarlo se le mostrarán al usuario todos los datos, precios, fecha
 ----
 actor Bob
 participant DeDe
-participant Pod
-participant API shippo
+database Pod
+participant ShippoAPI
 database DataBase as "DataBase"
 Bob-> DeDe: Sobre un producto addToCart()
 DeDe-> DeDe: Añade producto al carrito
 Bob -> DeDe: Abre el carrito: goToCart()
-Bob -> DeDe: goToOrder()
-Dede -> Bob: Comienza la realización del pedido
-Dede -> Bob: getAddressesFromPod()
-Bob -> Dede: Selecciona dirección a la que se enviará el pedido
-Bob -> Dede: Mete los datos de la tarjeta
-API shippo -> Dede: Calcula gastos de envío, fecha de entrega y url de seguimiento
-Dede -> Bob: Muestra resumen del pedido
-Bob -> Dede : Confirma el pedido
-Dede -> DataBase: addOrder()
+Bob <-- DeDe: Muestra vista carrito
+Bob -> DeDe: pulsa Realizar pedido
+Bob <-- DeDe: Muestra vista checkout
+DeDe-> Pod: getAddressesFromPod()
+DeDe <-- Pod: devuelve lista de direcciones del usuario
+Bob -> DeDe: Selecciona dirección a la que se enviará el pedido y completa el resto de formularios
+DeDe -> ShippoAPI: Envía dirección de envío
+DeDe <-- ShippoAPI: Calcula gastos de envío, fecha de entrega y url de seguimiento
+DeDe -> Bob: Muestra resumen del pedido
+Bob -> DeDe : Confirma el pedido
+DeDe -> DataBase: addOrder()
 Bob <-- DeDe: Pedido realizado con éxito
 ----
 
@@ -67,7 +68,7 @@ El cliente inicia sesión para ver el listado de pedidos que ha realizado.
 ----
 actor Bob
 participant DeDe
-participant Pod
+database Pod
 database database
 Bob -> DeDe: goToLogin()
 DeDe -> Pod: Redirecciona al proveedor del POD
@@ -76,8 +77,8 @@ Bob -> Pod: Inserta los datos
 DeDe <-- Pod: Confirmación de datos
 Bob <-- DeDe: Sesión iniciada
 DeDe -> DeDe: Bob es redireccionado a la home page
-Bob -> DeDe: goToMyOrders() 
+Bob -> DeDe: pulsa "Mis pedidos" en la barra de navegación 
 DeDe -> database: findOrdersByUser(Bob.webId)
-database -> DeDe: Devuelve los pedidos que hizo Bob
-DeDe -> Bob: Lista con sus pedidos
+DeDe <-- database: Devuelve los pedidos asociados al webId de Bob
+Bob <-- DeDe: Muestra la vista de pedidos
 ----
