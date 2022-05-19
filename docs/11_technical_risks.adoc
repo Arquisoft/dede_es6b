@@ -1,5 +1,5 @@
 [[section-technical-risks]]
-== Risks and Technical Debts
+== Riesgos y deuda técnica
 
 
 [role="arc42help"]
@@ -20,6 +20,9 @@ List of risks and/or technical debts, probably including suggested measures to m
 - Falta de trabajo por parte de algún/os miembro/s del equipo, y en una situación extrema, el abandono por su parte del equipo.
 - Conocimiento límitado del lenguaje y las herramientas tecnológicas a utilizar para el desarrollo de la aplicación.
 - Poner en riesgo el trabajo de los demás a la hora de mezclar las partes sin el consentimiento de los compañeros.
-- Fallos en la comunicación, tanto en el grupo de desarrollo como con el cliente.
+- Fallos en la comunicación, tanto en el grupo de desarrollo como con el cliente para entender lo que se nos pide.
 - Mala planificación, o estimaciones poco realistas.
 - No tener un código cohesivo, sin acoplamiento, refactorizado y enfocado al cambio.
+- Falta de tiempo debido a la gran carga de trabajo de cada miembro, lo que conllevó a una ausencia de pruebas de la aplicación que habrían ayudado a mejorar su rendimiento.Además, ciertas funcionalidades que habrían mejorado la experiencia del usuario y que nos habría gustado añadir finalmente no fueron desarrolladas.
+
+En resumen, el desconocimiento inicial por parte de todos los miembros del equipo ya supone deuda técnica, y consideramos que es algo que siempre va a haber en un proyecto. Trataremos de tener la mejor comunicación, esforzarnos y trabajar sobre el código de manera continua y estable, con el fin de reducir lo que podamos esa deuda técnica.
